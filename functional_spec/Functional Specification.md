@@ -21,7 +21,7 @@ For our project we are going to design and develop a Point of Sale application a
 
 We aim to design a point of sale application that will be targeted specifically at Bars, Resturants and Cafes so that we can increase efficency and productivity during service. 
 
-Our application will be designed for the Android platform and it will allow  
+Our application will be designed for the Android platform and it will allow a waitor/waitress to take an order on her android phone, then once she's finished taking the order it will be divided up and sent to various parts of the resturant, i.e. The drinks will be sent to the Bar and the food will be sent to the kitchen.  
 
 ### Business Context
 
