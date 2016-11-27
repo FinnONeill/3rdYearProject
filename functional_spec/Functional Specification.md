@@ -175,7 +175,7 @@ Lorem ipsum dolor sit amet, et omnium voluptua nam, ad nonumy iuvaret quo, aeque
 | Create Registration Website | 19/12/16 | 22/12/16 |
 | Code Design | 19/12/16 | 22/12/16 |
 
-![November - December](/images/Screenshot_1.jpg)
+![November - December](./images/Screenshot_1.jpg)
 
 | Task Name | Start Date | End Date |
 | --------- | ---------- | -------- |
@@ -183,7 +183,7 @@ Lorem ipsum dolor sit amet, et omnium voluptua nam, ad nonumy iuvaret quo, aeque
 | Exam Study | 02/01/17 | 12/01/17 |
 | Exams | 12/01/17 | 21/01/17 |
 
-![December - January](/images/Screenshot_2.jpg)
+![December - January](./images/Screenshot_2.jpg)
 
 | Task Name | Start Date | End Date |
 | --------- | ---------- | -------- |
@@ -194,7 +194,7 @@ Lorem ipsum dolor sit amet, et omnium voluptua nam, ad nonumy iuvaret quo, aeque
 | Additional Funcationality | 06/02/17 | 16/02/17 |
 | Bug Fixing | 13/02/17 | 18/02/17 |
 
-![January - Febuary](/images/Screenshot_3.jpg)
+![January - Febuary](./images/Screenshot_3.jpg)
 
 | Task Name | Start Date | End Date |
 | --------- | ---------- | -------- |
@@ -204,7 +204,7 @@ Lorem ipsum dolor sit amet, et omnium voluptua nam, ad nonumy iuvaret quo, aeque
 | Video | 06/03/17 | 08/03/17 |
 | Compiling Submission | 08/03/17 | 10/03/17 |
 
-![Febuary - March](/images/Screenshot_4.jpg)
+![Febuary - March](./images/Screenshot_4.jpg)
 -------------------------------------------------------------------------------
 
 ## Appendix
