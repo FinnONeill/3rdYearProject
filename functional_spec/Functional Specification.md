@@ -207,7 +207,7 @@ This function will rely Sending an order and Recieving an Order to determind the
 * This section describes a high-level overview of the anticipated system architecture showing the distribution functions across (potential) system modules. Architectural components that are reused or 3rd party should be highlighted.
 
 
-![](http://prnt.sc/ddemv8)
+![](./images/Screenshot_5.jpg)
 
 -------------------------------------------------------------------------------
 
@@ -215,7 +215,7 @@ This function will rely Sending an order and Recieving an Order to determind the
 
 * This section should set out the high-level design of the system. It should include one or more system models showing the relationship between system components and the systems and its environment. These might be object-models, DFD, etc.
 
-![Sequence digrams](http://prnt.sc/ddemgb)
+![Sequence digrams](./images/Screenshot_6.jpg)
 -------------------------------------------------------------------------------
 
 ## Preliminary Schedule
