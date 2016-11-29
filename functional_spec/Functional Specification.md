@@ -207,7 +207,7 @@ This function will rely Sending an order and Recieving an Order to determind the
 * This section describes a high-level overview of the anticipated system architecture showing the distribution functions across (potential) system modules. Architectural components that are reused or 3rd party should be highlighted.
 
 
-![](./images/Screenshot_5.jpg)
+![Architecture](./images/Screenshot_5.jpg)
 
 -------------------------------------------------------------------------------
 
