@@ -35,27 +35,80 @@ P.O.S - Point of Sale/Service
 
 ### Product / System Functions
 
-* Describes the general functionality of the system / product.
-
-Lorem ipsum dolor sit amet, et omnium voluptua nam, ad nonumy iuvaret quo, aeque appareat et sea. Everti urbanitas no per. Ne ius tantas nostro definitiones, mollis maluisset eam at, copiosae adipiscing ad eos. Nec no natum iuvaret alterum, veri magna liber quo te. 
+The application will have two forms: the android application and the web application. The web application’s purpose is solely for the initial setup and registration by a business. The business is registered to the site, presumably by a manager. The user will then have the option to create the setup for the android devices which will include the addition of menu items, the restaurant seating plan, and the addition or removal of staff member profiles. Any changes to these items will require an update for the android devices.
+Once the setup is complete, staff members can use their android phone or tablet to log into their newly-created accounts. This will download all of the information from the site for their use during work hours. In use, the waiter or waitress will take an order from a customer and select their requested items from the menu on the phone along with when they are seated. The order will then be broken into two categories, food and drink, and each category sent to their respective device over the network. The food items will be sent to a device in the bar and the food items will be sent to a device in the kitchen.
+Once these items are received, they can be sorted and ordered to manage what has been made and what has yet to be made. For example, the items sent to the kitchen can be ordered into starters, mains, and desserts. Once the starters are finished, those items can be removed from the list to make room for the mains. A notification is then sent back to the waiter/waitress to notify them that food is ready to be collected. The items in the bar work in a similar manner in which once a drink is prepared it can be removed from the list. Once the list is empty a notification is sent out to indicate they are ready to be collected.
+The user interface of the app will be relatively simplistic in design. When the app is opened, the user will be faced with a login screen where they enter their credentials. Once logged, there will be a menu screen when they select which area where they work, which will be ‘floor’, ‘bar’, or ‘kitchen’. Depending on which they choose they are given different option. 
+For the floor they are able to create orders, view the seating plan and assign customers to certain tables, and they can view the tab for every table. When creating an order they are given a list of the categories for different food types created from the website. They simply tap items to add them to the order along with an option to remove them. Floor staff are also given a notification for when an order is complete
+The bar has similar functions to the floor however they can only create orders for drinks. They are given an additional tab at the menu for orders they have received. They can tap items on the order to indicate that are made. Once all items have been tapped the order is removed.
+The kitchen can only receive orders and select items when they are finished however they do have additional options to manage the different courses separately.
+All devices receive a notification when something has been changed to the items on the website and will be prompted to update their device to accommodate these changes. Updates are automatic when logging in.
 
 ### User Characteristics and Objectives
 
-* Describes the features of the user community, including their expected expertise with software systems and the application domain. Explain the objectives and requirements for the system from the user's perspective. It may include a "wish list" of desirable characteristics, along with more feasible solutions that are in line with the business objectives.
-
-Lorem ipsum dolor sit amet, et omnium voluptua nam, ad nonumy iuvaret quo, aeque appareat et sea. Everti urbanitas no per. Ne ius tantas nostro definitiones, mollis maluisset eam at, copiosae adipiscing ad eos. Nec no natum iuvaret alterum, veri magna liber quo te. 
+The bar and restaurant industry attracts all kinds of people of different ages and genders with varying technical knowledge. Working in a restaurant can be a full time or part time job and may even be someone’s first job. This means that the age range of users can by anywhere from 16 to 65 years of age. This means that the website and the android app must be both accessible and simple to navigate. This will involve ensuring that the app colour palette is suitable and the text and buttons large and visible for those that may have poor vision. Icons and text must also be unambiguous in their function for less tech savvy users. These features will ensure that the app is easy to use by everyone in a busy work environment.
 
 ### Operational Scenarios
 
-* This section should describe a set of scenarios that illustrate, from the user's perspective, what will be experienced when utilizing the system under various situations.
+| | Registering the company |
+|------------|-------------------------|
+| Precondition | The company has not already set up an account on the website |
+| Activation | The company member who is registering goes to the app's website |
+|Description | The user click 'Register' on the site's homepage. |
+| | They enter the company's information.
+| | They select 'Seating Plan' and create tables with numbers in ascending order. |
+| | They select 'Add/remove Staff' and enter staff details. |
+| | They select 'Create Roster' and assign staff profile's to days of the week. |
+| | The select 'Select network' and choose their network. |
+| Termination | All changes are saved and the user leaves the site. |
 
-Lorem ipsum dolor sit amet, et omnium voluptua nam, ad nonumy iuvaret quo, aeque appareat et sea. Everti urbanitas no per. Ne ius tantas nostro definitiones, mollis maluisset eam at, copiosae adipiscing ad eos. Nec no natum iuvaret alterum, veri magna liber quo te. 
+|  | Logging in |
+|------------|-------------------|
+| Precondition | The staff member has arrived at work and is not logged in to the app |
+| Activation | The staff member has opened the app |
+| Description | They enter their username and password |
+| | The hit 'Enter' |
+| Termination | The staff member gains access to the app. |
+
+| | Creating an order |
+|------------|-------------------|
+| Precondition | The staff member has logged into the app |
+| Activation | A customer has decided to order a meal and drink |
+| Description | The staff member selects whether they are bar or floor staff |
+| | They select food |
+| | They choose a course (Starter, main, dessert). |
+| | They select a category of meal |
+| | They scroll down to find the meal and add it to the order list |
+| | They back out and select drink |
+| | They select a category of drink |
+| | They scroll down to find the beverage and add it to the order list |
+| Termination | The order is finished and has been sent over the network |
+
+|  | Recieving an order |
+|------------|-------------------|
+| Precondition | The staff member has logged into the app |
+| Activation | Another staff member has created and sent an order. |
+| Description | The user recieves a notification on their app of an incoming order.| 
+| | They select on 'Orders' on their menu and select the new order.|
+| | They choose an item on the order and make it/get it. |
+| | They tap that item from the list to indicate it is ready.|
+| | When all items are ready the order is removed. |
+| Termination | The floor staff have been notified that the order is ready for collection. |
+
+
 
 ### Constraints
 
-* Lists general constraints placed upon the design team, including speed requirements, industry protocols, hardware platforms, and so forth.
 
-Lorem ipsum dolor sit amet, et omnium voluptua nam, ad nonumy iuvaret quo, aeque appareat et sea. Everti urbanitas no per. Ne ius tantas nostro definitiones, mollis maluisset eam at, copiosae adipiscing ad eos. Nec no natum iuvaret alterum, veri magna liber quo te. 
+* The first constraint is that this is an android app and that the user will require and android device. The app will not be available on any other platform.
+* The user will be required to remember their login information
+* The app may lose internet connection or crash. This means that the app must save orders and work offline.
+* The user’s battery may die. This means that the user cannot create orders or use other app function from this phone until its recharged. This may cause a serious issue if the restaurant is busy and will affect efficiency.
+* The app needs to be simple to use and fast in order to keep up with a busy work environment. Mistakes must also be easily undone.The first constraint is that this is an android app and that the user will require and android device. The app will not be available on any other platform.
+* The user will be required to remember their login information
+* The app may lose internet connection or crash. This means that the app must save orders and work offline.
+* The user’s battery may die. This means that the user cannot create orders or use other app function from this phone until its recharged. This may cause a serious issue if the restaurant is busy and will affect efficiency.
+* The app needs to be simple to use and fast in order to keep up with a busy work environment. Mistakes must also be easily undone.
 
 -------------------------------------------------------------------------------
 
@@ -153,7 +206,8 @@ This function will rely Sending an order and Recieving an Order to determind the
 
 * This section describes a high-level overview of the anticipated system architecture showing the distribution functions across (potential) system modules. Architectural components that are reused or 3rd party should be highlighted.
 
-Lorem ipsum dolor sit amet, et omnium voluptua nam, ad nonumy iuvaret quo, aeque appareat et sea. Everti urbanitas no per. Ne ius tantas nostro definitiones, mollis maluisset eam at, copiosae adipiscing ad eos. Nec no natum iuvaret alterum, veri magna liber quo te. Eu vel porro evertitur dissentiet.Lorem ipsum dolor sit amet, et omnium voluptua nam, ad nonumy iuvaret quo, aeque appareat et sea. Everti urbanitas no per. Ne ius tantas nostro definitiones, mollis maluisset eam at, copiosae adipiscing ad eos. Nec no natum iuvaret alterum, veri magna liber quo te. Eu vel porro evertitur dissentiet.
+
+![](http://prnt.sc/ddemv8)
 
 -------------------------------------------------------------------------------
 
@@ -161,8 +215,7 @@ Lorem ipsum dolor sit amet, et omnium voluptua nam, ad nonumy iuvaret quo, aeque
 
 * This section should set out the high-level design of the system. It should include one or more system models showing the relationship between system components and the systems and its environment. These might be object-models, DFD, etc.
 
-Lorem ipsum dolor sit amet, et omnium voluptua nam, ad nonumy iuvaret quo, aeque appareat et sea. Everti urbanitas no per. Ne ius tantas nostro definitiones, mollis maluisset eam at, copiosae adipiscing ad eos. Nec no natum iuvaret alterum, veri magna liber quo te. Eu vel porro evertitur dissentiet.Lorem ipsum dolor sit amet, et omnium voluptua nam, ad nonumy iuvaret quo, aeque appareat et sea. Everti urbanitas no per. Ne ius tantas nostro definitiones, mollis maluisset eam at, copiosae adipiscing ad eos. Nec no natum iuvaret alterum, veri magna liber quo te. Eu vel porro evertitur dissentiet.
-
+![Sequence digrams](http://prnt.sc/ddemgb)
 -------------------------------------------------------------------------------
 
 ## Preliminary Schedule
