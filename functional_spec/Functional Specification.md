@@ -1,17 +1,23 @@
 # 3rd Year Project Functional Specification
 
-Date:               30th November 2016 
-Student Names:      Finnian O’Neill 
-                    Ian Kelly
-Lecturer:           Dr.David Sinclair
+Date:               
+* 30th November 2016
+ 
+Student Names:      
+* Finnian O’Neill 
+* Ian Kelly
+
+Lecturer:           
+* Dr.David Sinclair
+
 Topics:             
-                    1. Introduction. 
-                    2. General Description 
-                    3. Functional Requirements 
-                    4. System Architecture 
-                    5. High-Level Design 
-                    6. Preliminary Schedule
-                    7. Appendices
+1. Introduction. 
+2. General Description 
+3. Functional Requirements 
+4. System Architecture 
+5. High-Level Design 
+6. Preliminary Schedule
+7. Appendices
 
 We declare that this material, which We now submit for assessment, is entirely our own work and has not been taken from the work of others, save and to the extent that such work has been cited and acknowledged within the text of my/our work. We understand that plagiarism, collusion, and copying are grave and serious offences in the university and accept the penalties that would be imposed should we engage in plagiarism, collusion or copying. We have read and understood the Assignment Regulations. We have identified and included the source of all facts, ideas, opinions, and viewpoints of others in the assignment references. Direct quotations from books, journal articles, internet sources, module text, or any other source whatsoever are acknowledged and the source cited are identified in the assignment references. This assignment, or any part of it, has not been previously submitted by us or any other person for assessment on this or any other course of study. We have read and understood the referencing guidelines found at: http://www.dcu.ie/info/regulations/plagiarism.shtml 
 
