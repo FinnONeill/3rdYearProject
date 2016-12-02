@@ -245,6 +245,8 @@ This function will rely Sending an order and Receiving an Order to determined th
 
 ## High-Level Design
 
+![Sequence diagrams](./images/Screenshot_7.PNG)
+
 ![Sequence diagrams](./images/Screenshot_6.PNG)
 -------------------------------------------------------------------------------
 
