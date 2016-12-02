@@ -35,7 +35,9 @@ Our application will be designed for the Android platform and it will allow a wa
 
 ### Business Context
 
-The aim for this project is to provide an alternative option for current POS services with something that is tailored to the needs of your business allowing for a more efficent and productive service which in turn should increase sales.  
+The aim for this project is to provide an alternative option for current POS services with something that is tailored to the needs of your business allowing for a more efficent and productive service which in turn should increase sales.
+
+The app will also have great scope for analyitcs and will allow the owner to determine where the inefficiencies lie in their business.
 
 ### Glossary
 
