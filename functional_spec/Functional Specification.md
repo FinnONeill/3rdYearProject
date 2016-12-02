@@ -239,11 +239,19 @@ This function will rely Sending an order and Receiving an Order to determined th
 
 ## System Architecture
 
+Figure 4.1 below illustrates that a business owner or manager wishing to use our app, will have to first have to register on our website and input the following details through our website: Company details, Staff details and Seating plan.
+
+All of these deatils will then be stored in our SQL Server Database from which then once the user has downloaded our app and Logs into their account created by their manager, they will be able to create, view, send and recieve orders.
+
+All orders will be sent over the LAN using the restful web services API and displayed on the users android device.
+
 ![Architecture](./images/Screenshot_5.PNG)
 
 -------------------------------------------------------------------------------
 
 ## High-Level Design
+
+Figure 5.2 below demonstrates a high level view of how our app will function. It illustrates regsitering on our website and updating it on our server, then once our app is downloaded it will update with the users required information. After the app is up to date the user will be able to create and Send Orders between other devices on the LAN with the app and notify the user.
 
 ![Sequence diagrams](./images/Screenshot_6.PNG)
 -------------------------------------------------------------------------------
