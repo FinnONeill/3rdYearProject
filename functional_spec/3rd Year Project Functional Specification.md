@@ -292,6 +292,12 @@ This function will rely Sending an order and Receiving an Order to determined th
 
 ## Appendices
 
+### Conceptual Diagrams
+
+Early Diagram to Conceptualise our idea
+*This is a mockup diagram we did to convey how our app would function.
+![Early Mockup](./images/Early_Mockup.jpg)
+
 ### Resources for Android Studio
 
 Android Studio - Getting Started
@@ -307,9 +313,3 @@ WiFi Peer-To-Peer
 JAX-RS
 * Another solution we discussed was using the JAX-RS API which uses the Restful web service.
 [JAX-RS Documentation](https://jax-rs-spec.java.net/nonav/2.0-rev-a/apidocs/index.html)
-
-### Conceptual Diagrams
-
-Early Diagram to Conceptualise our idea
-*This is a mockup diagram we did to convey how our app would function.
-![Early Mockup](./images/Early_Mockup.jpg)
