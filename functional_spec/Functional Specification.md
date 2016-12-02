@@ -323,4 +323,5 @@ JAX-RS
 
 Early Diagram to Conceptualise our idea
 *This is a mockup diagram we did to convey how our app would function.
+
 ![Early Mockup](./images/Early_Mockup.jpg)
