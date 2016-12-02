@@ -70,7 +70,9 @@ The bar and restaurant industry attracts all kinds of people of different ages a
 
 ##### Registering the company 
 ***Precondition*** ---  The company has not already set up an account on the website.
+
 ***Activation*** --- The company member who is registering goes to the app's website.
+
 ***Description :***  
 * The user click 'Register' on the site's homepage. 
 * They enter the company's information.
