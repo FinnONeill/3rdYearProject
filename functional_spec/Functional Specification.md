@@ -82,20 +82,26 @@ The bar and restaurant industry attracts all kinds of people of different ages a
 
 ***Termination*** --- All changes are saved and the user leaves the site. 
 
+
 ##### Logging in 
 
-***Precondition*** --- The staff member has arrived at work and is not logged in to the app 
-***Activation*** --- The staff member has opened the app 
+***Precondition*** --- The staff member has arrived at work and is not logged in to the app.
+
+***Activation*** --- The staff member has opened the app.
+
 ***Description :*** 
 * They enter their username and password. 
 * The hit 'Enter'.
 
 ***Termination*** --- The staff member gains access to the app.
 
+
 ##### Creating an order 
 
 ***Precondition*** --- The staff member has logged into the app. 
+
 ***Activation*** --- A customer has decided to order a meal and drink.
+
 ***Description :***  
 * The staff member selects whether they are bar or floor staff 
 * They select food 
@@ -108,10 +114,13 @@ The bar and restaurant industry attracts all kinds of people of different ages a
 
 ***Termination*** --- The order is finished and has been sent over the network.
 
+
 ##### Recieving an order 
 
 ***Precondition*** --- The staff member has logged into the app.
+
 ***Activation*** --- Another staff member has created and sent an order. 
+
 ***Description :***
 * The user recieves a notification on their app of an incoming order.
 * They select on 'Orders' on their menu and select the new order.
@@ -120,6 +129,7 @@ The bar and restaurant industry attracts all kinds of people of different ages a
 * When all items are ready the order is removed. 
 
 ***Termination*** --- The floor staff have been notified that the order is ready for collection. 
+
 
 ### Constraints
 
