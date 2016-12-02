@@ -251,6 +251,9 @@ All orders will be sent over the LAN using the restful web services API and disp
 
 ## High-Level Design
 
+This diagram visualizes the steps taken by the user when using the app.
+![Sequence diagrams](./images/Screenshot_7.PNG)
+
 Figure 5.2 below demonstrates a high level view of how our app will function. It illustrates regsitering on our website and updating it on our server, then once our app is downloaded it will update with the users required information. After the app is up to date the user will be able to create and Send Orders between other devices on the LAN with the app and notify the user.
 
 ![Sequence diagrams](./images/Screenshot_6.PNG)
