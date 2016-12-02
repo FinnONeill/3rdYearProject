@@ -245,6 +245,7 @@ This function will rely Sending an order and Receiving an Order to determined th
 
 ## High-Level Design
 
+This diagram visualizes the steps taken by the user when using the app.
 ![Sequence diagrams](./images/Screenshot_7.PNG)
 
 ![Sequence diagrams](./images/Screenshot_6.PNG)
