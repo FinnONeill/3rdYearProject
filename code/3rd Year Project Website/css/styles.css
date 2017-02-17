@@ -1,46 +1,149 @@
-body,footer{
-	font-family: 'PT Serif', serif;
-	font-size: 2em;
+body, footer{
+  font-family: 'Bree Serif', serif;
+  font-size: 2em;
 }
 
-#navbar a:hover{
-	border-color: pink ;
+button{
+  height: 50px;
 }
 
-#content{
-	margin-top: 60px;
+.heading-section{
+  background-size: 100% 100%;
+  background-image: url(../images/coffee_shop_tablet_image.jpg);
+  height: 600px;
 }
 
-#Carousel{
-	background-color: grey;
+.contactUsBackground{
+  background-size: 100% 100%;
+  background-image: url(../images/contact.jpg) !important;
+  height: 600px;
 }
 
-/* Featurettes
-------------------------- */
-
-.featurette-divider {
-  margin: 80px 0; /* Space out the Bootstrap <hr> more */
-}
-.featurette {
-  padding-top: 120px; /* Vertically center images part 1: add padding above and below text. */
-  overflow: hidden; /* Vertically center images part 2: clear their floats. */
-}
-.featurette-image {
-  margin-top: -120px; /* Vertically center images part 3: negative margin up the image the same amount of the padding to center it. */
+.navbar {
+  background: transparent;
+  border: none;
+  
 }
 
-/* Give some space on the sides of the floated elements so text doesn't run right into it. */
-.featurette-image.pull-left {
-  margin-right: 40px;
-}
-.featurette-image.pull-right {
-  margin-left: 40px;
+.navbar a{
+  color: white !important;
 }
 
-/* Thin out the marketing headings */
-.featurette-heading {
-  font-size: 50px;
-  font-weight: 300;
-  line-height: 1;
-  letter-spacing: -1px;
+.navbar #primaryLinks a:hover{
+  border-style: solid;
+  border-color: white;
+}
+
+.navbar a:visted{
+  background-color: pink;
+}
+
+.navbar-active{
+  text-decoration: underline; 
+}
+
+#signUpBtn{
+  font-size: 1em;
+  border-style: solid;
+  border-color: white;
+}
+
+#signUpBtn a:hover{
+  text-decoration: underline;
+}
+
+.heading-section h1 {
+  color: white !important;
+  font-weight: bold;
+  font-size: 2.8em;
+  margin-top: 100px;
+}
+
+.heading-section button{
+  margin-top: 200px;
+}
+
+#logIn .modal-footer{
+  padding-top: 0px;
+}
+
+#logIn button{
+  margin-top: 0px;
+}
+
+hr {
+  margin-top: 75px;
+  margin-bottom: 75px;
+}
+
+#content-section-1{
+  margin-top: 20px;
+}
+
+#content-section-2{
+  background-size: 100% 100%;
+  background-image: url(../images/Home_Video_Still.jpg);
+  height: 450px;
+}
+
+#content-section-2 hr{
+  margin: 0px;
+}
+
+#content-section-2 #playButton{
+  margin-top: 200px;
+  height: 75px;
+  width: 75px;
+  border-radius: 50px;
+}
+
+#content-section-2 #playButton:hover{
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(0, -1px, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(0, 2px, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(0, -4px, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(0, 4px, 0);
+  }
+}
+
+#content-section-3{
+
+}
+
+#content-section-3 img{
+  height: 200px;
+  width: 200px;
+}
+
+#footer{
+  height: 400px;
+  padding-top: 175px;
+  background-color: grey;
+  color: white;
+}
+
+#footer img{
+  height: 50px;
+  width: 50px;
+}
+
+.contactUs{
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
