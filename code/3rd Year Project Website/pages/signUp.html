@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>POS App</title>
-    <link rel="shortcut icon" href="images/icon.ico">
+    <link rel="shortcut icon" href="../images/icon.ico">
 
     <!-- Bootstrap -->
     <link href="../bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
@@ -17,7 +17,7 @@
   <body>
     <div class="fluid-container">
 
-      <div class="heading-section"><!-- Headin Section Start -->
+      <div class="heading-section signUpBackground"><!-- Headin Section Start -->
         <div class="col-lg-offset-2 col-lg-8">
           <!--Navbar Start -->
             <nav class="navbar navbar-default">
@@ -33,9 +33,9 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                   <ul id="primaryLinks" class="nav navbar-nav">
-                    <li class="navbar-active"><a href="#">Home</a></li>
-                    <li><a href="#content-section-3">Features</a></li>
-                    <li><a href="pages/contactUs.html">Contact Us</a></li>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../index.html">Features</a></li>
+                    <li><a href="contactUs.html">Contact Us</a></li>
                     <li><a href="#" data-toggle="modal" data-target="#logIn">Log In</a></li>
 
                     <!-- Modal -->
@@ -65,8 +65,8 @@
                     </div>
 
                   </ul>
-                  <ul class="nav navbar-nav navbar-right">
-                    <li id="signUpBtn"><a href="#">Sign Up</a></li>
+                  <ul class="nav navbar-nav navbar-right ">
+                    <li id="signUpBtn" class="navbar-active"><a href="signUp.html">Sign Up</a></li>
                   </ul>
                 </div>
             </nav>
@@ -74,22 +74,109 @@
           <!-- Navbar End -->
           <div class="row">
             <div class="col-lg-offset-2 col-lg-4">
-              <h1>Some Heading Title</h1>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-lg-offset-5 col-lg-2 ">
-              <button type="button" class="btn btn-primary btn-block" >Get Started</button>
+              <h1>Sign Up</h1>
             </div>
           </div>
         </div> <!-- Heading Section End -->
 
         <hr>
 
+        <div class="companyDetails col-lg-offset-4">
+          <div class="row">
+            <div class="col-lg-6 text-center"><h2>Company Details</h2></div>
+          </div>
 
+          <div class="row">
+            <div class="form-group">
+              <div class="col-lg-2"><label for="companyName">Company Name</label></div>
+              <div class="col-lg-4"><input type="text" class="form-control" id="companyName" placeholder="ABC ltd."></div>
+            </div>
+          </div>
 
+          <div class="row">
+            <div class="form-group">
+              <div class="col-lg-2"><label for="companyAddress1">Company Address</label></div>
+              <div class="col-lg-4"><input type="text" class="form-control" id="companyAddress1" placeholder="123 abc street"></div>
+            </div>
+          </div>
 
+          <div class="row">
+            <div class="form-group">
+              <div class="col-lg-2"><label for="companyAddress2">Line 2</label></div>
+              <div class="col-lg-4"><input type="text" class="form-control" id="companyAddress2" placeholder="Town Name"></div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group">
+              <div class="col-lg-2"><label for="companyAddress3">Line 3</label></div>
+              <div class="col-lg-4"><input type="text" class="form-control" id="companyAddress2" placeholder="City Name"></div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group">
+              <div class="col-lg-2"><label for="companyTel">Company Telephone</label></div>
+              <div class="col-lg-4"><input type="tel" class="form-control" id="companyTel" placeholder="12-345 6789"></div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="companyDetails col-lg-offset-4">
+          <div class="row">
+            <div class="col-lg-6 text-center"><h2>Employer/Manager Details</h2></div>
+          </div>
+
+          <div class="row">
+            <div class="form-group">
+              <div class="col-lg-2"><label for="employerName">Employer Name</label></div>
+              <div class="col-lg-4"><input type="text" class="form-control" id="employerName" placeholder="John Smith"></div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group">
+              <div class="col-lg-2"><label for="employerAddress1">Employer Address</label></div>
+              <div class="col-lg-4"><input type="text" class="form-control" id="employerAddress1" placeholder="123 abc street"></div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group">
+              <div class="col-lg-2"><label for="employerAddress2">Line 2</label></div>
+              <div class="col-lg-4"><input type="text" class="form-control" id="employerAddress2" placeholder="Town Name"></div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group">
+              <div class="col-lg-2"><label for="employerAddress3">Line 3</label></div>
+              <div class="col-lg-4"><input type="text" class="form-control" id="employerAddress3" placeholder="City Name"></div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group">
+              <div class="col-lg-2"><label for="employerTel">Employer Telephone</label></div>
+              <div class="col-lg-4"><input type="tel" class="form-control" id="employerTel" placeholder="12-345 6789"></div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group">
+              <div class="col-lg-2"><label for="employerEmail">Employer Email</label></div>
+              <div class="col-lg-4"><input type="email" class="form-control" id="employerEmail" placeholder="johnsmith@example.ie"></div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row">
+          <div class="col-lg-offset-5 col-lg-2"><button type="submit" class="btn btn-primary btn-block">Submit</button></div>
+        </div>
+
+        <hr>
 
       </div>
     
@@ -97,7 +184,7 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
       <!-- Include all compiled plugins (below), or include individual files as needed -->
-       <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+       <script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
   </body>
   <!--  =============Footer Start=================== -->
   <footer id="footer" >
