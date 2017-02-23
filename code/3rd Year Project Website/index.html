@@ -10,26 +10,26 @@
 
     <!-- Bootstrap -->
     <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
-	  <link href="css/styles.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
 
-	</head>
+  </head>
   <body>
     <div class="fluid-container">
 
       <div class="heading-section"><!-- Headin Section Start -->
-        <div class="col-lg-offset-2 col-lg-8">
+        <div class="col-lg-offset-2 col-lg-8 col-md-offset-1 col-md-10 col-sm-12">
           <!--Navbar Start -->
             <nav class="navbar navbar-default">
               <div class="container-fluid">
-                <div class="navbar-header">
-                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <div class="navbar-header row">
+                  <button type="button" class="navbar-toggle collapsed col-xs-2" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                   </button>
-                  <a class="navbar-brand" href="#">Project name</a>
+                  <a class="navbar-brand col-xs-6" href="#">Project name</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                   <ul id="primaryLinks" class="nav navbar-nav">
@@ -73,13 +73,13 @@
           </div>
           <!-- Navbar End -->
           <div class="row">
-            <div class="col-lg-offset-2 col-lg-4">
+            <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 col-xs-12 text-center">
               <h1>Some Heading Title</h1>
             </div>
           </div>
 
           <div class="row">
-            <div class="col-lg-offset-5 col-lg-2 ">
+            <div class="col-lg-offset-5 col-lg-2 col-md-offset-5 col-md-2 col-xs-offset-4 col-xs-4">
               <button type="button" class="btn btn-primary btn-block" >Get Started</button>
             </div>
           </div>
@@ -88,10 +88,10 @@
         <hr>
 
         <div id="content-section-1" class="row">
-          <div class="col-lg-offset-5 col-lg-2 text-center">
+          <div class="col-lg-offset-5 col-lg-2 col-md-offset-3 col-md-6 col-xs-offset-2 col-xs-8 text-center">
             <h2>Some Heading</h2>
           </div>
-          <div class="col-lg-offset-3 col-lg-6 text-center">
+          <div class="col-lg-offset-3 col-lg-6 col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 col-xs-offset-1 col-xs-10 text-center">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
             quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -128,26 +128,26 @@
 
         <hr>
 
-        <div id="content-section-3">
+        <div id="content-section-3" class="hidden-xs">
           <div class="row text-center">
-            <div class="col-lg-offset-1 col-lg-3">
+            <div class="col-lg-offset-1 col-lg-3 col-sm-4">
               <h2>Some Heading</h2>
               <img src="images/test1.jpg">
             </div>
 
-            <div class="col-lg-4">
+            <div class="col-lg-4 col-sm-4">
               <h2>Some Heading</h2>
               <img src="images/test2.jpg">
             </div>
 
-            <div class="col-lg-3">
+            <div class="col-lg-3 col-sm-4">
               <h2>Some Heading</h2>
               <img src="images/test3.png">
             </div>
           </div>
 
           <div class="row text-center">
-            <div class="col-lg-offset-1 col-lg-3">
+            <div class="col-lg-offset-1 col-lg-3 col-sm-4">
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
               tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
               quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -156,7 +156,7 @@
               proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             </div>
 
-            <div class="col-lg-4">
+            <div class="col-lg-4 col-sm-4">
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
               tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
               quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -165,7 +165,7 @@
               proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             </div>
 
-            <div class="col-lg-3">
+            <div class="col-lg-3 col-sm-4">
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
               tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
               quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -176,6 +176,54 @@
           </div>
         </div>
 
+        <div id="content-section-3" class="visible-xs-*">
+          <div class="row">
+            <div class="col-xs-offset-3 xol-xs-6">
+              <h2>Some Heading</h2>
+              <img src="images/test1.jpg">
+            </div>
+            <div class="col-xs-offset-1 col-xs-10">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-offset-3 xol-xs-6">
+              <h2>Some Heading</h2>
+              <img src="images/test2.jpg">
+            </div>
+            <div class="col-xs-offset-1 col-xs-10">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-offset-3 xol-xs-6">
+              <h2>Some Heading</h2>
+              <img src="images/test3.png">
+            </div>
+            <div class="col-xs-offset-1 col-xs-10">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+          </div>
+
+        </div>
+
         <hr>
 
 
@@ -183,32 +231,32 @@
       </div>
     
   
-	  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    	<!-- Include all compiled plugins (below), or include individual files as needed -->
-	     <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <!-- Include all compiled plugins (below), or include individual files as needed -->
+       <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
   </body>
   <!--  =============Footer Start=================== -->
   <footer id="footer" >
     <div class="row ">
-      <div class="col-lg-offset-2 col-lg-2 ">
+      <div class="col-lg-offset-2 col-lg-2 col-xs-offset-2 col-xs-2">
         <a href=""><img class="center-block" src="images/glyphicons-social-31-facebook.png"></a>
       </div>
-      <div class="col-lg-offset-1 col-lg-2">
+      <div class="col-lg-offset-1 col-lg-2 col-xs-offset-1 col-xs-2">
         <a href="https://gitlab.computing.dcu.ie/kellyi7/pointofserviceapp"><img class="center-block" src="images/glyphicons-social-22-github.png"></a>
       </div>
-      <div class="col-lg-offset-1 col-lg-2">
+      <div class="col-lg-offset-1 col-lg-2 col-xs-offset-1 col-xs-2">
         <a href=""><img class="center-block" src="images/glyphicons-social-38-rss.png"></a>
       </div>
     </div>
     <div class="row text-center">
-      <div class="col-lg-offset-2 col-lg-2">
+      <div class="col-lg-offset-2 col-lg-2 col-xs-offset-2 col-xs-2">
         <h3>Facebook</h3>
       </div>
-      <div class="col-lg-offset-1 col-lg-2">
+      <div class="col-lg-offset-1 col-lg-2 col-xs-offset-1 col-xs-2">
         <h3>Github</h3>
       </div>
-      <div class="col-lg-offset-1 col-lg-2">
+      <div class="col-lg-offset-1 col-lg-2 col-xs-offset-1 col-xs-2">
         <h3>Blog</h3>
       </div>
     </div>
