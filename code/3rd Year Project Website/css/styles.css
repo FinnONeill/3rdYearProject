@@ -1,27 +1,28 @@
 body, footer{
   font-family: 'Bree Serif', serif;
   font-size: 2em;
+  background-color: #e9e9e9;
 }
 
 button{
   height: 50px;
 }
 
+.green{
+  color: #88d317;
+}
+
 .heading-section{
   background-size: 100% 100%;
-  background-image: url(../images/coffee_shop_tablet_image.jpg);
+  /*background-image:url(../images/coffee_shop_tablet_image.jpg);*/
+  background-color:  #6e3667;
   height: 600px;
 }
 
 .contactUsBackground{
   background-size: 100% 100%;
   background-image: url(../images/contact.jpg) !important;
-  height: 600px;
-}
 
-.signUpBackground{
-  background-size: 100% 100%;
-  background-image: url(../images/signUp.jpg) !important;
   height: 600px;
 }
 
@@ -37,11 +38,8 @@ button{
 
 .navbar #primaryLinks a:hover{
   border-style: solid;
-  border-color: white;
-}
-
-.navbar a:visted{
-  background-color: pink;
+  border-color: #88d317;
+  color: #88d317 !important;
 }
 
 .navbar-active{
@@ -51,7 +49,7 @@ button{
 #signUpBtn{
   font-size: 1em;
   border-style: solid;
-  border-color: white;
+  border-color: #88d317;
 }
 
 #signUpBtn a:hover{
@@ -61,12 +59,28 @@ button{
 .heading-section h1 {
   color: white !important;
   font-weight: bold;
-  font-size: 2.8em;
+  font-size: 3.5em;
   margin-top: 100px;
+  margin-bottom: 50px;
+  letter-spacing: 3px;
 }
 
 .heading-section button{
-  margin-top: 200px;
+  margin-left: 230px;
+  background-color: transparent;
+  border-color: #88d317;
+  border-width: 3px;
+  border-radius: 25px;
+}
+
+.heading-section button:hover{
+  color: #88d317;
+}
+
+.heading-section .btn-lg{
+  font-size: 1.2em;
+  color: white;
+  padding-top: 3px;
 }
 
 #logIn .modal-footer{
@@ -84,6 +98,11 @@ hr {
 
 #content-section-1{
   margin-top: 20px;
+  color: #535353;
+}
+
+#content-section-1 h2{
+  color: #1a0315;
 }
 
 #content-section-2{
@@ -100,7 +119,17 @@ hr {
   margin-top: 200px;
   height: 75px;
   width: 75px;
+  border-color: #88d317;
   border-radius: 50px;
+  background-color: #6e3667;
+}
+
+.glyphicon-play{
+  color: #e9e9e9;
+}
+
+.glyphicon-play:hover{
+  color: #88d317;
 }
 
 #content-section-2 #playButton:hover{
@@ -109,6 +138,7 @@ hr {
   backface-visibility: hidden;
   perspective: 1000px;
 }
+ 
 
 @keyframes shake {
   10%, 90% {
@@ -140,8 +170,8 @@ hr {
 #footer{
   height: 400px;
   padding-top: 175px;
-  background-color: grey;
-  color: white;
+  background-color: black;
+  color: #88d317;
 }
 
 #footer img{

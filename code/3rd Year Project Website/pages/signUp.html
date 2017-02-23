@@ -1,3 +1,4 @@
+<?php include('connect.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,6 +11,7 @@
 
     <!-- Bootstrap -->
     <link href="../bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/signUp.css" rel="stylesheet">
     <link href="../css/styles.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
 
@@ -80,102 +82,106 @@
         </div> <!-- Heading Section End -->
 
         <hr>
-
-        <div class="companyDetails col-lg-offset-4">
-          <div class="row">
-            <div class="col-lg-6 text-center"><h2>Company Details</h2></div>
+        <form name="registration" method="post" action="connect.php">
+        <div class="companyDetails col-lg-offset-3 col-lg-6 panel panel-default">
+          <div class="row panel-heading">
+            <div class="col-lg-offset-4 col-lg-4 text-center panel-title"><h2>Company Details</h2></div>
           </div>
 
-          <div class="row">
-            <div class="form-group">
-              <div class="col-lg-2"><label for="companyName">Company Name</label></div>
-              <div class="col-lg-4"><input type="text" class="form-control" id="companyName" placeholder="ABC ltd."></div>
+          <div class="panel-body ">
+            <div class="row">
+              <div class="form-group">
+                <div class="col-lg-offset-2 col-lg-4"><label for="company_name">Company Name</label></div>
+                <div class="col-lg-4"><input type="text" class="form-control" id="company_name" name="company_name" placeholder="ABC ltd."></div>
+              </div>
             </div>
-          </div>
 
-          <div class="row">
-            <div class="form-group">
-              <div class="col-lg-2"><label for="companyAddress1">Company Address</label></div>
-              <div class="col-lg-4"><input type="text" class="form-control" id="companyAddress1" placeholder="123 abc street"></div>
+            <div class="row">
+              <div class="form-group">
+                <div class="col-lg-offset-2 col-lg-4"><label for="company_address1">Company Address</label></div>
+                <div class="col-lg-4"><input type="text" class="form-control" id="company_address1" name="company_address1" placeholder="123 abc street"></div>
+              </div>
             </div>
-          </div>
 
-          <div class="row">
-            <div class="form-group">
-              <div class="col-lg-2"><label for="companyAddress2">Line 2</label></div>
-              <div class="col-lg-4"><input type="text" class="form-control" id="companyAddress2" placeholder="Town Name"></div>
+            <div class="row">
+              <div class="form-group">
+                <div class="col-lg-offset-2 col-lg-4"><label for="company_address2">Line 2</label></div>
+                <div class="col-lg-4"><input type="text" class="form-control" id="company_address2" name="company_address2" placeholder="Town Name"></div>
+              </div>
             </div>
-          </div>
 
-          <div class="row">
-            <div class="form-group">
-              <div class="col-lg-2"><label for="companyAddress3">Line 3</label></div>
-              <div class="col-lg-4"><input type="text" class="form-control" id="companyAddress2" placeholder="City Name"></div>
+            <div class="row">
+              <div class="form-group">
+                <div class="col-lg-offset-2 col-lg-4"><label for="company_address3">Line 3</label></div>
+                <div class="col-lg-4"><input type="text" class="form-control" id="company_address3" name="company_address3" placeholder="City Name"></div>
+              </div>
             </div>
-          </div>
 
-          <div class="row">
-            <div class="form-group">
-              <div class="col-lg-2"><label for="companyTel">Company Telephone</label></div>
-              <div class="col-lg-4"><input type="tel" class="form-control" id="companyTel" placeholder="12-345 6789"></div>
-            </div>
+            <div class="row">
+              <div class="form-group">
+                <div class="col-lg-offset-2 col-lg-4"><label for="company_tel">Company Telephone</label></div>
+                <div class="col-lg-4"><input type="tel" class="form-control" id="company_tel" name="company_tel" placeholder="12-345 6789"></div>
+              </div>
+          </div>
+          
           </div>
 
         </div>
 
-        <div class="companyDetails col-lg-offset-4">
-          <div class="row">
-            <div class="col-lg-6 text-center"><h2>Employer/Manager Details</h2></div>
+        <div class="companyDetails col-lg-offset-3 col-lg-6 panel panel-default">
+          <div class="row panel-heading">
+            <div class="col-lg-offset-3 col-lg-6 text-center panel-title"><h2>Employer/Manager Details</h2></div>
           </div>
 
-          <div class="row">
-            <div class="form-group">
-              <div class="col-lg-2"><label for="employerName">Employer Name</label></div>
-              <div class="col-lg-4"><input type="text" class="form-control" id="employerName" placeholder="John Smith"></div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="form-group">
+                <div class="col-lg-offset-2 col-lg-4"><label for="employer_name">Employer Name</label></div>
+                <div class="col-lg-4"><input type="text" class="form-control" id="employer_name" name="employer_name" placeholder="John Smith"></div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group">
+                <div class="col-lg-offset-2 col-lg-4"><label for="employer_address1">Employer Address</label></div>
+                <div class="col-lg-4"><input type="text" class="form-control" id="employer_address1" name="employer_address1" placeholder="123 abc street"></div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group">
+                <div class="col-lg-offset-2 col-lg-4"><label for="employer_address2">Line 2</label></div>
+                <div class="col-lg-4"><input type="text" class="form-control" id="employer_address2" name="employer_address2" placeholder="Town Name"></div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group">
+                <div class="col-lg-offset-2 col-lg-4"><label for="employer_address3">Line 3</label></div>
+                <div class="col-lg-4"><input type="text" class="form-control" id="employer_address3" name="employer_address3" placeholder="City Name"></div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group">
+                <div class="col-lg-offset-2 col-lg-4"><label for="employer_tel">Employer Telephone</label></div>
+                <div class="col-lg-4"><input type="tel" class="form-control" id="employer_tel" name="employer_tel" placeholder="12-345 6789"></div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group">
+                <div class="col-lg-offset-2 col-lg-4"><label for="employer_email">Employer Email</label></div>
+                <div class="col-lg-4"><input type="email" class="form-control" id="employer_email" name="employer_email" placeholder="johnsmith@example.ie"></div>
+              </div>
             </div>
           </div>
-
-          <div class="row">
-            <div class="form-group">
-              <div class="col-lg-2"><label for="employerAddress1">Employer Address</label></div>
-              <div class="col-lg-4"><input type="text" class="form-control" id="employerAddress1" placeholder="123 abc street"></div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="form-group">
-              <div class="col-lg-2"><label for="employerAddress2">Line 2</label></div>
-              <div class="col-lg-4"><input type="text" class="form-control" id="employerAddress2" placeholder="Town Name"></div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="form-group">
-              <div class="col-lg-2"><label for="employerAddress3">Line 3</label></div>
-              <div class="col-lg-4"><input type="text" class="form-control" id="employerAddress3" placeholder="City Name"></div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="form-group">
-              <div class="col-lg-2"><label for="employerTel">Employer Telephone</label></div>
-              <div class="col-lg-4"><input type="tel" class="form-control" id="employerTel" placeholder="12-345 6789"></div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="form-group">
-              <div class="col-lg-2"><label for="employerEmail">Employer Email</label></div>
-              <div class="col-lg-4"><input type="email" class="form-control" id="employerEmail" placeholder="johnsmith@example.ie"></div>
-            </div>
-          </div>
-
         </div>
 
         <div class="row">
-          <div class="col-lg-offset-5 col-lg-2"><button type="submit" class="btn btn-primary btn-block">Submit</button></div>
+          <div class="col-lg-offset-5 col-lg-2"><input type="submit" name="submit" value="submit" class="btn btn-primary btn-block"></input></div>
         </div>
-
+        </form>
         <hr>
 
       </div>
