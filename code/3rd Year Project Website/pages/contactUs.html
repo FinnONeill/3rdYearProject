@@ -49,17 +49,21 @@
                             <div class="col-lg-offset-2 col-sm-offset-3"><button type="button" class="close col-lg-1 col-sm-1" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>
                           </div>
                           <div class="modal-body">
-                            <div class="row form-group">
-                              <div class="col-sm-offset-1"><label for="email">Email</label></div>
-                              <div class="col-sm-offset-1 col-sm-10"><input type="Email" class="form-control" id="email" placeholder="johnsmith@example.ie"></div>
-                            </div>
-                            <div class="row form-group">
-                              <div class="col-sm-offset-1"><label for="password">Password</label></div>
-                              <div class="col-sm-offset-1 col-sm-10"><input type="password" class="form-control" id="password" placeholder="Password"></div>
-                            </div>
-                            <div class="row form-group">
-                              <div class="col-sm-offset-5 col-sm-1"><a href="pages/dashboard.html"><button id="logInSubmit" type="submit" class="btn btn-primary" >Submit</button></a></div>
-                            </div>
+                            <form name="logIn" method="post" action="logIn.php">
+                              <div class="row form-group">
+                                <div class="col-sm-offset-1"><label for="login_email">Email</label></div>
+                                <div class="col-sm-offset-1 col-sm-10"><input type="Email" class="form-control" id="login_email" name="login_email" placeholder="johnsmith@example.ie"></div>
+                              </div>
+
+                              <div class="row form-group">
+                                <div class="col-sm-offset-1"><label for="login_password">Password</label></div>
+                                <div class="col-sm-offset-1 col-sm-10"><input type="password" class="form-control" id="login_password" name="login_password" placeholder="Password"></div>
+                              </div>
+
+                              <div class="row form-group">
+                                <div class="col-sm-offset-5 col-sm-1"><a href="#"><button id="logInSubmit" type="submit" class="btn btn-primary" >Submit</button></a></div>
+                              </div>
+                            </form>
                           </div>
 
                         </div>
