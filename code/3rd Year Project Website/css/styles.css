@@ -14,26 +14,30 @@ button{
 
 .heading-section{
   background-size: 100% 100%;
-  /*background-image:url(../images/coffee_shop_tablet_image.jpg);*/
   background-color:  #6e3667;
-  height: 600px;
-}
-
-.contactUsBackground{
-  background-size: 100% 100%;
-  background-image: url(../images/contact.jpg) !important;
-
   height: 600px;
 }
 
 .navbar {
   background: transparent;
   border: none;
-  
 }
 
 .navbar a{
   color: white !important;
+}
+
+#collapsedBtn{
+  background-color: transparent;
+  border-color: #88d317; 
+}
+
+#collapsedBtn:hover{
+  background-color: #88d317;
+}
+
+#collapsedBtn:visted{
+  background-color: #6e3667;
 }
 
 .navbar #primaryLinks a:hover{
@@ -54,6 +58,19 @@ button{
 
 #signUpBtn a:hover{
   text-decoration: underline;
+  color: #88d317 !important;
+}
+
+#logInSubmit{
+  background-color: #6e3667;
+  border-color: #88d317;
+  color: #88d317;
+}
+
+#logInSubmit:hover{
+  background-color: #88d317;
+  border-color: #6e3667;
+  color: #6e3667;
 }
 
 .heading-section h1 {
@@ -65,15 +82,38 @@ button{
   letter-spacing: 3px;
 }
 
-.heading-section button{
+#getStartedBtn{
   background-color: transparent;
   border-color: #88d317;
   border-width: 3px;
   border-radius: 25px;
 }
 
-.heading-section button:hover{
-  color: #88d317;
+#getStartedBtn:hover{
+  color: #88d317 !important;
+  text-decoration: underline;
+  background-color: transparent;
+  border-color: #88d317;
+  border-width: 5px;
+  animation: sideShake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+@keyframes sideShake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
 }
 
 .heading-section .btn-lg{

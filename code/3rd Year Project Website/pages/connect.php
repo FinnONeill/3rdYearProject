@@ -1,6 +1,6 @@
 <?php
 
-$servername = "posApp_server";
+$servername = "posapp_server";
 $dbusername = "root";
 $dbpassword = "";
 $dbname = "posapp_database";
