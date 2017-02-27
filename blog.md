@@ -4,6 +4,8 @@ Student Names:
 * Finnian O’Neill 
 * Ian Kelly
 
+[LINK TO BLOG](https://ca326pointofserviceapp.wordpress.com/)
+
 Supervisor:
 * Dr.Darragh O'Brien
 
