@@ -18,6 +18,7 @@
 	$employer_address1 = $_POST['employer_address1'];
 	$employer_address2 = $_POST['employer_address2'];
 	$employer_address3 = $_POST['employer_address3'];
+	$employers_password = password_hash('123456Employer', PASSWORD_DEFAULT, ['cost' => 12]);
 
 	//create connection
 	$conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
@@ -73,7 +74,7 @@
 		echo "Error: " . $sql . "<br>" . $conn->error;
 	} 
 
-	$sql = "INSERT INTO employers_details (employer_name, company_name, employer_tel, employers_email, employers_address1, employers_address2, employers_address3,   employers_password) values ('$employer_name', '$company_name','$employer_tel', '$employer_email', '$employer_address1', '$employer_address2', '$employer_address3', '123456Employer')";
+	$sql = "INSERT INTO employers_details (employer_name, company_name, employer_tel, employers_email, employers_address1, employers_address2, employers_address3,   employers_password) values ('$employer_name', '$company_name','$employer_tel', '$employer_email', '$employer_address1', '$employer_address2', '$employer_address3', '$employers_password')";
 
 	if($conn->query($sql) === TRUE){
 		echo "Thank you for joining our POS App!";

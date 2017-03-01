@@ -23,11 +23,11 @@
 	$login_password = stripcslashes($login_password);
 
 	// Query database for user
-	$result = $conn->query("SELECT * FROM employers_details WHERE employers_email = '$login_email' AND employers_password = '$login_password' ") or die("Failed to query database ".$conn->connect_error);
+	$result = $conn->query("SELECT * FROM employers_details WHERE employers_email = '$login_email'") or die("Failed to query database ".$conn->connect_error);
 
 	$row = mysqli_fetch_array($result);
 
-	if($row['employers_email'] == $login_email && $row['employers_password'] == $login_password){
+	if($row['employers_email'] == $login_email && password_verify($login_password,$row['employers_password'])){
 		header("location: ./dashboard.html");
 	}else{
 		echo("Incorrect email and password combination!");
