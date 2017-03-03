@@ -1,7 +1,7 @@
 <?php
   session_start();
+  $_SESSION["company_id"];
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -40,7 +40,7 @@
                   <ul id="primaryLinks" class="nav navbar-nav">
                     <li class="navbar-active"><a href="#">Home</a></li>
                     <li><a href="#content-section-3">Features</a></li>
-                    <li><a href="pages/contactUs.html">Contact Us</a></li>
+                    <li><a href="pages/contactUs.php">Contact Us</a></li>
                     <li class="hidden-xs"><a href="#" data-toggle="modal" data-target="#logIn">Log In</a></li>
 
                     <!-- Modal -->
@@ -72,10 +72,10 @@
                         </div>
                       </div>
                     </div>
-                    <li class="visible-xs"><a href="pages/login.html">Log In</a></li>
+                    <li class="visible-xs"><a href="pages/login.php">Log In</a></li>
                   </ul>
                   <ul class="nav navbar-nav navbar-right">
-                    <li id="signUpBtn"><a href="pages/signUp.html">Sign Up</a></li>
+                    <li id="signUpBtn"><a href="pages/signUp.php">Sign Up</a></li>
                   </ul>
                 </div>
             </nav>
