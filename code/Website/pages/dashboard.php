@@ -1,3 +1,31 @@
+<?php
+  session_start();
+
+  // Server details
+  $servername = "localhost";
+  $dbusername = "root";
+  $dbpassword = "";
+  $dbname = "posapp_database";
+  $company_id = $_SESSION["company_id"];
+
+  //create connection
+  $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
+
+  //check connection
+  if($conn->connect_error){
+    die("Connection failed: " . $conn->connect_error);
+  }
+
+  $query = "SELECT employee_pps, employee_name, employee_tel, employee_email, password FROM employee_details WHERE company_id = '$company_id'";
+
+  $result = $conn->query($query) or die ("Failed to query database ".$conn->connect_error);
+
+  $dataRow="";
+
+  while($row = mysqli_fetch_array($result)){
+    $dataRow = $dataRow."<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td>$row[3]</td><td>$row[4]</td><td>123 Abc Street, Town Name, Letterland.</td></tr>";
+  }
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,12 +45,6 @@
 
     <!-- Custom styles for this template -->
     <link href="../css/dashboard.css" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
   </head>
 
   <body>
@@ -41,10 +63,9 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Settings</a></li>
             <li><a href="#">Profile</a></li>
             <li><a href="#">Help</a></li>
-            <li><a href="../index.html">Homepage</a></li>
+            <li><a href="../index.php">Homepage</a></li>
           </ul>
           <form class="navbar-form navbar-right">
             <input type="text" class="form-control" placeholder="Search...">
@@ -63,9 +84,9 @@
             <li><a href="#">Export</a></li>
           </ul>
           <ul class="nav nav-sidebar">
-            <li><a href="">Employee Overview</a></li>
-            <li><a href="">+ Add New Employee</a></li>
-            <li><a href="">- Remove Employee</a></li>
+            <li><a href="dashboard_employee.php">Employee Overview</a></li>
+            <li><a href="dashboard_employee.php">+ Add New Employee</a></li>
+            <li><a href="dashboard_employee.php">- Remove Employee</a></li>
           </ul>
           <ul class="nav nav-sidebar">
             <li><a href="">Menu Overview</a></li>
@@ -104,126 +125,16 @@
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th>Employee Number</th>
+                  <th>Employee PPS Number</th>
                   <th>Name</th>
                   <th>Phone Number</th>
                   <th>Email</th>
+                  <th>Password</th>
                   <th>Address</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>1,001</td>
-                  <td>Lorem</td>
-                  <td>ipsum</td>
-                  <td>dolor</td>
-                  <td>sit</td>
-                </tr>
-                <tr>
-                  <td>1,002</td>
-                  <td>amet</td>
-                  <td>consectetur</td>
-                  <td>adipiscing</td>
-                  <td>elit</td>
-                </tr>
-                <tr>
-                  <td>1,003</td>
-                  <td>Integer</td>
-                  <td>nec</td>
-                  <td>odio</td>
-                  <td>Praesent</td>
-                </tr>
-                <tr>
-                  <td>1,003</td>
-                  <td>libero</td>
-                  <td>Sed</td>
-                  <td>cursus</td>
-                  <td>ante</td>
-                </tr>
-                <tr>
-                  <td>1,004</td>
-                  <td>dapibus</td>
-                  <td>diam</td>
-                  <td>Sed</td>
-                  <td>nisi</td>
-                </tr>
-                <tr>
-                  <td>1,005</td>
-                  <td>Nulla</td>
-                  <td>quis</td>
-                  <td>sem</td>
-                  <td>at</td>
-                </tr>
-                <tr>
-                  <td>1,006</td>
-                  <td>nibh</td>
-                  <td>elementum</td>
-                  <td>imperdiet</td>
-                  <td>Duis</td>
-                </tr>
-                <tr>
-                  <td>1,007</td>
-                  <td>sagittis</td>
-                  <td>ipsum</td>
-                  <td>Praesent</td>
-                  <td>mauris</td>
-                </tr>
-                <tr>
-                  <td>1,008</td>
-                  <td>Fusce</td>
-                  <td>nec</td>
-                  <td>tellus</td>
-                  <td>sed</td>
-                </tr>
-                <tr>
-                  <td>1,009</td>
-                  <td>augue</td>
-                  <td>semper</td>
-                  <td>porta</td>
-                  <td>Mauris</td>
-                </tr>
-                <tr>
-                  <td>1,010</td>
-                  <td>massa</td>
-                  <td>Vestibulum</td>
-                  <td>lacinia</td>
-                  <td>arcu</td>
-                </tr>
-                <tr>
-                  <td>1,011</td>
-                  <td>eget</td>
-                  <td>nulla</td>
-                  <td>Class</td>
-                  <td>aptent</td>
-                </tr>
-                <tr>
-                  <td>1,012</td>
-                  <td>taciti</td>
-                  <td>sociosqu</td>
-                  <td>ad</td>
-                  <td>litora</td>
-                </tr>
-                <tr>
-                  <td>1,013</td>
-                  <td>torquent</td>
-                  <td>per</td>
-                  <td>conubia</td>
-                  <td>nostra</td>
-                </tr>
-                <tr>
-                  <td>1,014</td>
-                  <td>per</td>
-                  <td>inceptos</td>
-                  <td>himenaeos</td>
-                  <td>Curabitur</td>
-                </tr>
-                <tr>
-                  <td>1,015</td>
-                  <td>sodales</td>
-                  <td>ligula</td>
-                  <td>in</td>
-                  <td>libero</td>
-                </tr>
+                <?php echo $dataRow; ?>
               </tbody>
             </table>
           </div>

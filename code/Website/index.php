@@ -1,3 +1,7 @@
+<?php
+  session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -48,7 +52,7 @@
                             <div class="col-lg-offset-2 col-sm-offset-3"><button type="button" class="close col-lg-1 col-sm-1" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>
                           </div>
                           <div class="modal-body">
-                            <form name="logIn" method="post" action="pages/logIn.php">
+                            <form name="logIn" method="post" action="pages/loginHandler.php">
                               <div class="row form-group">
                                 <div class="col-sm-offset-1"><label for="login_email">Email</label></div>
                                 <div class="col-sm-offset-1 col-sm-10"><input type="Email" class="form-control" id="login_email" name="login_email" placeholder="johnsmith@example.ie"></div>
