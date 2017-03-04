@@ -1,5 +1,5 @@
 <?php
-
+	session_start();
 	$servername = "localhost";
 	$dbusername = "root";
 	$dbpassword = "";
@@ -12,12 +12,12 @@
 	$company_address3 = $_POST['company_address3'];
 
 	$employer_name = $_POST['employer_name'];
-	//$company_name = $_POST['company_name'];
 	$employer_tel = $_POST['employer_tel'];
 	$employer_email = $_POST['employer_email'];
 	$employer_address1 = $_POST['employer_address1'];
 	$employer_address2 = $_POST['employer_address2'];
 	$employer_address3 = $_POST['employer_address3'];
+	$employers_password = $_POST['employer_password'];
 
 	//create connection
 	$conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
@@ -67,17 +67,29 @@
 		die();
 	}
 
+	//Insert data into company table
 	$sql = "INSERT INTO company_members (company_name, company_tel, company_address1, company_address2, company_address3) values ('$company_name','$company_tel','$company_address1','$company_address2','$company_address3')";
 
 	if($conn->query($sql) === FALSE){
 		echo "Error: " . $sql . "<br>" . $conn->error;
-	} 
+	}
 
-	$sql = "INSERT INTO employers_details (employer_name, company_name, employer_tel, employers_email, employers_address1, employers_address2, employers_address3,   employers_password) values ('$employer_name', '$company_name','$employer_tel', '$employer_email', '$employer_address1', '$employer_address2', '$employer_address3', '123456Employer')";
+	//Query database for company_id to link company & employer
+	$company_id = $conn->query("SELECT id FROM company_members WHERE company_name = '$company_name' AND company_tel = '$company_tel'") or die("Failed to query database ".$conn->connect_error);
+
+	$employer_id = mysqli_fetch_array($company_id);
+	$newCompany_id = $employer_id['id'];
+	$_SESSION["company_id"] = $newCompany_id;
+
+	//Hash password
+	$hashed_password = password_hash($employers_password, PASSWORD_DEFAULT);
+
+	//Insert data into employer table
+	$sql = "INSERT INTO employers_details (employer_id, employer_name, employer_tel, employers_email, employers_address1, employers_address2, employers_address3,   employers_password) values ('$newCompany_id','$employer_name', '$employer_tel', '$employer_email', '$employer_address1', '$employer_address2', '$employer_address3', '$hashed_password')";
 
 	if($conn->query($sql) === TRUE){
 		echo "Thank you for joining our POS App!";
-		header("location: ./dashboard.html");
+		header("location: ./dashboard.php");
 	}else{
 		echo "Error: " . $sql . "<br>" . $conn->error;
 	} 

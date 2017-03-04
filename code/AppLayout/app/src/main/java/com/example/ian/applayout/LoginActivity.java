@@ -334,7 +334,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
             try {
                 //Setup HTTPURLConnection class to send & recieve from php & mysql.
-                url = new URL("http://192.168.142.1/android/login_android.php");
+                url = new URL("http://192.168.0.2/android/login_android.php");
 
                 conn = (HttpURLConnection)url.openConnection();
                 conn.setReadTimeout(READ_TIMEOUT);
@@ -396,30 +396,22 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         @Override
         protected void onPostExecute(String result) {
-
-            try{
                 //Run this method on UI Thread
                 mAuthTask = null;
                 showProgress(false);
                 pdLoading.dismiss();
 
-                JSONObject jsonObject = new JSONObject(result);
-
-                if ((mUsername.equalsIgnoreCase(jsonObject.get("employee_email").toString())) && (mPassword.equalsIgnoreCase(jsonObject.get("password").toString()))) {
+                if (result.equalsIgnoreCase("1")) {
                     Intent nextActivity = new Intent(LoginActivity.this, RoleActivity.class);
                     startActivity(nextActivity);
                     LoginActivity.this.finish();
-                    Toast.makeText(LoginActivity.this, "Successful Login!", Toast.LENGTH_LONG);
-                } else if(result.equalsIgnoreCase(null)){
+                    Toast.makeText(LoginActivity.this, "Successful Login!", Toast.LENGTH_LONG).show();
+                } else if(result.equalsIgnoreCase("0")){
                     //If username & password don't match, display error message.
-                    Toast.makeText(LoginActivity.this, "Invalid email or password", Toast.LENGTH_LONG);
+                    Toast.makeText(LoginActivity.this, "Invalid email or password", Toast.LENGTH_LONG).show();
                 }else if(result.equalsIgnoreCase("exception") || result.equalsIgnoreCase("unsuccessful")){
-                    Toast.makeText(LoginActivity.this, "Oops! Something went wrong. Connection Problem.", Toast.LENGTH_LONG);
+                    Toast.makeText(LoginActivity.this, "Oops! Something went wrong. Connection Problem.", Toast.LENGTH_LONG).show();
                 }
-            }catch (JSONException e){
-                System.out.println("JSON Exception - Login");
-            }
-
         }
     }
 }

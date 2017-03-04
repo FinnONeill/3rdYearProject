@@ -19,10 +19,12 @@
 	$login_password = $_REQUEST['password'];
 
 	// Query database for user
-	$result = $conn->query("SELECT employee_email, password FROM employee_details WHERE employee_email = '$login_email' AND password = '$login_password' ") or die("Failed to query database ".$conn->connect_error);
+	$result = $conn->query("SELECT employee_email, password FROM employee_details WHERE employee_email = '$login_email'") or die("Failed to query database ".$conn->connect_error);
 
 	$row = mysqli_fetch_array($result);
-	print(json_encode($row));
+	$loginStatus= password_verify($login_password, $row['password']);;
+
+	print($loginStatus);
 
 	$conn->close();
 ?>

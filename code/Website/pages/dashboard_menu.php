@@ -16,14 +16,21 @@
     die("Connection failed: " . $conn->connect_error);
   }
 
-  $query = "SELECT employee_pps, employee_name, employee_tel, employee_email, password FROM employee_details WHERE company_id = '$company_id'";
+  $query = "SELECT item_name, item_description, item_price, item_catagory FROM menu_details WHERE menu_id = '$company_id' ORDER BY item_catagory";
 
   $result = $conn->query($query) or die ("Failed to query database ".$conn->connect_error);
 
   $dataRow="";
+  $catagory="";
 
-  while($row = mysqli_fetch_array($result)){
-    $dataRow = $dataRow."<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td>$row[3]</td><td>$row[4]</td><td>123 Abc Street, Town Name, Letterland.</td></tr>";
+  while($row = mysqli_fetch_array($result) ){
+
+    //if($catagory != $row[3]){
+        //$catagory = $row[3];
+
+        $dataRow = $dataRow."<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td></tr>";
+    //}
+
   }
 ?>
 
@@ -62,10 +69,10 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Dashboard</a></li>
+            <li><a href="dashboard.php">Dashboard</a></li>
             <li><a href="#">Profile</a></li>
             <li><a href="#">Help</a></li>
-            <li><a href="../index.php">Homepage</a></li>
+            <li><a href="logout.php">Log out</a></li>
           </ul>
           <form class="navbar-form navbar-right">
             <input type="text" class="form-control" placeholder="Search...">
@@ -78,10 +85,9 @@
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
+            <li><a href="dashboard.php">Overview <span class="sr-only">(current)</span></a></li>
             <li><a href="#">Reports</a></li>
             <li><a href="#">Analytics</a></li>
-            <li><a href="#">Export</a></li>
           </ul>
           <ul class="nav nav-sidebar">
             <li><a href="dashboard_employee.php">Employee Overview</a></li>
@@ -89,7 +95,7 @@
             <li><a href="dashboard_employee.php">- Remove Employee</a></li>
           </ul>
           <ul class="nav nav-sidebar">
-            <li><a href="">Menu Overview</a></li>
+            <li class="active"><a href="">Menu Overview</a></li>
             <li><a href="">+ Add Menu Item</a></li>
             <li><a href="">- Remove Menu Item</a></li>
           </ul>
@@ -120,17 +126,16 @@
             </div>
           </div>
 
-          <h2 class="sub-header">Employee's</h2>
+          <h2 class="sub-header">Menu Overview</h2>
+
+          <h3 class="">Menu</h3>
           <div class="table-responsive">
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th>Employee PPS Number</th>
-                  <th>Name</th>
-                  <th>Phone Number</th>
-                  <th>Email</th>
-                  <th>Password</th>
-                  <th>Address</th>
+                  <th>Item Name</th>
+                  <th>Description</th>
+                  <th>Price</th>
                 </tr>
               </thead>
               <tbody>
@@ -138,6 +143,79 @@
               </tbody>
             </table>
           </div>
+
+          <div class="col-lg-6">
+            <h3 class="text-center">Add Menu Item</h3>
+            <form name="add_Menu_Item" method="post" action="add_Menu_Item.php">
+              <div class="row">
+                <div class="form-group">
+                  <div class="col-lg-offset-2 col-lg-4"><label for="item_name">Item Name</label></div>
+                  <div class="col-lg-6"><input type="Text" name="item_name"></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group">
+                  <div class="col-lg-offset-2 col-lg-4"><label for="item_description">Item Description</label></div>
+                  <div class="col-lg-6"><input type="Text" name="item_description"></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group">
+                  <div class="col-lg-offset-2 col-lg-4"><label for="item_description">Item Price</label></div>
+                  <div class="col-lg-6"><input type="Text" name="item_description"></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group">
+                  <div class="col-lg-offset-2 col-lg-4"><label for="item_description">Item Catagory</label></div>
+                  <div class="col-lg-6">
+                    <input list="item_catagory" name="item_catagory">
+                    <select id="item_catagory">
+                      <option value="Starters">
+                      <option value="Mains">
+                      <option value="Desserts">
+                      <option value="Sides">
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </form>
+
+          </div>
+
+          <div class="col-lg-6">
+            <h3 class="text-center">Remove Menu Item</h3>
+            <form name="add_Menu_Item" method="post" action="add_Menu_Item.php">
+              <div class="row">
+                <div class="form-group">
+                  <div class="col-lg-offset-2 col-lg-4"><label for="item_name">Item Name</label></div>
+                  <div class="col-lg-6"><input type="Text" name="item_name"></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group">
+                  <div class="col-lg-offset-2 col-lg-4"><label for="item_description">Item Price</label></div>
+                  <div class="col-lg-6"><input type="Text" name="item_description"></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group">
+                  <div class="col-lg-offset-2 col-lg-4"><label for="item_description">Item Catagory</label></div>
+                  <div class="col-lg-6">
+                    <input list="item_catagory" name="item_catagory">
+                    <datalist id="item_catagory">
+                      <option value="Starters">
+                      <option value="Mains">
+                      <option value="Desserts">
+                      <option value="Sides">
+                    </datalist>
+                  </div>
+                </div>
+              </div>
+            </form>
+
+          </div>
+
         </div>
       </div>
     </div>

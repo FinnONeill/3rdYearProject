@@ -1,6 +1,3 @@
-<?php 
-  session.start(); 
-?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -191,6 +188,13 @@
               <div class="form-group">
                 <div class="col-lg-offset-2 col-lg-4"><label for="employer_email">Employer Email</label></div>
                 <div class="col-lg-4"><input type="email" class="form-control" id="employer_email" name="employer_email" placeholder="johnsmith@example.ie"></div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group">
+                <div class="col-lg-offset-2 col-lg-4"><label for="employer_password">Password</label></div>
+                <div class="col-lg-4"><input type="Password" class="form-control" id="employer_password" name="employer_password" maxlength="25"></div>
               </div>
             </div>
           </div>

@@ -16,14 +16,14 @@
     die("Connection failed: " . $conn->connect_error);
   }
 
-  $query = "SELECT employee_pps, employee_name, employee_tel, employee_email, password FROM employee_details WHERE company_id = '$company_id'";
+  $query = "SELECT employee_pps, employee_name, employee_tel, employee_email FROM employee_details WHERE company_id = '$company_id'";
 
   $result = $conn->query($query) or die ("Failed to query database ".$conn->connect_error);
 
   $dataRow="";
 
   while($row = mysqli_fetch_array($result)){
-    $dataRow = $dataRow."<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td>$row[3]</td><td>$row[4]</td><td>123 Abc Street, Town Name, Letterland.</td></tr>";
+    $dataRow = $dataRow."<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td>$row[3]</td></tr>";
   }
 ?>
 
@@ -63,10 +63,10 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Dashboard</a></li>
+            <li><a href="dashboard.php">Dashboard</a></li>
             <li><a href="#">Profile</a></li>
             <li><a href="#">Help</a></li>
-            <li><a href="../index.php">Homepage</a></li>
+            <li><a href="logout.php">Log out</a></li>
           </ul>
           <form class="navbar-form navbar-right">
             <input type="text" class="form-control" placeholder="Search...">
@@ -79,20 +79,19 @@
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
+            <li><a href="dashboard.php">Overview <span class="sr-only">(current)</span></a></li>
             <li><a href="#">Reports</a></li>
             <li><a href="#">Analytics</a></li>
-            <li><a href="#">Export</a></li>
           </ul>
           <ul class="nav nav-sidebar">
-            <li><a href="dashboard_employee.php">Employee Overview</a></li>
+            <li class="active"><a href="dashboard_employee.php">Employee Overview</a></li>
             <li><a href="dashboard_employee.php">+ Add New Employee</a></li>
             <li><a href="dashboard_employee.php">- Remove Employee</a></li>
           </ul>
           <ul class="nav nav-sidebar">
-            <li><a href="">Menu Overview</a></li>
-            <li><a href="">+ Add Menu Item</a></li>
-            <li><a href="">- Remove Menu Item</a></li>
+            <li><a href="dashboard_menu.php">Menu Overview</a></li>
+            <li><a href="dashboard_menu.php">+ Add Menu Item</a></li>
+            <li><a href="dashboard_menu.php">- Remove Menu Item</a></li>
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
@@ -105,7 +104,7 @@
             <div class="row">
               <div class="form-group">
                 <div class="col-lg-offset-2 col-lg-4"><label for="employee_pps">Employee PPS Number</label></div>
-                <div class="col-lg-6"><input type="Number" name="employee_pps"></div>
+                <div class="col-lg-6"><input type="text" name="employee_pps"></div>
               </div>
             </div>
 
@@ -133,7 +132,13 @@
             <div class="row">
               <div class="form-group">
                 <div class="col-lg-offset-2 col-lg-4"><label for="password">Password</label></div>
-                <div class="col-lg-6"><input type="Password" name="password"></div>
+                <div class="col-lg-6"><input type="Password" name="password" minlength="8" maxlength="25"></div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-offset-4 col-lg-4">
+                <input id="add_employee_btn" type="submit" name="add_employee_btn" value="+ Add Employee" class="btn btn-success btn-block center-block"></input>
               </div>
             </div>
 
@@ -142,12 +147,12 @@
 
           <div class="col-lg-6">
             <h2 class="sub-header text-center">Remove Employee</h2>
-            <form name="add_employee" method="post" action="add_employee.php">
+            <form name="add_employee" method="post" action="remove_employee.php">
             
             <div class="row">
               <div class="form-group">
                 <div class="col-lg-offset-2 col-lg-4"><label for="employee_pps">Employee PPS Number</label></div>
-                <div class="col-lg-6"><input type="Number" name="employee_pps"></div>
+                <div class="col-lg-6"><input type="text" name="employee_pps"></div>
               </div>
             </div>
 
@@ -155,6 +160,12 @@
               <div class="form-group">
                 <div class="col-lg-offset-2 col-lg-4"><label for="employee_name">Employee Name</label></div>
                 <div class="col-lg-6"><input type="text" name="employee_name"></div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-offset-4 col-lg-4">
+                <input id="remove_employee_btn" type="submit" name="remove_employee_btn" value="- Remove Employee" class="btn btn-danger btn-block center-block"></input>
               </div>
             </div>
 
@@ -167,11 +178,10 @@
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th>Employee Number</th>
+                  <th>Employee PPS Number</th>
                   <th>Name</th>
                   <th>Phone Number</th>
                   <th>Email</th>
-                  <th>Address</th>
                 </tr>
               </thead>
               <tbody>
