@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>POS App</title>
-    <link rel="shortcut icon" href="images/icon.ico">
+    <title>Order 66</title>
+    <link rel="shortcut icon" href="images/logo.ico">
 
     <!-- Bootstrap -->
     <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
@@ -29,8 +29,8 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                   </button>
-                  <a class="navbar-brand hidden-xs" href="#">Project name</a>
-                  <a class="navbar-brand col-xs-6 visible-xs" href="#">Project name</a>
+                  <a class="navbar-brand hidden-xs" href="index.php" ><img src="images/logo2.png" width="150px"></a>
+                  <a class="navbar-brand col-xs-6 visible-xs" href="index.php"><img src="images/logo2.png" width="150px"></a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                   <ul id="primaryLinks" class="nav navbar-nav">
@@ -70,7 +70,7 @@
                     </div>
                     <li class="visible-xs"><a href="pages/login.php">Log In</a></li>
                   </ul>
-                  <ul class="nav navbar-nav navbar-right">
+                  <ul id="signUpLink" class="nav navbar-nav navbar-right">
                     <li id="signUpBtn"><a href="pages/signUp.php">Sign Up</a></li>
                   </ul>
                 </div>
@@ -80,16 +80,14 @@
           <div class="row">
 
             <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 col-xs-12 text-center">
-              <h1>Some <span class="green">Heading</span> Title</h1>
+              <h1>Let <span class="green">Order 66</span> Take Care of Your Business</h1>
 
             </div>
           </div>
 
           <div class="row">
-
             <div class="col-lg-offset-5 col-lg-2 col-md-offset-5 col-md-2 col-xs-offset-4 col-xs-4">
-              <button id="getStartedBtn" type="button" class="btn btn-primary btn-block" >Get Started</button>
-
+              <a href="pages/signUp.php"><button id="getStartedBtn" type="button" class="btn btn-primary btn-block" >Get Started</button></a>
             </div>
           </div>
         </div> <!-- Heading Section End -->
@@ -99,15 +97,10 @@
         <div id="content-section-1" class="row">
 
           <div class="col-lg-offset-5 col-lg-2 col-md-offset-3 col-md-6 col-xs-offset-2 col-xs-8 text-center">
-            <h2>Some Heading</h2>
+            <h2>Save Money</h2>
           </div>
           <div class="col-lg-offset-3 col-lg-6 col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 col-xs-offset-1 col-xs-10 text-center">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Reduce costs of equipment by using Order 66 as your Point of service application of choice. Order 66 allows employee's to download the app from the Google Play Store and be able to start creating and sending Orders between devices. Order 66 also handles all your reporting and allows you to focus on your business. We allow you to see usage statistics like busiest time of the day and most popular item. It also shows you graphs and charts comparing your earnings from each month and each year. Choose Order 66 for you Point of Service application of choice.
 
           </div>
         </div>
@@ -142,47 +135,32 @@
         <div id="content-section-3" class="hidden-xs">
           <div class="row text-center">
             <div class="col-lg-offset-1 col-lg-3 col-sm-4">
-              <h2>Some Heading</h2>
+              <h2>Send Orders between Devices</h2>
               <img src="images/test1.jpg">
             </div>
 
             <div class="col-lg-4 col-sm-4">
-              <h2>Some Heading</h2>
+              <h2>Unique Employer Overview</h2>
               <img src="images/test2.jpg">
             </div>
 
             <div class="col-lg-3 col-sm-4">
-              <h2>Some Heading</h2>
+              <h2>Reporting & Statistics</h2>
               <img src="images/test3.png">
             </div>
           </div>
 
           <div class="row text-center">
             <div class="col-lg-offset-1 col-lg-3 col-sm-4">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <p>With Order 66 you can have all your employee's be able to create and send orders to all other devices. A good example that highlights the use of this is Waitors/Waitresses can take an order at a table on their Android Phone. Then with a click of a button can send the Order to the kitchen in an instant.</p>
             </div>
 
             <div class="col-lg-4 col-sm-4">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <p>The unique Employer overview allows empoyers to keep track of their employee records, automatically generate reports and view usefull statistics tailored just to your business. These statstics can help boost the efficency of your business and in turn save you money.</p>
             </div>
 
             <div class="col-lg-3 col-sm-4">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <p>A great advantage of using a point of service application to handle your business is that it can automatically generate reports and usage statistics that are tailored especially to your business. The easy to read display simplifies data that can be difficult to interpret.  </p>
             </div>
           </div>
         </div>
@@ -190,46 +168,31 @@
         <div id="content-section-3" class="visible-xs">
           <div class="row">
             <div class="col-xs-offset-3 xol-xs-6">
-              <h2>Some Heading</h2>
+              <h2>Send Orders between Devices</h2>
               <img src="images/test1.jpg">
             </div>
             <div class="col-xs-offset-1 col-xs-10">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <p>With Order 66 you can have all your employee's be able to create and send orders to all other devices. A good example that highlights the use of this is Waitors/Waitresses can take an order at a table on their Android Phone. Then with a click of a button can send the Order to the kitchen in an instant.</p>
             </div>
           </div>
 
           <div class="row">
             <div class="col-xs-offset-3 xol-xs-6">
-              <h2>Some Heading</h2>
+              <h2>Unique Employer Overview</h2>
               <img src="images/test2.jpg">
             </div>
             <div class="col-xs-offset-1 col-xs-10">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <p>The unique Employer overview allows empoyers to keep track of their employee records, automatically generate reports and view usefull statistics tailored just to your business. These statstics can help boost the efficency of your business and in turn save you money.</p>
             </div>
           </div>
 
           <div class="row">
             <div class="col-xs-offset-3 xol-xs-6">
-              <h2>Some Heading</h2>
+              <h2>Reporting & Statistics</h2>
               <img src="images/test3.png">
             </div>
             <div class="col-xs-offset-1 col-xs-10">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <p>A great advantage of using a point of service application to handle your business is that it can automatically generate reports and usage statistics that are tailored especially to your business. The easy to read display simplifies data that can be difficult to interpret.  </p>
             </div>
           </div>
 
@@ -259,7 +222,7 @@
         <a href="https://gitlab.computing.dcu.ie/kellyi7/pointofserviceapp"><img class="center-block" src="images/glyphicons-social-22-github.png"></a>
       </div>
       <div class="col-lg-offset-1 col-lg-2 col-xs-offset-1 col-xs-2">
-        <a href=""><img class="center-block" src="images/glyphicons-social-38-rss.png"></a>
+        <a href="https://ca326pointofserviceapp.wordpress.com/"><img class="center-block" src="images/glyphicons-social-38-rss.png"></a>
       </div>
     </div>
     <div class="row text-center">

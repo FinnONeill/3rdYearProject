@@ -25,6 +25,7 @@ button{
 
 .navbar a{
   color: white !important;
+
 }
 
 #collapsedBtn{
@@ -40,6 +41,14 @@ button{
   background-color: #6e3667;
 }
 
+.navbar #primaryLinks a{
+  margin-top: 20px;
+}
+
+.navbar #signUpLink a{
+  margin-top: 20px;
+}
+
 .navbar #primaryLinks a:hover{
   border-style: solid;
   border-color: #88d317;
@@ -50,7 +59,7 @@ button{
   text-decoration: underline; 
 }
 
-#signUpBtn{
+#signUpBtn a{
   font-size: 1em;
   border-style: solid;
   border-color: #88d317;

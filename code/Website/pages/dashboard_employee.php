@@ -36,9 +36,9 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+    <link rel="icon" href="../images/logo.ico">
 
-    <title>Dashboard Template for Bootstrap</title>
+    <title>Order 66</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
@@ -59,13 +59,12 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <a class="navbar-brand" href="dashboard.php" style="color: #88d317; ">Order 66</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="dashboard.php">Dashboard</a></li>
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">Help</a></li>
+            <li><a href="faq.php">Help</a></li>
             <li><a href="logout.php">Log out</a></li>
           </ul>
           <form class="navbar-form navbar-right">

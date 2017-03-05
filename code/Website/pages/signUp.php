@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>POS App</title>
-    <link rel="shortcut icon" href="../images/icon.ico">
+    <title>Order 66</title>
+    <link rel="shortcut icon" href="../images/logo.ico">
 
     <!-- Bootstrap -->
     <link href="../bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
@@ -30,8 +30,8 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                   </button>
-                  <a class="navbar-brand hidden-xs" href="../index.php">Project name</a>
-                  <a class="navbar-brand col-xs-6 visible-xs" href="../index.php">Project name</a>
+                  <a class="navbar-brand hidden-xs" href="index.php" ><img src="../images/logo2.png" class="" width="150px"></a>
+                  <a class="navbar-brand col-xs-6 visible-xs" href="../index.php"><img src="../images/logo2.png" class="" width="150px"></a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                   <ul id="primaryLinks" class="nav navbar-nav">
@@ -71,7 +71,7 @@
                     <li class="visible-xs"><a href="login.php">Log In</a></li>
 
                   </ul>
-                  <ul class="nav navbar-nav navbar-right">
+                  <ul id="signUpLink" class="nav navbar-nav navbar-right">
                     <li id="signUpBtn" class="navbar-active"><a href="signUp.php">Sign Up</a></li>
                   </ul>
                 </div>
@@ -81,7 +81,7 @@
           <div class="row">
 
             <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 col-xs-12 text-center">
-              <h1>Sign <span class="green">Up</span></h1>
+              <h1>Sign <span class="green">Up</span>Today</h1>
 
             </div>
           </div>
@@ -227,7 +227,7 @@
         <a href="https://gitlab.computing.dcu.ie/kellyi7/pointofserviceapp"><img class="center-block" src="../images/glyphicons-social-22-github.png"></a>
       </div>
       <div class="col-lg-offset-1 col-lg-2 col-xs-offset-1 col-xs-2">
-        <a href=""><img class="center-block" src="../images/glyphicons-social-38-rss.png"></a>
+        <a href="https://ca326pointofserviceapp.wordpress.com/"><img class="center-block" src="../images/glyphicons-social-38-rss.png"></a>
       </div>
     </div>
     <div class="row text-center">
