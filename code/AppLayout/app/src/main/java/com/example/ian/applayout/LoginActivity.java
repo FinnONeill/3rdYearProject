@@ -8,6 +8,7 @@ import android.app.ProgressDialog;
 import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.Loader;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
@@ -30,10 +31,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -41,6 +38,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.lang.reflect.Array;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -63,13 +61,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private static final int REQUEST_READ_CONTACTS = 0;
 
     /**
-     * A dummy authentication store containing known user names and passwords.
-     * TODO: remove after connecting to a real authentication system.
-     */
-    private static final String[] DUMMY_CREDENTIALS = new String[]{
-            "foo@example.com:hello", "bar@example.com:world"
-    };
-    /**
      * Keep track of the login task to ensure we can cancel it if requested.
      */
     private UserLoginTask mAuthTask = null;
@@ -81,6 +72,13 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
+
+    private String email;
+    private String pass;
+
+    public String[] getUserInfo(){
+        return new String[]{this.email, this.pass};
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -204,6 +202,13 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             showProgress(true);
             mAuthTask = new UserLoginTask(username, password);
             mAuthTask.execute();
+
+            SharedPreferences settings = this.getSharedPreferences("LogInInfo",0);
+            SharedPreferences.Editor editor = settings.edit();
+            editor.putString("email", username);
+            editor.putString("password",password);
+            editor.commit();
+
         }
     }
 
@@ -403,6 +408,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
                 if (result.equalsIgnoreCase("1")) {
                     Intent nextActivity = new Intent(LoginActivity.this, RoleActivity.class);
+                    nextActivity.putExtra("email",mUsername);
+                    nextActivity.putExtra("password",mPassword);
                     startActivity(nextActivity);
                     LoginActivity.this.finish();
                     Toast.makeText(LoginActivity.this, "Successful Login!", Toast.LENGTH_LONG).show();

@@ -16,22 +16,52 @@
     die("Connection failed: " . $conn->connect_error);
   }
 
-  $query = "SELECT item_name, item_description, item_price, item_catagory FROM menu_details WHERE menu_id = '$company_id' ORDER BY item_catagory";
+  $query = "SELECT item_name, item_description, item_price, item_catagory FROM menu_details WHERE menu_id = '$company_id' AND item_catagory = 'Starters'";
 
   $result = $conn->query($query) or die ("Failed to query database ".$conn->connect_error);
 
-  $dataRow="";
-  $catagory="";
+  $starters="";
 
   while($row = mysqli_fetch_array($result) ){
-
-    //if($catagory != $row[3]){
-        //$catagory = $row[3];
-
-        $dataRow = $dataRow."<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td></tr>";
-    //}
-
+    $starters = $starters."<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td></tr>";
   }
+
+  //---------------------------------------------------------------------------------------------------
+
+  $query = "SELECT item_name, item_description, item_price, item_catagory FROM menu_details WHERE menu_id = '$company_id' AND item_catagory = 'Mains'";
+
+  $result = $conn->query($query) or die ("Failed to query database ".$conn->connect_error);
+
+  $mains="";
+
+  while($row = mysqli_fetch_array($result) ){
+        $mains = $mains."<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td></tr>";
+  }
+
+  //---------------------------------------------------------------------------------------------------
+
+  $query = "SELECT item_name, item_description, item_price, item_catagory FROM menu_details WHERE menu_id = '$company_id' AND item_catagory = 'Desserts'";
+
+  $result = $conn->query($query) or die ("Failed to query database ".$conn->connect_error);
+
+  $desserts="";
+
+  while($row = mysqli_fetch_array($result) ){
+        $desserts = $desserts."<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td></tr>";
+  }
+
+  //---------------------------------------------------------------------------------------------------
+
+  $query = "SELECT item_name, item_description, item_price, item_catagory FROM menu_details WHERE menu_id = '$company_id' AND item_catagory = 'Sides'";
+
+  $result = $conn->query($query) or die ("Failed to query database ".$conn->connect_error);
+
+  $sides="";
+
+  while($row = mysqli_fetch_array($result) ){
+        $sides = $sides."<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td></tr>";
+  }
+
 ?>
 
 <!DOCTYPE html>
@@ -127,7 +157,7 @@
 
           <h2 class="sub-header">Menu Overview</h2>
 
-          <h3 class="">Menu</h3>
+          <h3 class="">Starters</h3>
           <div class="table-responsive">
             <table class="table table-striped">
               <thead>
@@ -138,43 +168,103 @@
                 </tr>
               </thead>
               <tbody>
-                <?php echo $dataRow; ?>
+                <?php echo $starters; ?>
               </tbody>
             </table>
           </div>
 
+          <h3 class="">Mains</h3>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Item Name</th>
+                  <th>Description</th>
+                  <th>Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php echo $mains; ?>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 class="">Desserts</h3>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Item Name</th>
+                  <th>Description</th>
+                  <th>Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php echo $desserts; ?>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 class="">Sides</h3>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Item Name</th>
+                  <th>Description</th>
+                  <th>Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php echo $sides; ?>
+              </tbody>
+            </table>
+          </div>
+
+          <hr>
+
           <div class="col-lg-6">
+
             <h3 class="text-center">Add Menu Item</h3>
-            <form name="add_Menu_Item" method="post" action="add_Menu_Item.php">
+            <form id="add_Menu_Item" name="add_Menu_Item" method="post" action="add_Menu_Item.php">
               <div class="row">
                 <div class="form-group">
                   <div class="col-lg-offset-2 col-lg-4"><label for="item_name">Item Name</label></div>
                   <div class="col-lg-6"><input type="Text" name="item_name"></div>
                 </div>
               </div>
+
               <div class="row">
                 <div class="form-group">
                   <div class="col-lg-offset-2 col-lg-4"><label for="item_description">Item Description</label></div>
                   <div class="col-lg-6"><input type="Text" name="item_description"></div>
                 </div>
               </div>
+
               <div class="row">
                 <div class="form-group">
-                  <div class="col-lg-offset-2 col-lg-4"><label for="item_description">Item Price</label></div>
-                  <div class="col-lg-6"><input type="Text" name="item_description"></div>
+                  <div class="col-lg-offset-2 col-lg-4"><label for="item_price">Item Price</label></div>
+                  <div class="col-lg-6"><input type="Text" name="item_price"></div>
                 </div>
               </div>
+
               <div class="row">
                 <div class="form-group">
-                  <div class="col-lg-offset-2 col-lg-4"><label for="item_description">Item Catagory</label></div>
+                  <div class="col-lg-offset-2 col-lg-4"><label for="item_catagory">Item Catagory</label></div>
                   <div class="col-lg-6">
-                    <select id="item_catagory" name="item_catagory">
+                    <select id="item_catagory" name="item_catagory" form="add_Menu_Item">
                       <option value="Starters">Starters</option>
                       <option value="Mains">Mains</option>
                       <option value="Desserts">Desserts</option>
                       <option value="Sides">Sides</option>
                     </select>
                   </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-offset-4 col-lg-4">
+                  <input id="add_menu_item_btn" type="submit" name="add_menu_item_btn" value="+ Add Menu Item" class="btn btn-success btn-block center-block"></input>
                 </div>
               </div>
             </form>
@@ -190,12 +280,14 @@
                   <div class="col-lg-6"><input type="Text" name="item_name"></div>
                 </div>
               </div>
+
               <div class="row">
                 <div class="form-group">
                   <div class="col-lg-offset-2 col-lg-4"><label for="item_description">Item Price</label></div>
                   <div class="col-lg-6"><input type="Text" name="item_description"></div>
                 </div>
               </div>
+
               <div class="row">
                 <div class="form-group">
                   <div class="col-lg-offset-2 col-lg-4"><label for="item_description">Item Catagory</label></div>
@@ -208,6 +300,12 @@
                       <option value="Sides">
                     </datalist>
                   </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-offset-4 col-lg-4">
+                  <input id="remove_menu_item_btn" type="submit" name="remove_menu_item_btn" value="- Remove Menu Item" class="btn btn-danger btn-block center-block"></input>
                 </div>
               </div>
             </form>
