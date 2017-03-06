@@ -41,25 +41,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".floor.MenuListActivity"
+            android:name=".floor.ItemListActivity"
             android:label="@string/title_item_list"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".floor.TableListActivity"
-            android:label="@string/title_item_list"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity
-            android:name=".floor.TotalListActivity"
-            android:label="@string/title_item_list"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity
-            android:name=".floor.MenuDetailActivity"
+            android:name=".floor.ItemDetailActivity"
             android:label="@string/title_item_detail"
-            android:parentActivityName=".floor.MenuListActivity"
+            android:parentActivityName=".floor.ItemListActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.ian.applayout.floor.MenuListActivity" />
+                android:value="com.example.ian.applayout.floor.ItemListActivity" />
         </activity>
     </application>
 

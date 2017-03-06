@@ -21,7 +21,7 @@ public class DrawerActivity extends AppCompatActivity implements NavigationView.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_drawer);
+        setContentView(R.layout.activity_main);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -90,19 +90,20 @@ public class DrawerActivity extends AppCompatActivity implements NavigationView.
         FragmentManager fragmentManager = getSupportFragmentManager();
 
         if (id == R.id.create_order) {
-            fragment = new TableListFragment();
+            // Handle the camera action
+            fragment = new DefaultFragment();
             fragmentManager.beginTransaction().replace(R.id.first_container, fragment).commit();
 
         } else if (id == R.id.view_menu) {
-            fragment = new MenuListFragment();
+            fragment = new ItemListFragment();
             fragmentManager.beginTransaction().replace(R.id.first_container, fragment).commit();
 
-        } else if (id == R.id.view_total_order) {
-            fragment = new TotalListFragment();
+        } else if (id == R.id.view_tables) {
+            fragment = new ItemListFragment();
             fragmentManager.beginTransaction().replace(R.id.first_container, fragment).commit();
 
         } else if (id == R.id.done_order) {
-            fragment = new MenuListFragment();
+            fragment = new ItemListFragment();
             fragmentManager.beginTransaction().replace(R.id.first_container, fragment).commit();
         }
 

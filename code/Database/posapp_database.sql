@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 06, 2017 at 05:11 PM
+-- Generation Time: Mar 06, 2017 at 11:33 PM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -123,19 +123,18 @@ INSERT INTO `menu_details` (`menu_id`, `item_name`, `item_catagory`, `item_descr
 CREATE TABLE `orders` (
   `order_id` int(11) NOT NULL COMMENT 'AKA company_id',
   `order_number` int(11) NOT NULL,
-  `order_price` varchar(255) COLLATE utf8_general_mysql500_ci NOT NULL
+  `order_details` text COLLATE utf8_general_mysql500_ci NOT NULL,
+  `order_price` varchar(255) COLLATE utf8_general_mysql500_ci NOT NULL,
+  `order_status` varchar(255) COLLATE utf8_general_mysql500_ci NOT NULL DEFAULT 'OPEN'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_mysql500_ci;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `order_details`
+-- Dumping data for table `orders`
 --
 
-CREATE TABLE `order_details` (
-  `order_id_number` int(11) NOT NULL,
-  `item_name` varchar(255) COLLATE utf8_general_mysql500_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_mysql500_ci;
+INSERT INTO `orders` (`order_id`, `order_number`, `order_details`, `order_price`, `order_status`) VALUES
+(28, 123, 'x2 Pasta x3 Ice Cream', '30.99', 'OPEN'),
+(28, 182, 'x3 Ice Cream', '10.99', 'OPEN');
 
 --
 -- Indexes for dumped tables
@@ -170,12 +169,6 @@ ALTER TABLE `menu_details`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`order_id`,`order_number`);
-
---
--- Indexes for table `order_details`
---
-ALTER TABLE `order_details`
-  ADD PRIMARY KEY (`order_id_number`,`item_name`);
 
 --
 -- AUTO_INCREMENT for dumped tables

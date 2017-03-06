@@ -1,50 +1,43 @@
 package com.example.ian.applayout;
 
-import android.app.ProgressDialog;
-import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
-import android.widget.Toast;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
-import java.net.Socket;
 import java.net.URL;
-import java.net.UnknownHostException;
+import java.util.ArrayList;
 
 /**
- * Created by Finn on 04/03/2017.
+ * Created by Finn on 06/03/2017.
  */
 
-public class SendOrder extends AsyncTask<String, String, String> {
+public class RecieveOrders extends AsyncTask<String, String ,String>{
+
+    private final String mUsername;
+    private final String mPassword;
 
     private HttpURLConnection conn;
     private URL url = null;
+
     private static final int CONNECTION_TIMEOUT = 10000;
     private static final int READ_TIMEOUT = 15000;
+    public static ArrayList<Order> orderList;
 
-    private String username,password,orderNumber,orderDetails,orderPrice;
-
-    public SendOrder(String username, String password, String orderNumber, String orderDetails, String orderPrice){
-        this.username = username;
-        this.password = password;
-        this.orderNumber = orderNumber;
-        this.orderDetails = orderDetails;
-        this.orderPrice = orderPrice;
-    }
-
-    @Override
-    protected void onPreExecute(){
-        super.onPreExecute();
+    RecieveOrders(String username, String password) {
+        mUsername = username;
+        mPassword = password;
     }
 
     @Override
@@ -53,7 +46,7 @@ public class SendOrder extends AsyncTask<String, String, String> {
 
         try {
             //Setup HTTPURLConnection class to send & recieve from php & mysql.
-            url = new URL("http://192.168.0.2/android/recieve_order.php");
+            url = new URL("http://192.168.0.2/android/checkOrders.php");
 
             conn = (HttpURLConnection)url.openConnection();
             conn.setReadTimeout(READ_TIMEOUT);
@@ -65,11 +58,8 @@ public class SendOrder extends AsyncTask<String, String, String> {
 
             //Append parameters to URL
             Uri.Builder builder = new Uri.Builder()
-                    .appendQueryParameter("username", username)
-                    .appendQueryParameter("password", password)
-                    .appendQueryParameter("order_number", orderNumber)
-                    .appendQueryParameter("order_details",orderDetails)
-                    .appendQueryParameter("order_price", orderPrice);
+                    .appendQueryParameter("username", mUsername)
+                    .appendQueryParameter("password", mPassword);
 
             String query = builder.build().getEncodedQuery();
 
@@ -117,22 +107,26 @@ public class SendOrder extends AsyncTask<String, String, String> {
     }
 
     @Override
-    protected void onProgressUpdate(String... almostResult){
-        System.out.println("DETAILS "+username+" "+password+" "+orderNumber+" "+orderDetails+" "+orderPrice);
-    }
-
-    @Override
     protected void onPostExecute(String result) {
         //Run this method on UI Thread
-        System.out.println("DETAILS "+username+" "+password+" "+orderNumber+" "+orderDetails+" "+orderPrice);
-        System.out.println(result);
-        if (result.equalsIgnoreCase("1")) {
-            //Order Sent
-        } else if(result.equalsIgnoreCase("0")){
-            //If username & password don't match, display error message.
-            //Toast.makeText(LoginActivity.this, "Invalid email or password", Toast.LENGTH_LONG).show();
-        }else if(result.equalsIgnoreCase("exception") || result.equalsIgnoreCase("unsuccessful")){
-            //Toast.makeText(LoginActivity.this, "Oops! Something went wrong. Connection Problem.", Toast.LENGTH_LONG).show();
+        System.out.println("Test 1");
+        orderList = new ArrayList<Order>();
+
+        try{
+            JSONArray jArray = new JSONArray(result);
+            for(int i=0; i<jArray.length(); i++){
+                JSONObject jObject = jArray.getJSONObject(i);
+                String orderNumber = jObject.get("order_number").toString();
+                String orderDetails = jObject.get("order_details").toString();
+                String orderPrice = jObject.get("order_price").toString();
+                String orderStatus = jObject.get("order_status").toString();
+                orderList.add(new Order(orderNumber,orderDetails,orderPrice,orderStatus));
+                System.out.println(orderList.get(i).toString());
+            }
+
+        }catch (JSONException e){
+            e.printStackTrace();
         }
     }
+
 }

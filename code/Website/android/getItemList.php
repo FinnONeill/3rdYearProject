@@ -14,7 +14,7 @@
 		die("Connection failed: " . $conn->connect_error);
 	}
 
-	// Get values from form
+	// Get values from user
 	$login_email = $_REQUEST['username'];
 	$login_password = $_REQUEST['password'];
 
@@ -33,8 +33,7 @@
 		$menuItems[] = $rowItem;
 	}
 	
-	
-	echo json_encode($menuItems[0][1]);
+	echo json_encode($menuItems);
 
 	$conn->close();
 ?>

@@ -11,6 +11,9 @@ import android.widget.Button;
 
 import com.example.ian.applayout.floor.DrawerActivity;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 /**
  * Created by Ian on 26/02/2017.
  */
@@ -19,28 +22,35 @@ public class RoleActivity extends AppCompatActivity {
     public static String TAG = "RoleActivity";
 
     private Account user;
-    private AsyncClient orderSender;
+
+    private String username,password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_role);
         //user = new Account();
-
+        SharedPreferences settings = getSharedPreferences("LogInInfo",0);
+        username = settings.getString("email","could not find email");
+        password = settings.getString("password","could not find password");
+        /*
+        Timer timer = new Timer();
+        TimerTask timerTask = new TimerTask() {
+            @Override
+            public void run() {
+                //your code
+            }
+        };
+        timer.schedule(timerTask, 0, 10000);
+        */
         Button theFloorButton = (Button) (findViewById(R.id.theFloorButton));
         theFloorButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.i(TAG, "Floor button was clicked!");
                 Intent nextActivity = new Intent(RoleActivity.this, DrawerActivity.class);
-
-                SharedPreferences settings = getSharedPreferences("LogInInfo",0);
-                System.out.println("Email: "+settings.getString("email","could not find email"));
-                System.out.println("Passsword: "+settings.getString("password","could not find password"));
-
-                new MenuGetter(settings.getString("email","could not find email"),settings.getString("password","could not find password")).execute();
+                new MenuGetter(username,password).execute();
                 startActivity(nextActivity);
-
             }
         });
 
@@ -49,7 +59,7 @@ public class RoleActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.i(TAG, "Bar button was clicked!");
-                //orderSender.sendMessage("Bar First Order\nSecond Order");
+                new SendOrder(username,password,"182","x3 Ice Cream","10.99").execute();
                 Intent nextActivity = new Intent(RoleActivity.this, DrawerActivity.class);
                 startActivity(nextActivity);
             }
@@ -60,9 +70,7 @@ public class RoleActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.i(TAG, "Kitchen button was clicked!");
-                //orderSender.execute("Kitchen First Order\nSecond Order");
-                //orderSender.sendMessage("Kitchen First Order\nSecond Order");
-                new AsyncClient().execute("Kitchen First Order\nSecond Order");
+                new RecieveOrders(username,password).execute();
                 Intent nextActivity = new Intent(RoleActivity.this, DrawerActivity.class);
                 startActivity(nextActivity);
             }

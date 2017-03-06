@@ -15,7 +15,7 @@
     <!--
     This layout is a two-pane layout for the Items
     master/detail flow.
-    tools:context="com.inducesmile.navigationdrawerandmasterdetail.MenuListActivity"
+    tools:context="com.inducesmile.navigationdrawerandmasterdetail.ItemListActivity"
     -->
 
     <android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
@@ -27,7 +27,7 @@
                                             android:layout_marginLeft="16dp"
                                             android:layout_marginRight="16dp"
                                             app:layoutManager="LinearLayoutManager"
-                                            tools:context="com.example.ian.applayout.floor.MenuListActivity"
+                                            tools:context="com.example.ian.applayout.floor.ItemListActivity"
                                             tools:listitem="@layout/item_list_content" />
 
     <FrameLayout

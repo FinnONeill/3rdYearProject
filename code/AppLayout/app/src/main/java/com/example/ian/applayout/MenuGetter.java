@@ -1,7 +1,14 @@
 package com.example.ian.applayout;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.provider.SyncStateContract;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -13,6 +20,7 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 
 /**
  * Created by Finn on 06/03/2017.
@@ -28,6 +36,7 @@ public class MenuGetter extends AsyncTask<String, String, String> {
 
     private static final int CONNECTION_TIMEOUT = 10000;
     private static final int READ_TIMEOUT = 15000;
+    public static ArrayList<Item> menu;
 
     MenuGetter(String username, String password) {
         mUsername = username;
@@ -103,41 +112,22 @@ public class MenuGetter extends AsyncTask<String, String, String> {
     @Override
     protected void onPostExecute(String result) {
         //Run this method on UI Thread
-        System.out.println("Stage 1");
-        System.out.println("Result: "+result);
-        /*ArrayList<Item> menu = new ArrayList<Item>();
+        menu = new ArrayList<Item>();
 
         try{
-
-            JSONArray jsonArray = new JSONArray(result);
-            for(int i=0; i<jsonArray.length(); i++){
-                JSONObject jsonData = jsonArray.getJSONObject(i);
-
-                String name = jsonData.getString("item_name");
-                String catagory = jsonData.getString("item_catagory");
-                String description = jsonData.getString("item_description");
-                int price = Integer.parseInt(jsonData.getString("item_price"));
-
+            JSONArray jArray = new JSONArray(result);
+            for(int i=0; i<jArray.length(); i++){
+                JSONObject jObject = jArray.getJSONObject(i);
+                String name = jObject.get("item_name").toString();
+                String catagory = jObject.get("item_name").toString();
+                String description = jObject.get("item_name").toString();
+                String price = jObject.get("item_name").toString();
                 menu.add(new Item(name,catagory,description,price));
             }
+            System.out.println(menu.get(0).toString());
 
         }catch (JSONException e){
             e.printStackTrace();
         }
-
-        System.out.print("Item name: "+menu.get(1).getName());
-        */
-
-        /*
-        if (result.equalsIgnoreCase("1")) {
-
-            Toast.makeText(MenuListActivity.this, "Successful Login!", Toast.LENGTH_LONG).show();
-        } else if(result.equalsIgnoreCase("0")){
-            //If username & password don't match, display error message.
-            Toast.makeText(MenuListActivity.this, "Invalid email or password", Toast.LENGTH_LONG).show();
-        }else if(result.equalsIgnoreCase("exception") || result.equalsIgnoreCase("unsuccessful")){
-            Toast.makeText(MenuListActivity.this, "Oops! Something went wrong. Connection Problem.", Toast.LENGTH_LONG).show();
-        }*/
     }
-
 }

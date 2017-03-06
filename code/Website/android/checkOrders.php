@@ -14,6 +14,7 @@
 		die("Connection failed: " . $conn->connect_error);
 	}
 
+	// Get values from user
 	$login_email = $_REQUEST['username'];
 	$login_password = $_REQUEST['password'];
 
@@ -23,20 +24,15 @@
 	$row = mysqli_fetch_array($result);
 	$company_id = $row['company_id'];
 
-	// Get values from form
-	$order_number = $_REQUEST['order_number'];
-	$order_details = $_REQUEST['order_details'];
-	$order_price = $_REQUEST['order_price'];
-
 	// Query database for user
-	$result = "INSERT INTO orders(order_id, order_number ,order_details, order_price) VALUES ('$company_id','$order_number','$order_details','$order_price')";
+	$result = $conn->query("SELECT order_number, order_details, order_price, order_status FROM orders WHERE order_id = '$company_id' AND order_status='OPEN'") or die("Failed to query database ".$conn->connect_error);
 
-	//Send query and print error is it failed
-	if($conn->query($result) === FALSE){
-		echo "Error: " . $result . "<br>" . $conn->error;
-	}else{
-		echo(TRUE);
+	$menuItems = array();
+	while($rowItem = mysqli_fetch_array($result)){
+		$menuItems[] = $rowItem;
 	}
+
+	echo json_encode($menuItems);
 
 	$conn->close();
 ?>
