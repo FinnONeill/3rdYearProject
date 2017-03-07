@@ -4,7 +4,7 @@ package com.example.ian.applayout.floor.contentLists;
  * Created by Ian on 06/03/2017.
  */
 
-import com.example.ian.applayout.floor.TotalListActivity;
+import com.example.ian.applayout.floor.MenuDetailActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,30 +19,24 @@ public class OrderTotal {
     /**
      * An array of sample (dummy) items.
      */
-    public static final List<ItemTotal> ITEMS_TOTAL = new ArrayList<ItemTotal>();
+    public static final List<ItemMenu> ITEMS_MENU = new ArrayList<ItemMenu>();
 
     /**
      * A map of sample (dummy) items, by ID.
      */
-    public static final Map<String, ItemTotal> ITEM_MAP_TOTAL = new HashMap<String, ItemTotal>();
+    public static final Map<String, ItemMenu> ITEM_MAP_MENU = new HashMap<String, ItemMenu>();
 
-    private static int COUNT = new TotalListActivity().totalNum;
+    public static String theItemName = new MenuDetailActivity().itemName;
 
-    static {
-        // Add some sample items.
-        for (int i = 1; i <= COUNT; i++) {
-            addItemTotal(createOrderTotalItem(i));
-        }
+
+    public static void addItemTotal(ItemMenu item) {
+        ITEMS_MENU.add(item);
+        ITEM_MAP_MENU.put(item.id, item);
     }
 
-    public static void addItemTotal(ItemTotal item) {
-        ITEMS_TOTAL.add(item);
-        ITEM_MAP_TOTAL.put(item.id, item);
-        COUNT++;
-    }
-
-    public static ItemTotal createOrderTotalItem(int position) {
-        return new ItemTotal(String.valueOf(position), "Table Number " + position, makeTotalDetails(position));
+    public static ItemMenu createOrderTotalItem(int position, String name) {
+        name = theItemName;
+        return new ItemMenu(String.valueOf(position), name , makeTotalDetails(position));
     }
 
     public static String makeTotalDetails(int position) {
@@ -57,12 +51,12 @@ public class OrderTotal {
     /**
      * A dummy item representing a piece of content.
      */
-    public static class ItemTotal {
+    public static class ItemMenu {
         public final String id;
         public final String content;
         public final String details;
 
-        public ItemTotal(String id, String content, String details) {
+        public ItemMenu(String id, String content, String details) {
             this.id = id;
             this.content = content;
             this.details = details;

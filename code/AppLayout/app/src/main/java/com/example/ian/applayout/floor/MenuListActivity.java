@@ -34,6 +34,7 @@ public class MenuListActivity extends AppCompatActivity {
      * device.
      */
     private boolean mTwoPane;
+    public static String itemNamer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,7 +86,7 @@ public class MenuListActivity extends AppCompatActivity {
         }
 
         @Override
-        public void onBindViewHolder(final ViewHolder holder, int position) {
+        public void onBindViewHolder(final ViewHolder holder, final int position) {
             holder.mItem = mValues.get(position);
             holder.mIdView.setText(mValues.get(position).id);
             holder.mContentView.setText(mValues.get(position).content);
@@ -103,7 +104,7 @@ public class MenuListActivity extends AppCompatActivity {
                         Context context = v.getContext();
                         Intent intent = new Intent(context, MenuDetailActivity.class);
                         intent.putExtra(MenuDetailFragment.ARG_ITEM_ID, holder.mItem.id);
-
+                        itemNamer = mValues.get(position).content;
                         context.startActivity(intent);
                     }
                 }

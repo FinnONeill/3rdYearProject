@@ -24,9 +24,9 @@ public class TotalListFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_tables_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_total_list, container, false);
         oRecycleView = (RecyclerView)view.findViewById(R.id.item_list);
-        oTotalRecyclerViewAdapter = new TotalRecyclerViewAdapter(getActivity(), OrderTotal.ITEMS_TOTAL);
+        oTotalRecyclerViewAdapter = new TotalRecyclerViewAdapter(getActivity(), OrderTotal.ITEMS_MENU);
         oRecycleView.setAdapter(oTotalRecyclerViewAdapter);
 
         return view;

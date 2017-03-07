@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import com.example.ian.applayout.R;
 import com.example.ian.applayout.floor.contentLists.OrderTotal;
-import com.example.ian.applayout.floor.contentLists.OrderTotal.ItemTotal;
+import com.example.ian.applayout.floor.contentLists.OrderTotal.ItemMenu;
 
 import java.util.List;
 
@@ -58,14 +58,14 @@ public class TotalListActivity extends AppCompatActivity {
     }
 
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
-        recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(OrderTotal.ITEMS_TOTAL));
+        recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(OrderTotal.ITEMS_MENU));
     }
 
     public class SimpleItemRecyclerViewAdapter extends RecyclerView.Adapter<SimpleItemRecyclerViewAdapter.ViewHolder> {
 
-        private final List<ItemTotal> oValues;
+        private final List<ItemMenu> oValues;
 
-        public SimpleItemRecyclerViewAdapter(List<ItemTotal> items) {
+        public SimpleItemRecyclerViewAdapter(List<ItemMenu> items) {
             oValues = items;
         }
 
@@ -98,7 +98,7 @@ public class TotalListActivity extends AppCompatActivity {
             public final View oView;
             public final TextView oIdView;
             public final TextView oContentView;
-            public ItemTotal oItem;
+            public ItemMenu oItem;
 
             public ViewHolder(View view) {
                 super(view);

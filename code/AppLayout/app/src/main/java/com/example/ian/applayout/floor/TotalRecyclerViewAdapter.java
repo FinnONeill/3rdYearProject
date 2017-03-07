@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.ian.applayout.R;
-import com.example.ian.applayout.floor.contentLists.OrderTotal.ItemTotal;
+import com.example.ian.applayout.floor.contentLists.OrderTotal.ItemMenu;
 
 import java.util.List;
 
@@ -18,10 +18,10 @@ import java.util.List;
  */
 
 public class TotalRecyclerViewAdapter extends RecyclerView.Adapter<TotalRecyclerViewAdapter.ViewHolder> {
-    private final List<ItemTotal> oValues;
+    private final List<ItemMenu> oValues;
     private Context context;
 
-    public TotalRecyclerViewAdapter(Context context, List<ItemTotal> items) {
+    public TotalRecyclerViewAdapter(Context context, List<ItemMenu> items) {
         this.context = context;
         oValues = items;
     }
@@ -58,7 +58,7 @@ public class TotalRecyclerViewAdapter extends RecyclerView.Adapter<TotalRecycler
         public final View oView;
         public final TextView oIdView;
         public final TextView oContentView;
-        public ItemTotal oItem;
+        public ItemMenu oItem;
 
         public ViewHolder(View view) {
             super(view);

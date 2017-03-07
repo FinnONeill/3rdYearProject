@@ -2,13 +2,19 @@ package com.example.ian.applayout.floor;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.example.ian.applayout.R;
+
+import static com.example.ian.applayout.floor.contentLists.OrderTotal.addItemTotal;
+import static com.example.ian.applayout.floor.contentLists.OrderTotal.createOrderTotalItem;
 
 /**
  * An activity representing a single Item detail screen. This
@@ -18,6 +24,8 @@ import com.example.ian.applayout.R;
  */
 public class MenuDetailActivity extends AppCompatActivity {
 
+    public static int totalNum = 0;
+    public static String itemName =  new MenuListActivity().itemNamer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +38,18 @@ public class MenuDetailActivity extends AppCompatActivity {
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Item added to order!", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+                addItemTotal(createOrderTotalItem(totalNum, itemName));
+                totalNum++;
+            }
+        });
+
 
         // savedInstanceState is non-null when there is fragment state
         // saved from previous configurations of this activity
