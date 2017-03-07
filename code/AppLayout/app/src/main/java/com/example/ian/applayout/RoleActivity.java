@@ -20,21 +20,20 @@ import java.util.TimerTask;
 
 public class RoleActivity extends AppCompatActivity {
     public static String TAG = "RoleActivity";
-
-    private Account user;
-    private MenuGetter menu;
-
     private String username,password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_role);
-        //user = new Account();
+
+        //Access userInfo.
         SharedPreferences settings = getSharedPreferences("LogInInfo",0);
         username = settings.getString("email","could not find email");
         password = settings.getString("password","could not find password");
-    /*
+
+        //Check for new orders
+        /*
         Timer timer = new Timer();
         TimerTask timerTask = new TimerTask() {
             @Override
@@ -43,15 +42,13 @@ public class RoleActivity extends AppCompatActivity {
             }
         };
         timer.schedule(timerTask, 0, 10000);
-*/
+        */
         Button theFloorButton = (Button) (findViewById(R.id.theFloorButton));
         theFloorButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.i(TAG, "Floor button was clicked!");
                 Intent nextActivity = new Intent(RoleActivity.this, DrawerActivity.class);
-                menu = new MenuGetter(username,password);
-                menu.execute();
                 startActivity(nextActivity);
             }
         });

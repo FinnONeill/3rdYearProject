@@ -19,15 +19,12 @@ public class OrderTotal {
     /**
      * An array of sample (dummy) items.
      */
-    public static final List<ItemMenu> ITEMS_MENU = new ArrayList<ItemMenu>();
+    public static ArrayList<ItemMenu> ITEMS_MENU = new ArrayList<ItemMenu>();
 
     /**
      * A map of sample (dummy) items, by ID.
      */
     public static final Map<String, ItemMenu> ITEM_MAP_MENU = new HashMap<String, ItemMenu>();
-
-    public static String theItemName = new MenuDetailActivity().itemName;
-
 
     public static void addItemTotal(ItemMenu item) {
         ITEMS_MENU.add(item);
@@ -35,7 +32,6 @@ public class OrderTotal {
     }
 
     public static ItemMenu createOrderTotalItem(int position, String name) {
-        name = theItemName;
         return new ItemMenu(String.valueOf(position), name , makeTotalDetails(position));
     }
 
@@ -53,7 +49,7 @@ public class OrderTotal {
      */
     public static class ItemMenu {
         public final String id;
-        public final String content;
+        public String content;
         public final String details;
 
         public ItemMenu(String id, String content, String details) {

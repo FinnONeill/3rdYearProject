@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.example.ian.applayout.R;
+import com.example.ian.applayout.floor.contentLists.OrderTotal;
 
 import static com.example.ian.applayout.floor.contentLists.OrderTotal.addItemTotal;
 import static com.example.ian.applayout.floor.contentLists.OrderTotal.createOrderTotalItem;
@@ -25,7 +26,7 @@ import static com.example.ian.applayout.floor.contentLists.OrderTotal.createOrde
 public class MenuDetailActivity extends AppCompatActivity {
 
     public static int totalNum = 0;
-    public static String itemName =  new MenuListActivity().itemNamer;
+    public static String itemName ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,10 +44,14 @@ public class MenuDetailActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                itemName =  new MenuListActivity().itemNamer;
                 Snackbar.make(view, "Item added to order!", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+
                 addItemTotal(createOrderTotalItem(totalNum, itemName));
                 totalNum++;
+                new MenuListActivity().itemNamer = "";
+                itemName =  new MenuListActivity().itemNamer;
             }
         });
 

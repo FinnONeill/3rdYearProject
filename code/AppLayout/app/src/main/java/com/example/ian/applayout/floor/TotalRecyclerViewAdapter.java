@@ -33,7 +33,7 @@ public class TotalRecyclerViewAdapter extends RecyclerView.Adapter<TotalRecycler
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder,final int position) {
         holder.oItem = oValues.get(position);
         holder.oIdView.setText(oValues.get(position).id);
         holder.oContentView.setText(oValues.get(position).content);

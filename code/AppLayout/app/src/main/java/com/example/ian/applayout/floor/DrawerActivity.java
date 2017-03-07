@@ -74,6 +74,7 @@ public class DrawerActivity extends AppCompatActivity implements NavigationView.
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            System.out.print("Do sign out stuff");
             return true;
         }
 

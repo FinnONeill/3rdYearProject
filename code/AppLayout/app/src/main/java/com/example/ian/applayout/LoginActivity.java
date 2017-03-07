@@ -72,6 +72,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
+    private MenuGetter menu;
 
     private String email;
     private String pass;
@@ -171,7 +172,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mUsernameView.setError(null);
         mPasswordView.setError(null);
 
-        // Store values at the time of the login attempt.
+        // Store userInfo to use later.
         String username = mUsernameView.getText().toString();
         String password = mPasswordView.getText().toString();
 
@@ -209,6 +210,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             editor.putString("password",password);
             editor.commit();
 
+            menu = new MenuGetter(username,password);
+            menu.execute();
         }
     }
 
