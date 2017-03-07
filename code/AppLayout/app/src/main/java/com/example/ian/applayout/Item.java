@@ -35,6 +35,8 @@ public class Item {
         return name;
     }
 
+    public String getDescription(){return description;}
+
     public double getPrice(){
         int cents=0;
         int euros=0;

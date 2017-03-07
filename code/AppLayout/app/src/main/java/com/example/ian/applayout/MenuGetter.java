@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.preference.PreferenceManager;
 import android.provider.SyncStateContract;
 
 import org.json.JSONArray;
@@ -30,6 +31,7 @@ public class MenuGetter extends AsyncTask<String, String, String> {
 
     private final String mUsername;
     private final String mPassword;
+    private Context mContext;
 
     private HttpURLConnection conn;
     private URL url = null;
@@ -39,8 +41,9 @@ public class MenuGetter extends AsyncTask<String, String, String> {
     public static ArrayList<Item> menu;
 
     MenuGetter(String username, String password) {
-        mUsername = username;
-        mPassword = password;
+        this.mUsername = username;
+        this.mPassword = password;
+        //this.mContext = mContext;
     }
 
     @Override
@@ -114,20 +117,33 @@ public class MenuGetter extends AsyncTask<String, String, String> {
         //Run this method on UI Thread
         menu = new ArrayList<Item>();
 
+        // save the task list to preference
+        /*
+        SharedPreferences settings = mContext.getSharedPreferences("",0)
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putString("menu", result);
+        editor.commit();
+*/
         try{
             JSONArray jArray = new JSONArray(result);
             for(int i=0; i<jArray.length(); i++){
                 JSONObject jObject = jArray.getJSONObject(i);
                 String name = jObject.get("item_name").toString();
-                String catagory = jObject.get("item_name").toString();
-                String description = jObject.get("item_name").toString();
-                String price = jObject.get("item_name").toString();
+                String catagory = jObject.get("item_catagory").toString();
+                String description = jObject.get("item_description").toString();
+                String price = jObject.get("item_price").toString();
                 menu.add(new Item(name,catagory,description,price));
             }
-            System.out.println(menu.get(0).toString());
+
+            System.out.println("Menu Size: "+menu.size());
+            for (int i=0; i<menu.size(); i++){
+                System.out.println(menu.get(i).toString());
+            }
 
         }catch (JSONException e){
             e.printStackTrace();
         }
     }
+
+    public static ArrayList<Item> getMenu(){return menu;}
 }

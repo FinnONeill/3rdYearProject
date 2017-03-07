@@ -22,6 +22,7 @@ public class RoleActivity extends AppCompatActivity {
     public static String TAG = "RoleActivity";
 
     private Account user;
+    private MenuGetter menu;
 
     private String username,password;
 
@@ -33,7 +34,7 @@ public class RoleActivity extends AppCompatActivity {
         SharedPreferences settings = getSharedPreferences("LogInInfo",0);
         username = settings.getString("email","could not find email");
         password = settings.getString("password","could not find password");
-
+    /*
         Timer timer = new Timer();
         TimerTask timerTask = new TimerTask() {
             @Override
@@ -42,14 +43,15 @@ public class RoleActivity extends AppCompatActivity {
             }
         };
         timer.schedule(timerTask, 0, 10000);
-
+*/
         Button theFloorButton = (Button) (findViewById(R.id.theFloorButton));
         theFloorButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.i(TAG, "Floor button was clicked!");
                 Intent nextActivity = new Intent(RoleActivity.this, DrawerActivity.class);
-                new MenuGetter(username,password).execute();
+                menu = new MenuGetter(username,password);
+                menu.execute();
                 startActivity(nextActivity);
             }
         });

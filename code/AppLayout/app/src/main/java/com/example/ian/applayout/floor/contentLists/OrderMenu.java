@@ -1,5 +1,7 @@
 package com.example.ian.applayout.floor.contentLists;
 
+import com.example.ian.applayout.MenuGetter;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -23,11 +25,11 @@ public class OrderMenu {
      */
     public static final Map<String, DummyItem> ITEM_MAP = new HashMap<String, DummyItem>();
 
-    private static final int COUNT = 25;
+    private static final int COUNT = MenuGetter.menu.size();
 
     static {
         // Add some sample items.
-        for (int i = 1; i <= COUNT; i++) {
+        for (int i = 0; i <COUNT; i++) {
             addItem(createDummyItem(i));
         }
     }
@@ -38,7 +40,10 @@ public class OrderMenu {
     }
 
     private static DummyItem createDummyItem(int position) {
-        return new DummyItem(String.valueOf(position), "Item " + position, makeDetails(position));
+        String desc = "Catagory: \t"+MenuGetter.menu.get(position).getCatagory();
+        desc = desc + "\nDescription: \t"+ MenuGetter.menu.get(position).getDescription();
+        desc = desc + "\nPrice: \t€" + MenuGetter.menu.get(position).getPrice();
+        return new DummyItem(String.valueOf(position+1), MenuGetter.menu.get(position).getName(), desc);
     }
 
     private static String makeDetails(int position) {
@@ -55,8 +60,8 @@ public class OrderMenu {
      */
     public static class DummyItem {
         public final String id;
-        public final String content;
-        public final String details;
+        public final String content;    //name of menu Item
+        public final String details;    //description of menu item
 
         public DummyItem(String id, String content, String details) {
             this.id = id;
