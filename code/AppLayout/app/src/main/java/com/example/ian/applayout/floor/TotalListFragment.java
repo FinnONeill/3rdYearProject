@@ -28,7 +28,6 @@ public class TotalListFragment extends Fragment {
         oRecycleView = (RecyclerView)view.findViewById(R.id.item_list);
         oTotalRecyclerViewAdapter = new TotalRecyclerViewAdapter(getActivity(), OrderTotal.ITEMS_MENU);
         oRecycleView.setAdapter(oTotalRecyclerViewAdapter);
-
         return view;
     }
 }

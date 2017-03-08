@@ -10,7 +10,7 @@ import com.example.ian.applayout.R;
 
 
 /**
- * A simple {@link Fragment} subclass.
+ * A simple fragment for use with the home screen.
  */
 public class DefaultFragment extends Fragment {
 

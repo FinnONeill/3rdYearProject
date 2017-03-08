@@ -14,8 +14,13 @@ import android.view.MenuItem;
 
 import com.example.ian.applayout.R;
 
+/**
+ * The main activity to run all the menu items in the drawer.
+ */
+
 public class DrawerActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
+    //Boolean for if the screen is rotated.
     public static boolean mTwoPane;
 
     @Override
@@ -25,7 +30,6 @@ public class DrawerActivity extends AppCompatActivity implements NavigationView.
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);

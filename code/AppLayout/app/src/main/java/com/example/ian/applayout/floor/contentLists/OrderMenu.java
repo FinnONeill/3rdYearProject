@@ -8,20 +8,17 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Helper class for providing sample content for user interfaces created by
- * Android template wizards.
- * <p>
- * TODO: Replace all uses of this class before publishing your app.
+ * OrderMenu is the class a helper class to be able to add Menu Items to the UI.
  */
 public class OrderMenu {
 
     /**
-     * An array of sample (dummy) items.
+     * An array of items.
      */
     public static final List<DummyItem> ITEMS = new ArrayList<DummyItem>();
 
     /**
-     * A map of sample (dummy) items, by ID.
+     * A map of items, by ID.
      */
     public static final Map<String, DummyItem> ITEM_MAP = new HashMap<String, DummyItem>();
 

@@ -1,5 +1,6 @@
 package com.example.ian.applayout;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
@@ -22,19 +23,22 @@ import java.net.URL;
 import java.net.UnknownHostException;
 
 /**
- * Created by Finn on 04/03/2017.
+ * SendOrder is to represent sending an order to the server.
  */
 
 public class SendOrder extends AsyncTask<String, String, String> {
 
     private HttpURLConnection conn;
     private URL url = null;
+
     private static final int CONNECTION_TIMEOUT = 10000;
     private static final int READ_TIMEOUT = 15000;
+    private Activity mActivity;
 
     private String username,password,orderNumber,orderDetails,orderPrice;
 
-    public SendOrder(String username, String password, String orderNumber, String orderDetails, String orderPrice){
+    public SendOrder(Activity mActivity,String username, String password, String orderNumber, String orderDetails, String orderPrice){
+        this.mActivity = mActivity;
         this.username = username;
         this.password = password;
         this.orderNumber = orderNumber;
@@ -49,7 +53,7 @@ public class SendOrder extends AsyncTask<String, String, String> {
 
     @Override
     protected String doInBackground(String... params) {
-        // TODO: attempt authentication against a network service.
+        //attempt authentication against a network service.
 
         try {
             //Setup HTTPURLConnection class to send & recieve from php & mysql.
@@ -117,22 +121,16 @@ public class SendOrder extends AsyncTask<String, String, String> {
     }
 
     @Override
-    protected void onProgressUpdate(String... almostResult){
-        System.out.println("DETAILS "+username+" "+password+" "+orderNumber+" "+orderDetails+" "+orderPrice);
-    }
-
-    @Override
     protected void onPostExecute(String result) {
         //Run this method on UI Thread
-        System.out.println("DETAILS "+username+" "+password+" "+orderNumber+" "+orderDetails+" "+orderPrice);
-        System.out.println(result);
         if (result.equalsIgnoreCase("1")) {
-            //Order Sent
-        } else if(result.equalsIgnoreCase("0")){
-            //If username & password don't match, display error message.
-            //Toast.makeText(LoginActivity.this, "Invalid email or password", Toast.LENGTH_LONG).show();
-        }else if(result.equalsIgnoreCase("exception") || result.equalsIgnoreCase("unsuccessful")){
-            //Toast.makeText(LoginActivity.this, "Oops! Something went wrong. Connection Problem.", Toast.LENGTH_LONG).show();
+            //Order sent successfully
+            Toast.makeText(mActivity, "Order Sent", Toast.LENGTH_LONG).show();
+        } else if (result.equalsIgnoreCase("0")) {
+            //If order sending failed, display error message.
+            Toast.makeText(mActivity, "Failed to send order", Toast.LENGTH_LONG).show();
+        } else{
+            Toast.makeText(mActivity, "Oops something went wrong, check your connection!", Toast.LENGTH_LONG).show();
         }
     }
 }

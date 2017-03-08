@@ -20,8 +20,4 @@
             android:title="Finished Orders" />
     </group>
 
-    <item android:title="Extras">
-
-    </item>
-
 </menu>

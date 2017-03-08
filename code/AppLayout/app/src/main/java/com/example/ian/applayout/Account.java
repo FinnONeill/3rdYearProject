@@ -1,7 +1,8 @@
 package com.example.ian.applayout;
 
 /**
- * Created by Finn on 06/03/2017.
+ * Account class to represent a users account and all their details that will
+ * be retrieved from the database.
  */
 
 public class Account {

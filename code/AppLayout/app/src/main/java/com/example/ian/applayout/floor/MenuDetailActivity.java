@@ -40,6 +40,7 @@ public class MenuDetailActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
+        //Little green plus button to add menu items to the order.
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,10 +62,6 @@ public class MenuDetailActivity extends AppCompatActivity {
         // (e.g. when rotating the screen from portrait to landscape).
         // In this case, the fragment will automatically be re-added
         // to its container so we don't need to manually add it.
-        // For more information, see the Fragments API guide at:
-        //
-        // http://developer.android.com/guide/components/fragments.html
-        //
         if (savedInstanceState == null) {
             // Create the detail fragment and add it to the activity
             // using a fragment transaction.
@@ -85,11 +82,7 @@ public class MenuDetailActivity extends AppCompatActivity {
         if (id == android.R.id.home) {
             // This ID represents the Home or Up button. In the case of this
             // activity, the Up button is shown. Use NavUtils to allow users
-            // to navigate up one level in the application structure. For
-            // more details, see the Navigation pattern on Android Design:
-            //
-            // http://developer.android.com/design/patterns/navigation.html#up-vs-back
-            //
+            // to navigate up one level in the application structure.
             NavUtils.navigateUpTo(this, new Intent(this, MenuListActivity.class));
             return true;
         }

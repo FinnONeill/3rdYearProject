@@ -10,7 +10,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Created by Finn on 05/03/2017.
+ * The Order class is to represent an Order which is made up of
+ * a ArrayList of Items.
  */
 
 public class Order extends ArrayList<Item>{
@@ -44,6 +45,7 @@ public class Order extends ArrayList<Item>{
 
     public String getOrderStatus(){return orderStatus;}
 
+    //Prints a string representation of an order, accounting for quantities.
     public String getOrderDetails(ArrayList<Item> items){
         String detailsToString="";
 

@@ -24,31 +24,33 @@ import java.net.URL;
 import java.util.ArrayList;
 
 /**
- * Created by Finn on 06/03/2017.
+ * Then MenuGetter class is to represent retrieving the menu from
+ * the database and adding it to an ArrayList of Items.
  */
 
 public class MenuGetter extends AsyncTask<String, String, String> {
 
     private final String mUsername;
     private final String mPassword;
-    private Context mContext;
+
+    //ArrayList of Items to represent the menu.
+    public static ArrayList<Item> menu;
 
     private HttpURLConnection conn;
     private URL url = null;
 
     private static final int CONNECTION_TIMEOUT = 10000;
     private static final int READ_TIMEOUT = 15000;
-    public static ArrayList<Item> menu;
+
 
     MenuGetter(String username, String password) {
         this.mUsername = username;
         this.mPassword = password;
-        //this.mContext = mContext;
     }
 
     @Override
     protected String doInBackground(String... params) {
-        // TODO: attempt authentication against a network service.
+        //attempt authentication against a network service.
 
         try {
             //Setup HTTPURLConnection class to send & recieve from php & mysql.
@@ -116,15 +118,10 @@ public class MenuGetter extends AsyncTask<String, String, String> {
     protected void onPostExecute(String result) {
         //Run this method on UI Thread
         menu = new ArrayList<Item>();
+        System.out.println("Menu: "+result);
 
-        // save the task list to preference
-        /*
-        SharedPreferences settings = mContext.getSharedPreferences("",0)
-        SharedPreferences.Editor editor = settings.edit();
-        editor.putString("menu", result);
-        editor.commit();
-*/
         try{
+            //Convert the JSONString to a JSONArray & add the results to the item menu.
             JSONArray jArray = new JSONArray(result);
             for(int i=0; i<jArray.length(); i++){
                 JSONObject jObject = jArray.getJSONObject(i);
@@ -134,12 +131,6 @@ public class MenuGetter extends AsyncTask<String, String, String> {
                 String price = jObject.get("item_price").toString();
                 menu.add(new Item(name,catagory,description,price));
             }
-
-            System.out.println("Menu Size: "+menu.size());
-            for (int i=0; i<menu.size(); i++){
-                System.out.println(menu.get(i).toString());
-            }
-
         }catch (JSONException e){
             e.printStackTrace();
         }

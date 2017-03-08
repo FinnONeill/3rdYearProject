@@ -1,7 +1,7 @@
 package com.example.ian.applayout;
 
 /**
- * Created by Finn on 05/03/2017.
+ * The Item class is to represent each Menu Item and all it's details.
  */
 
 public class Item {
@@ -37,6 +37,7 @@ public class Item {
 
     public String getDescription(){return description;}
 
+    //This is parse the JSONString price and return it as a double.
     public double getPrice(){
         int cents=0;
         int euros=0;
@@ -59,6 +60,7 @@ public class Item {
 
     public int incQuantity(){return quantity++;}
 
+    //This will return a string representation of all the Item details.
     public String toString(){
         return "Name: "+name + "\nCatagory: "+catagory +"\nDescription: "+description+"\nPrice: "+price +" Quantity: "+quantity;
     }

@@ -20,20 +20,20 @@ import java.net.URL;
 import java.util.ArrayList;
 
 /**
- * Created by Finn on 06/03/2017.
+ * RecieveOrders class is to represent receiving incoming orders.
  */
 
 public class RecieveOrders extends AsyncTask<String, String ,String>{
 
     private final String mUsername;
     private final String mPassword;
+    public static ArrayList<Order> orderList;
 
     private HttpURLConnection conn;
     private URL url = null;
 
     private static final int CONNECTION_TIMEOUT = 10000;
     private static final int READ_TIMEOUT = 15000;
-    public static ArrayList<Order> orderList;
 
     RecieveOrders(String username, String password) {
         mUsername = username;
@@ -42,7 +42,7 @@ public class RecieveOrders extends AsyncTask<String, String ,String>{
 
     @Override
     protected String doInBackground(String... params) {
-        // TODO: attempt authentication against a network service.
+        // attempt authentication against a network service.
 
         try {
             //Setup HTTPURLConnection class to send & recieve from php & mysql.
@@ -73,7 +73,6 @@ public class RecieveOrders extends AsyncTask<String, String ,String>{
             writer.close();
             os.close();
             conn.connect();
-
         } catch (MalformedURLException e) {
             e.printStackTrace();
             return "Exception: Malformed";
@@ -109,10 +108,10 @@ public class RecieveOrders extends AsyncTask<String, String ,String>{
     @Override
     protected void onPostExecute(String result) {
         //Run this method on UI Thread
-        System.out.println("Test 1");
         orderList = new ArrayList<Order>();
 
         try{
+            //Take in the incoming List of Items and add them into an order
             JSONArray jArray = new JSONArray(result);
             for(int i=0; i<jArray.length(); i++){
                 JSONObject jObject = jArray.getJSONObject(i);
@@ -121,7 +120,6 @@ public class RecieveOrders extends AsyncTask<String, String ,String>{
                 String orderPrice = jObject.get("order_price").toString();
                 String orderStatus = jObject.get("order_status").toString();
                 orderList.add(new Order(orderNumber,orderDetails,orderPrice,orderStatus));
-                System.out.println(orderList.get(i).toString());
             }
 
         }catch (JSONException e){

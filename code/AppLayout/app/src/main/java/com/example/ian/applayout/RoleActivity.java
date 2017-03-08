@@ -15,7 +15,9 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 /**
- * Created by Ian on 26/02/2017.
+ * RoleActivity is to represent different areas of a bar and restaurant,
+ * so in future versions the process can be streamlined to only send orders
+ * to relevant areas of the restaurant.
  */
 
 public class RoleActivity extends AppCompatActivity {
@@ -27,12 +29,12 @@ public class RoleActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_role);
 
-        //Access userInfo.
+        //Access userInfo from cache.
         SharedPreferences settings = getSharedPreferences("LogInInfo",0);
         username = settings.getString("email","could not find email");
         password = settings.getString("password","could not find password");
 
-        //Check for new orders
+        //Check for new orders every X seconds.
         /*
         Timer timer = new Timer();
         TimerTask timerTask = new TimerTask() {
@@ -47,7 +49,6 @@ public class RoleActivity extends AppCompatActivity {
         theFloorButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i(TAG, "Floor button was clicked!");
                 Intent nextActivity = new Intent(RoleActivity.this, DrawerActivity.class);
                 startActivity(nextActivity);
             }
@@ -57,8 +58,7 @@ public class RoleActivity extends AppCompatActivity {
         theBarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i(TAG, "Bar button was clicked!");
-                new SendOrder(username,password,"182","x3 Ice Cream","10.99").execute();
+                new SendOrder(RoleActivity.this,username,password,"182","x3 Ice Cream","10.99").execute();
                 Intent nextActivity = new Intent(RoleActivity.this, DrawerActivity.class);
                 startActivity(nextActivity);
             }
@@ -68,7 +68,6 @@ public class RoleActivity extends AppCompatActivity {
         theKitchenButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i(TAG, "Kitchen button was clicked!");
                 new RecieveOrders(username,password).execute();
                 Intent nextActivity = new Intent(RoleActivity.this, DrawerActivity.class);
                 startActivity(nextActivity);

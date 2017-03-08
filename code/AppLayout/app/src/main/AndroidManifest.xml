@@ -40,18 +40,25 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".floor.MenuListActivity"
             android:label="@string/title_item_list"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
         <activity
             android:name=".floor.TableListActivity"
             android:label="@string/title_item_list"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
         <activity
             android:name=".floor.TotalListActivity"
             android:label="@string/title_item_list"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
         <activity
             android:name=".floor.MenuDetailActivity"
             android:label="@string/title_item_detail"
@@ -61,6 +68,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.ian.applayout.floor.MenuListActivity" />
         </activity>
+
     </application>
 
 </manifest>

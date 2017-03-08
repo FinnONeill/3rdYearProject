@@ -1,28 +1,21 @@
 package com.example.ian.applayout.floor.contentLists;
 
-/**
- * Created by Ian on 06/03/2017.
- */
-
-import com.example.ian.applayout.floor.MenuDetailActivity;
-
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
- * Created by Ian on 05/03/2017.
+ * A helper class to add Items to an Order
  */
 
 public class OrderTotal {
     /**
-     * An array of sample (dummy) items.
+     * An array of items in an Order.
      */
     public static ArrayList<ItemMenu> ITEMS_MENU = new ArrayList<ItemMenu>();
 
     /**
-     * A map of sample (dummy) items, by ID.
+     * A map of sample items in an Order, by ID.
      */
     public static final Map<String, ItemMenu> ITEM_MAP_MENU = new HashMap<String, ItemMenu>();
 

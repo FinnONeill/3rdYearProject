@@ -6,23 +6,23 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by Ian on 06/03/2017.
+ * A helper class to update the UI with table numbers
  */
 public class OrderTables {
     /**
-     * An array of sample (dummy) items.
+     * An array of tables.
      */
     public static final List<DummyItemTables> ITEMS_TABLES = new ArrayList<DummyItemTables>();
 
     /**
-     * A map of sample (dummy) items, by ID.
+     * A map of tables, by ID.
      */
     public static final Map<String, DummyItemTables> ITEM_MAP_TABLES = new HashMap<String, DummyItemTables>();
 
     private static final int COUNT = 25;
 
     static {
-        // Add some sample items.
+        // Add some items.
         for (int i = 1; i <= COUNT; i++) {
             addItem(createDummyItemTables(i));
         }

@@ -49,20 +49,16 @@ import static android.Manifest.permission.READ_CONTACTS;
 import static com.example.ian.applayout.R.id.username;
 
 /**
- * A login screen that offers login via username/password.
+ * A login screen that allows the user access via valid username/password.
  */
 public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
 
-    static String TAG = "LoginActivity";
+    public static String TAG = "LoginActivity";
 
-    /**
-     * Id to identity READ_CONTACTS permission request.
-     */
+    //Id to identity READ_CONTACTS permission request.
     private static final int REQUEST_READ_CONTACTS = 0;
 
-    /**
-     * Keep track of the login task to ensure we can cancel it if requested.
-     */
+    //Keep track of the login task to ensure we can cancel it if requested.
     private UserLoginTask mAuthTask = null;
     private static final int CONNECTION_TIMEOUT = 10000;
     private static final int READ_TIMEOUT = 15000;
@@ -74,18 +70,12 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private View mLoginFormView;
     private MenuGetter menu;
 
-    private String email;
-    private String pass;
-
-    public String[] getUserInfo(){
-        return new String[]{this.email, this.pass};
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
         // Set up the login form.
         mUsernameView = (AutoCompleteTextView) findViewById(username);
         populateAutoComplete();
@@ -159,7 +149,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
 
     /**
-     * Attempts to sign in or register the account specified by the login form.
+     * Attempts to sign in by the login form.
      * If there are form errors (invalid username, missing fields, etc.), the
      * errors are presented and no actual login attempt is made.
      */
@@ -210,6 +200,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             editor.putString("password",password);
             editor.commit();
 
+            System.out.println("username: "+username+" password: "+password);
             menu = new MenuGetter(username,password);
             menu.execute();
         }
@@ -217,8 +208,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
 
     private boolean isPasswordValid(String password) {
-        //TODO: Replace this with your own logic
-        return password.length() > 4;
+        //User passwords must be longer than 8 characters
+        return password.length() > 7;
     }
 
     /**
@@ -312,7 +303,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     }
 
     /**
-     * Represents an asynchronous login/registration task used to authenticate
+     * Represents an asynchronous login task used to authenticate
      * the user.
      */
     public class UserLoginTask extends AsyncTask<String, String, String> {
@@ -338,7 +329,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         @Override
         protected String doInBackground(String... params) {
-            // TODO: attempt authentication against a network service.
+            //attempt authentication against a network service.
 
             try {
                 //Setup HTTPURLConnection class to send & recieve from php & mysql.
@@ -410,16 +401,15 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             pdLoading.dismiss();
 
             if (result.equalsIgnoreCase("1")) {
+                //If correct username & password, close this activity and move to role activity
                 Intent nextActivity = new Intent(LoginActivity.this, RoleActivity.class);
-                nextActivity.putExtra("email",mUsername);
-                nextActivity.putExtra("password",mPassword);
                 startActivity(nextActivity);
                 LoginActivity.this.finish();
                 Toast.makeText(LoginActivity.this, "Successful Login!", Toast.LENGTH_LONG).show();
             } else if(result.equalsIgnoreCase("0")){
                 //If username & password don't match, display error message.
                 Toast.makeText(LoginActivity.this, "Invalid email or password", Toast.LENGTH_LONG).show();
-            }else if(result.equalsIgnoreCase("exception") || result.equalsIgnoreCase("unsuccessful")){
+            }else {
                 Toast.makeText(LoginActivity.this, "Oops! Something went wrong. Connection Problem.", Toast.LENGTH_LONG).show();
             }
         }
