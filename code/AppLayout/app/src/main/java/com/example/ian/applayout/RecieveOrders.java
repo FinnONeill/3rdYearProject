@@ -35,7 +35,7 @@ public class RecieveOrders extends AsyncTask<String, String ,String>{
     private static final int CONNECTION_TIMEOUT = 10000;
     private static final int READ_TIMEOUT = 15000;
 
-    RecieveOrders(String username, String password) {
+    public RecieveOrders(String username, String password) {
         mUsername = username;
         mPassword = password;
     }
@@ -109,7 +109,6 @@ public class RecieveOrders extends AsyncTask<String, String ,String>{
     protected void onPostExecute(String result) {
         //Run this method on UI Thread
         orderList = new ArrayList<Order>();
-
         try{
             //Take in the incoming List of Items and add them into an order
             JSONArray jArray = new JSONArray(result);

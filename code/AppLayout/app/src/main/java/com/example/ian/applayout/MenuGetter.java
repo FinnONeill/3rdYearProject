@@ -43,7 +43,7 @@ public class MenuGetter extends AsyncTask<String, String, String> {
     private static final int READ_TIMEOUT = 15000;
 
 
-    MenuGetter(String username, String password) {
+    public MenuGetter(String username, String password) {
         this.mUsername = username;
         this.mPassword = password;
     }
@@ -118,7 +118,6 @@ public class MenuGetter extends AsyncTask<String, String, String> {
     protected void onPostExecute(String result) {
         //Run this method on UI Thread
         menu = new ArrayList<Item>();
-        System.out.println("Menu: "+result);
 
         try{
             //Convert the JSONString to a JSONArray & add the results to the item menu.

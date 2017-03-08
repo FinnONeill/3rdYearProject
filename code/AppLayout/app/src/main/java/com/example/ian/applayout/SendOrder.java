@@ -47,11 +47,6 @@ public class SendOrder extends AsyncTask<String, String, String> {
     }
 
     @Override
-    protected void onPreExecute(){
-        super.onPreExecute();
-    }
-
-    @Override
     protected String doInBackground(String... params) {
         //attempt authentication against a network service.
 
@@ -123,10 +118,9 @@ public class SendOrder extends AsyncTask<String, String, String> {
     @Override
     protected void onPostExecute(String result) {
         //Run this method on UI Thread
-        if (result.equalsIgnoreCase("1")) {
-            //Order sent successfully
-            Toast.makeText(mActivity, "Order Sent", Toast.LENGTH_LONG).show();
-        } else if (result.equalsIgnoreCase("0")) {
+        if(result.equalsIgnoreCase("sent")){
+            Toast.makeText(mActivity, "Order sent!", Toast.LENGTH_LONG).show();
+        }else if (result.equalsIgnoreCase("failed")) {
             //If order sending failed, display error message.
             Toast.makeText(mActivity, "Failed to send order", Toast.LENGTH_LONG).show();
         } else{

@@ -2,6 +2,8 @@ package com.example.ian.applayout;
 
 import android.text.format.Time;
 
+import com.example.ian.applayout.floor.contentLists.OrderTotal;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -20,6 +22,8 @@ public class Order extends ArrayList<Item>{
     private String orderDetails;
     private String orderPrice;
     private String orderStatus;
+
+    public Order(){}
 
     public Order(ArrayList<Item> orderItems,String price,String orderStatus){
         this.orderItems = orderItems;

@@ -1,5 +1,7 @@
 package com.example.ian.applayout.floor;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -13,9 +15,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.ian.applayout.R;
+import com.example.ian.applayout.SendOrder;
 import com.example.ian.applayout.floor.contentLists.OrderTotal;
 import com.example.ian.applayout.floor.contentLists.OrderTotal.ItemMenu;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -42,7 +47,20 @@ public class TotalListActivity extends AppCompatActivity {
                 Snackbar.make(view, "Your Order Has Been Sent!", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
 
-                // ADD SEND FUNCTION HERE !!!!
+                // Send Order.
+                SharedPreferences settings = getSharedPreferences("LogInInfo",0);
+                String username = settings.getString("email","could not find email");
+                String password = settings.getString("password","could not find password");
+                String orderNumber = new SimpleDateFormat("ddMMyyyyhhmmss").format(new Date());
+                String orderDetails = new OrderTotal().getOrderDetails(OrderTotal.ITEMS_MENU);
+
+
+                new SendOrder(TotalListActivity.this,username,password,orderNumber,orderDetails,"").execute();
+
+                // Clear Order List and return to menu list.
+                OrderTotal.ITEMS_MENU.clear();
+                Intent moveBackToMenu = new Intent(TotalListActivity.this,MenuListActivity.class);
+                startActivity(moveBackToMenu);
             }
         });
 

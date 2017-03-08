@@ -1,6 +1,7 @@
 package com.example.ian.applayout.floor;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -14,7 +15,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.ian.applayout.LoginActivity;
+import com.example.ian.applayout.MenuGetter;
 import com.example.ian.applayout.R;
+import com.example.ian.applayout.RecieveOrders;
 
 /**
  * The main activity to run all the menu items in the drawer.
@@ -24,6 +27,13 @@ public class DrawerActivity extends AppCompatActivity implements NavigationView.
 
     //Boolean for if the screen is rotated.
     public static boolean mTwoPane;
+
+    private static boolean isSyncing = false;
+
+    public static boolean getSyncStatus(){
+        isSyncing = false;
+        return !isSyncing;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +51,13 @@ public class DrawerActivity extends AppCompatActivity implements NavigationView.
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setCheckedItem(R.id.create_order);
         navigationView.setNavigationItemSelectedListener(this);
+
+        //Access userInfo.
+        SharedPreferences settings = getSharedPreferences("LogInInfo",0);
+        String username = settings.getString("email","could not find email");
+        String password = settings.getString("password","could not find password");
+
+        new RecieveOrders(username, password).execute();
 
         if (findViewById(R.id.item_detail_container) != null) {
             // The detail container view will be present only in the
@@ -110,7 +127,21 @@ public class DrawerActivity extends AppCompatActivity implements NavigationView.
 
         if (id == R.id.action_sync) {
 
+            System.out.println("Sync button pressed!");
             // ADD A SYNC FUNCTION HERE !!!
+            //Access userInfo.
+            SharedPreferences settings = getSharedPreferences("LogInInfo",0);
+            String username = settings.getString("email","could not find email");
+            String password = settings.getString("password","could not find password");
+
+            //Sync menu with database.
+            new MenuGetter(username,password).execute();
+
+            //Check for any new OPEN orders.
+            new RecieveOrders(username,password).execute();
+
+            isSyncing = true;
+            //this.recreate();
 
             return true;
         }

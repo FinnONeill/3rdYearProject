@@ -2,7 +2,9 @@ package com.example.ian.applayout.floor.contentLists;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * A helper class to add Items to an Order
@@ -37,6 +39,26 @@ public class OrderTotal {
         return builder.toString();
     }
 
+    //Prints a string representation of an order, accounting for quantities.
+    public String getOrderDetails(ArrayList<ItemMenu> items){
+        String detailsToString="";
+
+        Set<ItemMenu> setOrderItems = new HashSet<>();
+        for(ItemMenu each: items){      //remove duplicates and increase quanity of item instead.
+            if(!setOrderItems.add(each)){
+                setOrderItems.remove(each);
+                each.quantity++;
+                setOrderItems.add(each);
+            }
+        }
+
+        for(ItemMenu each: setOrderItems){
+            detailsToString = "x"+each.quantity+" "+each.content+"\n"+detailsToString;
+        }
+
+        return detailsToString;
+    }
+
     /**
      * A dummy item representing a piece of content.
      */
@@ -44,6 +66,7 @@ public class OrderTotal {
         public final String id;
         public String content;
         public final String details;
+        public int quantity = 1;
 
         public ItemMenu(String id, String content, String details) {
             this.id = id;

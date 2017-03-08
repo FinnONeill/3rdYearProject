@@ -1,5 +1,6 @@
 package com.example.ian.applayout.floor;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.ian.applayout.R;
+import com.example.ian.applayout.RecieveOrders;
 import com.example.ian.applayout.floor.contentLists.OrderReceived;
 import com.example.ian.applayout.floor.contentLists.OrderReceived.ItemMenu;
 
@@ -32,6 +34,11 @@ public class ReceivedListActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         toolbar.setTitle(getTitle());
 
+        for(int i=0; i<RecieveOrders.orderList.size(); i++){
+            System.out.println("ORDER: "+i+" "+RecieveOrders.orderList.get(i).getOrderDetails());
+        }
+
+        System.out.println("Num Orders: "+RecieveOrders.orderList.size());
 
         View recyclerView = findViewById(R.id.item_list);
         assert recyclerView != null;
