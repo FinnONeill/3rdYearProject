@@ -16,7 +16,7 @@ import android.widget.TextView;
 
 import com.example.ian.applayout.R;
 import com.example.ian.applayout.floor.contentLists.OrderTables;
-import com.example.ian.applayout.floor.contentLists.OrderTables.DummyItemTables;
+import com.example.ian.applayout.floor.contentLists.OrderTables.ItemTables;
 
 import java.util.List;
 
@@ -69,9 +69,9 @@ public class TableListActivity extends AppCompatActivity {
 
     public class SimpleItemRecyclerViewAdapter extends RecyclerView.Adapter<SimpleItemRecyclerViewAdapter.ViewHolder> {
 
-        private final List<DummyItemTables> nValues;
+        private final List<ItemTables> nValues;
 
-        public SimpleItemRecyclerViewAdapter(List<DummyItemTables> items) {
+        public SimpleItemRecyclerViewAdapter(List<ItemTables> items) {
             nValues = items;
         }
 
@@ -107,7 +107,7 @@ public class TableListActivity extends AppCompatActivity {
             public final View nView;
             public final TextView nIdView;
             public final TextView nContentView;
-            public DummyItemTables nItem;
+            public ItemTables nItem;
 
             public ViewHolder(View view) {
                 super(view);

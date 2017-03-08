@@ -10,16 +10,16 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.ian.applayout.R;
-import com.example.ian.applayout.floor.contentLists.OrderMenu;
+import com.example.ian.applayout.floor.contentLists.OrderMenu.MenuItem;
 
 import java.util.List;
 
 public class MenuRecyclerViewAdapter extends RecyclerView.Adapter<MenuRecyclerViewAdapter.ViewHolder> {
 
-    private final List<OrderMenu.DummyItem> mValues;
+    private final List<MenuItem> mValues;
     private Context context;
 
-    public MenuRecyclerViewAdapter(Context context, List<OrderMenu.DummyItem> items) {
+    public MenuRecyclerViewAdapter(Context context, List<MenuItem> items) {
         this.context = context;
         mValues = items;
     }
@@ -64,7 +64,7 @@ public class MenuRecyclerViewAdapter extends RecyclerView.Adapter<MenuRecyclerVi
         public final View mView;
         public final TextView mIdView;
         public final TextView mContentView;
-        public OrderMenu.DummyItem mItem;
+        public MenuItem mItem;
 
         public ViewHolder(View view) {
             super(view);

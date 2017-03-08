@@ -18,27 +18,19 @@
         <activity
             android:name=".LoginActivity"
             android:label="@string/logIn">
-            <intent-filter>
+            <intent-filter android:label="@string/app_name">
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".RoleActivity"
-            android:label="@string/selectRole">
-        </activity>
 
         <activity
             android:name=".floor.DrawerActivity"
-            android:label="@string/app_name"
+            android:label="@string/app_welcome"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".floor.MenuListActivity"
@@ -46,11 +38,15 @@
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".floor.TableListActivity"
-            android:label="@string/title_item_list"
+            android:label="@string/title_table_list"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".floor.TotalListActivity"
-            android:label="@string/title_item_list"
+            android:label="@string/title_total_list"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".floor.ReceivedListActivity"
+            android:label="@string/title_received_list"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".floor.MenuDetailActivity"

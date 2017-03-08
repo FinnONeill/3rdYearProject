@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.example.ian.applayout.R;
 import com.example.ian.applayout.floor.contentLists.OrderMenu;
+import com.example.ian.applayout.floor.contentLists.OrderMenu.MenuItem;
 
 import java.util.List;
 
@@ -49,8 +50,10 @@ public class MenuListActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Going to your order now!", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                Intent nextActivity = new Intent(MenuListActivity.this, TotalListActivity.class);
+                startActivity(nextActivity);
             }
         });
 
@@ -73,9 +76,9 @@ public class MenuListActivity extends AppCompatActivity {
 
     public class SimpleItemRecyclerViewAdapter extends RecyclerView.Adapter<SimpleItemRecyclerViewAdapter.ViewHolder> {
 
-        private final List<OrderMenu.DummyItem> mValues;
+        private final List<MenuItem> mValues;
 
-        public SimpleItemRecyclerViewAdapter(List<OrderMenu.DummyItem> items) {
+        public SimpleItemRecyclerViewAdapter(List<MenuItem> items) {
             mValues = items;
         }
 
@@ -120,7 +123,7 @@ public class MenuListActivity extends AppCompatActivity {
             public final View mView;
             public final TextView mIdView;
             public final TextView mContentView;
-            public OrderMenu.DummyItem mItem;
+            public MenuItem mItem;
 
             public ViewHolder(View view) {
                 super(view);

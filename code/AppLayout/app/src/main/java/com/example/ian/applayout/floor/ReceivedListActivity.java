@@ -2,8 +2,6 @@ package com.example.ian.applayout.floor;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -13,38 +11,27 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.ian.applayout.R;
-import com.example.ian.applayout.floor.contentLists.OrderTotal;
-import com.example.ian.applayout.floor.contentLists.OrderTotal.ItemMenu;
+import com.example.ian.applayout.floor.contentLists.OrderReceived;
+import com.example.ian.applayout.floor.contentLists.OrderReceived.ItemMenu;
 
 import java.util.List;
 
 /**
- * Created by Ian on 06/03/2017.
+ * Created by Ian on 08/03/2017.
  */
 
-public class TotalListActivity extends AppCompatActivity {
-    private boolean oTwoPane;
-    public static int totalNum = 0;
+public class ReceivedListActivity extends AppCompatActivity {
 
+    private boolean oTwoPane;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_item_total_list);
+        setContentView(R.layout.activity_item_received);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle(getTitle());
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fabTwo);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Your Order Has Been Sent!", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-
-                // ADD SEND FUNCTION HERE !!!!
-            }
-        });
 
         View recyclerView = findViewById(R.id.item_list);
         assert recyclerView != null;
@@ -60,7 +47,7 @@ public class TotalListActivity extends AppCompatActivity {
     }
 
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
-        recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(OrderTotal.ITEMS_MENU));
+        recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(OrderReceived.ITEMS_RECEIVED));
     }
 
     public class SimpleItemRecyclerViewAdapter extends RecyclerView.Adapter<SimpleItemRecyclerViewAdapter.ViewHolder> {

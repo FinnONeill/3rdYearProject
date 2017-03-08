@@ -31,6 +31,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.ian.applayout.floor.DrawerActivity;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -38,7 +40,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
-import java.lang.reflect.Array;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -410,7 +411,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             pdLoading.dismiss();
 
             if (result.equalsIgnoreCase("1")) {
-                Intent nextActivity = new Intent(LoginActivity.this, RoleActivity.class);
+                Intent nextActivity = new Intent(LoginActivity.this, DrawerActivity.class);
                 nextActivity.putExtra("email",mUsername);
                 nextActivity.putExtra("password",mPassword);
                 startActivity(nextActivity);

@@ -1,38 +1,38 @@
 package com.example.ian.applayout.floor.contentLists;
 
-/**
- * Created by Ian on 06/03/2017.
- */
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by Ian on 05/03/2017.
+ * Created by Ian on 08/03/2017.
  */
 
-public class OrderTotal {
+public class OrderReceived {
     /**
      * An array of sample (dummy) items.
      */
-    public static ArrayList<ItemMenu> ITEMS_MENU = new ArrayList<ItemMenu>();
+    public static ArrayList<ItemMenu> ITEMS_RECEIVED = new ArrayList<ItemMenu>();
 
     /**
      * A map of sample (dummy) items, by ID.
      */
-    public static final Map<String, ItemMenu> ITEM_MAP_MENU = new HashMap<String, ItemMenu>();
+    public static final Map<String, ItemMenu> ITEM_MAP_RECEIVED = new HashMap<String, ItemMenu>();
 
-    public static void addItemTotal(ItemMenu item) {
-        ITEMS_MENU.add(item);
-        ITEM_MAP_MENU.put(item.id, item);
+    private static final int COUNT = 10;
+
+    // ADD ITEMS TO LIST HERE SOMEWHERE I DUNNO
+
+    private static void addItemReceived(ItemMenu item) {
+        ITEMS_RECEIVED.add(item);
+        ITEM_MAP_RECEIVED.put(item.id, item);
     }
 
-    public static ItemMenu createOrderTotalItem(int position, String name) {
-        return new ItemMenu(String.valueOf(position), name , makeTotalDetails(position));
+    private static ItemMenu createOrderReceivedItem(int position, String name) {
+        return new ItemMenu(String.valueOf(position), name , makeReceivedDetails(position));
     }
 
-    public static String makeTotalDetails(int position) {
+    private static String makeReceivedDetails(int position) {
         StringBuilder builder = new StringBuilder();
         builder.append("Details about Item: ").append(position);
         for (int i = 0; i < position; i++) {
@@ -61,3 +61,4 @@ public class OrderTotal {
         }
     }
 }
+
