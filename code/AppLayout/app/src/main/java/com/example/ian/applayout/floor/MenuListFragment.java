@@ -30,7 +30,6 @@ public class MenuListFragment extends Fragment {
         mRecycleView = (RecyclerView)view.findViewById(R.id.item_list);
         mMenuRecyclerViewAdapter = new MenuRecyclerViewAdapter(getActivity(), OrderMenu.ITEMS);
         mRecycleView.setAdapter(mMenuRecyclerViewAdapter);
-
         return view;
     }
 

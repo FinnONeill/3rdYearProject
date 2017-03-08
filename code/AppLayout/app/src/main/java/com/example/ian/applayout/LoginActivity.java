@@ -31,6 +31,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.ian.applayout.floor.DrawerActivity;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -38,7 +40,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
-import java.lang.reflect.Array;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -402,7 +403,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
             if (result.equalsIgnoreCase("1")) {
                 //If correct username & password, close this activity and move to role activity
-                Intent nextActivity = new Intent(LoginActivity.this, RoleActivity.class);
+                Intent nextActivity = new Intent(LoginActivity.this, DrawerActivity.class);
                 startActivity(nextActivity);
                 LoginActivity.this.finish();
                 Toast.makeText(LoginActivity.this, "Successful Login!", Toast.LENGTH_LONG).show();

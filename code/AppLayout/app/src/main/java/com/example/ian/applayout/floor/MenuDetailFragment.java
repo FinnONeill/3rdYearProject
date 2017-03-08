@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.ian.applayout.R;
 import com.example.ian.applayout.floor.contentLists.OrderMenu;
+import com.example.ian.applayout.floor.contentLists.OrderMenu.MenuItem;
 
 /**
  * A fragment representing a single Item detail screen.
@@ -28,7 +29,7 @@ public class MenuDetailFragment extends Fragment {
     /**
      * The dummy content this fragment is presenting.
      */
-    private OrderMenu.DummyItem mItem;
+    private MenuItem mItem;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the

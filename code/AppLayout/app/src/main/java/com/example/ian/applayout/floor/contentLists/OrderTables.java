@@ -12,29 +12,29 @@ public class OrderTables {
     /**
      * An array of tables.
      */
-    public static final List<DummyItemTables> ITEMS_TABLES = new ArrayList<DummyItemTables>();
+    public static final List<ItemTables> ITEMS_TABLES = new ArrayList<ItemTables>();
 
     /**
      * A map of tables, by ID.
      */
-    public static final Map<String, DummyItemTables> ITEM_MAP_TABLES = new HashMap<String, DummyItemTables>();
+    public static final Map<String, ItemTables> ITEM_MAP_TABLES = new HashMap<String, ItemTables>();
 
     private static final int COUNT = 25;
 
     static {
         // Add some items.
         for (int i = 1; i <= COUNT; i++) {
-            addItem(createDummyItemTables(i));
+            addItem(createItemTables(i));
         }
     }
 
-    private static void addItem(DummyItemTables item) {
+    private static void addItem(ItemTables item) {
         ITEMS_TABLES.add(item);
         ITEM_MAP_TABLES.put(item.id, item);
     }
 
-    private static DummyItemTables createDummyItemTables(int position) {
-        return new DummyItemTables(String.valueOf(position), "Table Number " + position, makeDetails(position));
+    private static ItemTables createItemTables(int position) {
+        return new ItemTables(" ", "Table Number  " + position, makeDetails(position));
     }
 
     private static String makeDetails(int position) {
@@ -49,12 +49,12 @@ public class OrderTables {
     /**
      * A dummy item representing a piece of content.
      */
-    public static class DummyItemTables {
+    public static class ItemTables {
         public final String id;
         public final String content;
         public final String details;
 
-        public DummyItemTables(String id, String content, String details) {
+        public ItemTables(String id, String content, String details) {
             this.id = id;
             this.content = content;
             this.details = details;

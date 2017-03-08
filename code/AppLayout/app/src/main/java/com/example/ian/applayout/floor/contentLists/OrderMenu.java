@@ -15,32 +15,32 @@ public class OrderMenu {
     /**
      * An array of items.
      */
-    public static final List<DummyItem> ITEMS = new ArrayList<DummyItem>();
+    public static final List<MenuItem> ITEMS = new ArrayList<MenuItem>();
 
     /**
      * A map of items, by ID.
      */
-    public static final Map<String, DummyItem> ITEM_MAP = new HashMap<String, DummyItem>();
+    public static final Map<String, MenuItem> ITEM_MAP = new HashMap<String, MenuItem>();
 
     private static final int COUNT = MenuGetter.menu.size();
 
     static {
         // Add some sample items.
         for (int i = 0; i <COUNT; i++) {
-            addItem(createDummyItem(i));
+            addItem(createMenuItem(i));
         }
     }
 
-    private static void addItem(DummyItem item) {
+    private static void addItem(MenuItem item) {
         ITEMS.add(item);
         ITEM_MAP.put(item.id, item);
     }
 
-    private static DummyItem createDummyItem(int position) {
+    private static MenuItem createMenuItem(int position) {
         String desc = "Catagory: \t"+MenuGetter.menu.get(position).getCatagory();
         desc = desc + "\nDescription: \t"+ MenuGetter.menu.get(position).getDescription();
         desc = desc + "\nPrice: \t€" + MenuGetter.menu.get(position).getPrice();
-        return new DummyItem(String.valueOf(position+1), MenuGetter.menu.get(position).getName(), desc);
+        return new MenuItem(String.valueOf(position+1), MenuGetter.menu.get(position).getName(), desc);
     }
 
     private static String makeDetails(int position) {
@@ -55,12 +55,12 @@ public class OrderMenu {
     /**
      * A dummy item representing a piece of content.
      */
-    public static class DummyItem {
+    public static class MenuItem {
         public final String id;
         public final String content;    //name of menu Item
         public final String details;    //description of menu item
 
-        public DummyItem(String id, String content, String details) {
+        public MenuItem(String id, String content, String details) {
             this.id = id;
             this.content = content;
             this.details = details;

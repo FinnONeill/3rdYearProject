@@ -1,3 +1,4 @@
+
 package com.example.ian.applayout.floor;
 
 import android.content.Context;
@@ -9,22 +10,22 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.ian.applayout.R;
-import com.example.ian.applayout.floor.contentLists.OrderTables.ItemTables;
+import com.example.ian.applayout.floor.contentLists.OrderReceived.ItemMenu;
 
 import java.util.List;
 
+
 /**
- * Created by Ian on 06/03/2017.
+ * Created by Ian on 08/03/2017.
  */
 
-public class TableRecyclerViewAdapter extends RecyclerView.Adapter<TableRecyclerViewAdapter.ViewHolder> {
-
-    private final List<ItemTables> nValues;
+public class ReceivedRecyclerViewAdapter extends RecyclerView.Adapter<ReceivedRecyclerViewAdapter.ViewHolder> {
+    private final List<ItemMenu> oValues;
     private Context context;
 
-    public TableRecyclerViewAdapter(Context context, List<ItemTables> items) {
+    public ReceivedRecyclerViewAdapter(Context context, List<ItemMenu> items) {
         this.context = context;
-        nValues = items;
+        oValues = items;
     }
 
     @Override
@@ -34,12 +35,12 @@ public class TableRecyclerViewAdapter extends RecyclerView.Adapter<TableRecycler
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder holder, int position) {
-        holder.nItem = nValues.get(position);
-        holder.nIdView.setText(nValues.get(position).id);
-        holder.nContentView.setText(nValues.get(position).content);
+    public void onBindViewHolder(final ViewHolder holder,final int position) {
+        holder.oItem = oValues.get(position);
+        holder.oIdView.setText(oValues.get(position).id);
+        holder.oContentView.setText(oValues.get(position).content);
 
-        holder.nView.setOnClickListener(new View.OnClickListener() {
+        holder.oView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Context context = v.getContext();
@@ -52,25 +53,26 @@ public class TableRecyclerViewAdapter extends RecyclerView.Adapter<TableRecycler
 
     @Override
     public int getItemCount() {
-        return nValues.size();
+        return oValues.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public final View nView;
-        public final TextView nIdView;
-        public final TextView nContentView;
-        public ItemTables nItem;
+        public final View oView;
+        public final TextView oIdView;
+        public final TextView oContentView;
+        public ItemMenu oItem;
 
         public ViewHolder(View view) {
             super(view);
-            nView = view;
-            nIdView = (TextView) view.findViewById(R.id.id);
-            nContentView = (TextView) view.findViewById(R.id.content);
+            oView = view;
+            oIdView = (TextView) view.findViewById(R.id.id);
+            oContentView = (TextView) view.findViewById(R.id.content);
         }
 
         @Override
         public String toString() {
-            return super.toString() + " '" + nContentView.getText() + "'";
+            return super.toString() + " '" + oContentView.getText() + "'";
         }
     }
 }
+

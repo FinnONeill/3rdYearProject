@@ -1,5 +1,6 @@
 package com.example.ian.applayout.floor;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -12,6 +13,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.ian.applayout.LoginActivity;
 import com.example.ian.applayout.R;
 
 /**
@@ -47,9 +49,41 @@ public class DrawerActivity extends AppCompatActivity implements NavigationView.
             // activity should be in two-pane mode.
             mTwoPane = true;
         }
-        FragmentManager fragmentManager = getSupportFragmentManager();
+        final FragmentManager fragmentManager = getSupportFragmentManager();
         DefaultFragment fragment = new DefaultFragment();
         fragmentManager.beginTransaction().replace(R.id.first_container, fragment).commit();
+/*
+        Button startOrderButton = (Button) (findViewById(R.id.create_order));
+        startOrderButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MenuListFragment fragment = new MenuListFragment();
+                fragmentManager.beginTransaction().replace(R.id.first_container, fragment).commit();
+                Intent nextActivity = new Intent(DrawerActivity.this, TableListActivity.class);
+                startActivity(nextActivity);
+            }
+        });
+
+        Button viewOrderButton = (Button) (findViewById(R.id.view_order));
+        viewOrderButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TotalListFragment fragment = new TotalListFragment();
+                fragmentManager.beginTransaction().replace(R.id.first_container, fragment).commit();
+                Intent nextActivity = new Intent(DrawerActivity.this, TotalListActivity.class);
+                startActivity(nextActivity);
+            }
+        });
+/*
+        Button viewOrderReceivedButton = (Button) (findViewById(R.id.view_order_received));
+        viewOrderButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent nextActivity = new Intent(DrawerActivity.this, DrawerActivity.class);
+                startActivity(nextActivity);
+            }
+        });
+*/
     }
 
     @Override
@@ -71,14 +105,19 @@ public class DrawerActivity extends AppCompatActivity implements NavigationView.
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            System.out.print("Do sign out stuff");
+        if (id == R.id.action_sync) {
+
+            // ADD A SYNC FUNCTION HERE !!!
+
+            return true;
+        }
+
+        if (id == R.id.action_log_off) {
+            Intent nextActivity = new Intent(DrawerActivity.this, LoginActivity.class);
+            startActivity(nextActivity);
             return true;
         }
 
@@ -95,24 +134,30 @@ public class DrawerActivity extends AppCompatActivity implements NavigationView.
         FragmentManager fragmentManager = getSupportFragmentManager();
 
         if (id == R.id.create_order) {
+            Intent nextActivity = new Intent(DrawerActivity.this, TableListActivity.class);
+            startActivity(nextActivity);
             fragment = new TableListFragment();
             fragmentManager.beginTransaction().replace(R.id.first_container, fragment).commit();
 
         } else if (id == R.id.view_menu) {
+            Intent nextActivity = new Intent(DrawerActivity.this, MenuListActivity.class);
+            startActivity(nextActivity);
             fragment = new MenuListFragment();
             fragmentManager.beginTransaction().replace(R.id.first_container, fragment).commit();
 
         } else if (id == R.id.view_total_order) {
+            Intent nextActivity = new Intent(DrawerActivity.this, TotalListActivity.class);
+            startActivity(nextActivity);
             fragment = new TotalListFragment();
             fragmentManager.beginTransaction().replace(R.id.first_container, fragment).commit();
 
         } else if (id == R.id.done_order) {
-            fragment = new MenuListFragment();
+            Intent nextActivity = new Intent(DrawerActivity.this, ReceivedListActivity.class);
+            startActivity(nextActivity);
+            fragment = new ReceivedListFragment();
             fragmentManager.beginTransaction().replace(R.id.first_container, fragment).commit();
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 
