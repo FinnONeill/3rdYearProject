@@ -1,6 +1,8 @@
 <?php
+	// Start the login session
 	session_start();
-	// Server details
+
+	// Database information
 	$servername = "localhost";
 	$dbusername = "root";
 	$dbpassword = "";
@@ -23,17 +25,20 @@
 	//$login_password = stripcslashes($login_password);
 
 	// Query database for user
-	$result = $conn->query("SELECT * FROM employers_details WHERE employers_email = '$login_email'") or die("Failed to query database ".$conn->connect_error);
+	$result = $conn->query("SELECT * FROM employers_details WHERE employers_email = '$login_email'") or die(header("location: ./error.php"));
 
 	$row = mysqli_fetch_array($result);
 
+	//Make sure the user is from the same company
 	$_SESSION["company_id"] = $row['employer_id'];
+
+	//Hash the inputted password and check they match
 	$verified_password = password_verify($login_password, $row['employers_password']);
 
 	if($row['employers_email'] == $login_email && $verified_password){
 		header("location: ./dashboard.php");
 	}else{
-		echo("Incorrect email and password combination!+'$login_password'+length: '$length'");
+		header("location: ./error.php");
 	}
 
 	$conn->close();

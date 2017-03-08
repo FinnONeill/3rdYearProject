@@ -1,6 +1,6 @@
 <?php
 	
-	// Server details
+	// Database information
 	$servername = "localhost";
 	$dbusername = "root";
 	$dbpassword = "";
@@ -14,16 +14,17 @@
 		die("Connection failed: " . $conn->connect_error);
 	}
 
-	// Get values from form
+	// Get values from android user
 	$login_email = $_REQUEST['username'];
 	$login_password = $_REQUEST['password'];
 
 	// Query database for user
-	$result = $conn->query("SELECT employee_email, password FROM employee_details WHERE employee_email = '$login_email'") or die("Failed to query database ".$conn->connect_error);
+	$result = $conn->query("SELECT employee_email, password FROM employee_details WHERE employee_email = '$login_email' UNION ALL SELECT employers_email, employers_password FROM employers_details WHERE employers_email = '$login_email'") or die("False");
 
 	$row = mysqli_fetch_array($result);
 	$loginStatus= password_verify($login_password, $row['password']);;
 
+	//Return email and password to be cached
 	print($loginStatus);
 
 	$conn->close();

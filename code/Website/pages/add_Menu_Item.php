@@ -1,10 +1,14 @@
 <?php
+	// Start the login session
 	session_start();
+
+	// Database information
 	$servername = "localhost";
 	$dbusername = "root";
 	$dbpassword = "";
 	$dbname = "posapp_database";
 
+	// Menu info to be added to database
 	$menu_id = $_SESSION["company_id"];
 	$item_name = $_POST['item_name'];
 	$item_catagory = $_POST['item_catagory'];
@@ -19,6 +23,7 @@
 		die("Connection failed: " . $conn->connect_error);
 	}
 
+	//Check if any fields are blank
 	if(empty($item_name)){
 		echo "Item Name is blank";
 		die();
@@ -39,7 +44,7 @@
 
 	//Send query and print error is it failed
 	if($conn->query($sql) === FALSE){
-		echo "Error: " . $sql . "<br>" . $conn->error;
+		header("location: ./error.php");
 	}else{
 		header("location: ./dashboard_menu.php");
 	}

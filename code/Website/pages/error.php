@@ -1,11 +1,3 @@
-<?php
-  //Destroy the user login session
-  session_start();
-  session_destroy();
-
-  //Send user to logout page and redirect to homepage after 2 seconds
-  header( "refresh:2; url=../index.php" );
-?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -19,7 +11,6 @@
     <!-- CSS -->
     <link href="../bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/styles.css" rel="stylesheet">
-    <link href="../css/contactUs.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
 
   </head>
@@ -31,7 +22,8 @@
         <div class="col-xs-12">
           <div class="row">
             <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 col-xs-12 text-center">
-              <h1>You have successfully <span class="green">Logged Out</span></h1>
+              <h1>Oops something went <span class="green">wrong</span>, please go back and try again</h1>
+              <button type="button" onclick="history.back();" class="btn btn-primary btn-block" id="getStartedBtn">Back</button>
             </div>
           </div>
         </div> 
@@ -39,11 +31,11 @@
       <!-- Heading Section End -->
     
   
-    <!-- JS-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+      <!-- JS -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
   </body>
-  
+
   <!--  =============Footer Start=================== -->
   <footer id="footer" >
     <div class="row ">
@@ -72,4 +64,5 @@
     </div>
   </footer>
   <!--  =============Footer End=================== -->
+  
 </html>

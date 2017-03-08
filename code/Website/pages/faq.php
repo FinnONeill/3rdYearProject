@@ -4,16 +4,16 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
     <title>Order 66</title>
     <link rel="shortcut icon" href="../images/logo.ico">
 
-    <!-- Bootstrap -->
+    <!-- CSS -->
     <link href="../bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/styles.css" rel="stylesheet">
-    <link href="../css/contactUs.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
 
+    <!-- Small style for FAQ Panels-->
     <style type="text/css">
       .panel-heading {
           cursor: pointer;
@@ -24,7 +24,8 @@
   <body>
     <div class="fluid-container">
 
-      <div class="heading-section" style="height: 300px;"><!-- Headin Section Start -->
+      <!-- Heading Section Start -->
+      <div class="heading-section" style="height: 300px;">
         <div class="col-xs-12">
           <div class="row">
             <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 col-xs-12 text-center">
@@ -38,16 +39,20 @@
             </div>
           </div>
         </div> 
-      </div><!-- Heading Section End -->
+      </div>
+      <!-- Heading Section End -->
 
+      <!-- Content Section Start -->
       <div class="text-center" >
         <div class="panel-group" id="accordion">
+
           <div class="panel panel-default">
             <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#collapseOne">
               <div class="panel-title">
                 <a class="accordion-toggle"><h1>• Adding/Removing Employee's</h1></a>
               </div>
             </div>
+
             <div id="collapseOne" class="panel-collapse collapse in">
               <div class="panel-body" style="font-size:1.4em;">
                 <h2>Adding an Employee</h2>
@@ -74,6 +79,7 @@
               </div>
             </div>
           </div>
+
           <div class="panel panel-default">
             <div class="panel-heading">
               <div class="panel-title"  data-toggle="collapse" data-parent="#accordion" data-target="#collapseTwo">
@@ -96,6 +102,7 @@
               </div>
             </div>
           </div>
+
           <div class="panel panel-default">
             <div class="panel-heading">
               <div class="panel-title" data-toggle="collapse" data-parent="#accordion" data-target="#collapseThree">
@@ -108,21 +115,23 @@
               </div>
             </div>
           </div>
+
         </div>
       </div>
+      <!-- Content Section End -->
   
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-      <!-- Include all compiled plugins (below), or include individual files as needed -->
-       <script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <!--  JS-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
   </body>
+
   <!--  =============Footer Start=================== -->
   <footer id="footer" >
     <div class="row ">
 
       <div class="col-lg-offset-2 col-lg-2 col-xs-offset-2 col-xs-2 footer-background">
 
-        <a href=""><img class="center-block" src="../images/glyphicons-social-31-facebook.png"></a>
+        <a href="https://www.facebook.com/Order-66-1919549674943172/""><img class="center-block" src="../images/glyphicons-social-31-facebook.png"></a>
       </div>
       <div class="col-lg-offset-1 col-lg-2 col-xs-offset-1 col-xs-2">
         <a href="https://gitlab.computing.dcu.ie/kellyi7/pointofserviceapp"><img class="center-block" src="../images/glyphicons-social-22-github.png"></a>
@@ -144,4 +153,5 @@
     </div>
   </footer>
   <!--  =============Footer End=================== -->
+  
 </html>

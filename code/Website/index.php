@@ -37,30 +37,30 @@
                     <li class="navbar-active"><a href="#">Home</a></li>
                     <li><a href="#content-section-3">Features</a></li>
                     <li><a href="pages/contactUs.php">Contact Us</a></li>
-                    <li class="hidden-xs"><a href="#" data-toggle="modal" data-target="#logIn">Log In</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#logIn">Log In</a></li>
 
                     <!-- Modal -->
                     <div class="modal fade " id="logIn" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                       <div class="modal-dialog" role="document">
                         <div class="modal-content">
                           <div class="modal-header">
-                            <div class="col-sm-4"><h3>Log In</h3></div>
-                            <div class="col-lg-offset-2 col-sm-offset-3"><button type="button" class="close col-lg-1 col-sm-1" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>
+                            <div class="col-xs-4"><h3>Log In</h3></div>
+                            <div class="col-xs-offset-3"><button type="button" class="close col-xs-1" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>
                           </div>
                           <div class="modal-body">
                             <form name="logIn" method="post" action="pages/loginHandler.php">
                               <div class="row form-group">
-                                <div class="col-sm-offset-1"><label for="login_email">Email</label></div>
-                                <div class="col-sm-offset-1 col-sm-10"><input type="Email" class="form-control" id="login_email" name="login_email" placeholder="johnsmith@example.ie"></div>
+                                <div class="col-xs-offset-1"><label for="login_email">Email</label></div>
+                                <div class="col-xs-offset-1 col-xs-10"><input type="Email" class="form-control" id="login_email" name="login_email" placeholder="johnsmith@example.ie"></div>
                               </div>
 
                               <div class="row form-group">
-                                <div class="col-sm-offset-1"><label for="login_password">Password</label></div>
-                                <div class="col-sm-offset-1 col-sm-10"><input type="password" class="form-control" id="login_password" name="login_password" placeholder="Password"></div>
+                                <div class="col-xs-offset-1"><label for="login_password">Password</label></div>
+                                <div class="col-xs-offset-1 col-xs-10"><input type="password" class="form-control" id="login_password" name="login_password" placeholder="Password"></div>
                               </div>
 
                               <div class="row form-group">
-                                <div class="col-sm-offset-5 col-sm-1"><a href="#"><button id="logInSubmit" type="submit" class="btn btn-primary" >Submit</button></a></div>
+                                <div class="col-xs-offset-5 col-xs-1"><a href="#"><button id="logInSubmit" type="submit" class="btn btn-primary" >Submit</button></a></div>
                               </div>
                             </form>
                           </div>
@@ -68,7 +68,6 @@
                         </div>
                       </div>
                     </div>
-                    <li class="visible-xs"><a href="pages/login.php">Log In</a></li>
                   </ul>
                   <ul id="signUpLink" class="nav navbar-nav navbar-right">
                     <li id="signUpBtn"><a href="pages/signUp.php">Sign Up</a></li>
@@ -94,6 +93,7 @@
 
         <hr>
 
+        <!-- Intro Paragraph Start -->
         <div id="content-section-1" class="row">
 
           <div class="col-lg-offset-5 col-lg-2 col-md-offset-3 col-md-6 col-xs-offset-2 col-xs-8 text-center">
@@ -101,12 +101,14 @@
           </div>
           <div class="col-lg-offset-3 col-lg-6 col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 col-xs-offset-1 col-xs-10 text-center">
             Reduce costs of equipment by using Order 66 as your Point of service application of choice. Order 66 allows employee's to download the app from the Google Play Store and be able to start creating and sending Orders between devices. Order 66 also handles all your reporting and allows you to focus on your business. We allow you to see usage statistics like busiest time of the day and most popular item. It also shows you graphs and charts comparing your earnings from each month and each year. Choose Order 66 for you Point of Service application of choice.
-
           </div>
+
         </div>
+        <!-- Intro Paragraph End -->
 
         <hr>
 
+        <!-- Video Walkthrough Start -->
         <div id="content-section-2" class="row">
           <div class="col-lg-offset-5 col-lg-2">
             <button id="playButton" type="button" class="btn btn-default btn-lg center-block" data-toggle="modal" data-target="#myModal">
@@ -126,13 +128,14 @@
                   </div>
                 </div>
               </div>
-
           </div>
         </div>
+        <!-- Video Walkthrough End -->
 
         <hr>
 
-        <div id="content-section-3" class="hidden-xs">
+        <!-- Features Start -->
+                <div id="content-section-3" class="hidden-xs"><!-- Features Layout for Computers & Tablets Start -->
           <div class="row text-center">
             <div class="col-lg-offset-1 col-lg-3 col-sm-4">
               <h2>Send Orders between Devices</h2>
@@ -163,9 +166,9 @@
               <p>A great advantage of using a point of service application to handle your business is that it can automatically generate reports and usage statistics that are tailored especially to your business. The easy to read display simplifies data that can be difficult to interpret.  </p>
             </div>
           </div>
-        </div>
+        </div><!-- Features Layout for Computers & Tablets End -->
 
-        <div id="content-section-3" class="visible-xs">
+        <div id="content-section-3" class="visible-xs"><!-- Features Layout for Mobile Devices Start -->
           <div class="row">
             <div class="col-xs-offset-3 xol-xs-6">
               <h2>Send Orders between Devices</h2>
@@ -196,19 +199,17 @@
             </div>
           </div>
 
-        </div>
+        </div><!-- Features Layout for Mobile Devices Start -->
+        <!-- Features End -->
 
         <hr>
-
-
 
       </div>
     
   
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-      <!-- Include all compiled plugins (below), or include individual files as needed -->
-       <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+      <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
   </body>
   <!--  =============Footer Start=================== -->
   <footer id="footer" >
@@ -216,7 +217,7 @@
 
       <div class="col-lg-offset-2 col-lg-2 col-xs-offset-2 col-xs-2 footer-background">
 
-        <a href=""><img class="center-block" src="images/glyphicons-social-31-facebook.png"></a>
+        <a href="https://www.facebook.com/Order-66-1919549674943172/"><img class="center-block" src="images/glyphicons-social-31-facebook.png"></a>
       </div>
       <div class="col-lg-offset-1 col-lg-2 col-xs-offset-1 col-xs-2">
         <a href="https://gitlab.computing.dcu.ie/kellyi7/pointofserviceapp"><img class="center-block" src="images/glyphicons-social-22-github.png"></a>

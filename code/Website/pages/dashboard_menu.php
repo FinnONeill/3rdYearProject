@@ -1,7 +1,8 @@
 <?php
+  // Start the login session
   session_start();
 
-  // Server details
+  // Database information
   $servername = "localhost";
   $dbusername = "root";
   $dbpassword = "";
@@ -16,6 +17,7 @@
     die("Connection failed: " . $conn->connect_error);
   }
 
+  // Retrieve Menu information from the database using the company_id and based on item_catagory
   $query = "SELECT item_name, item_description, item_price, item_catagory FROM menu_details WHERE menu_id = '$company_id' AND item_catagory = 'Starters'";
 
   $result = $conn->query($query) or die ("Failed to query database ".$conn->connect_error);
@@ -28,6 +30,7 @@
 
   //---------------------------------------------------------------------------------------------------
 
+  // Retrieve Menu information from the database using the company_id and based on item_catagory
   $query = "SELECT item_name, item_description, item_price, item_catagory FROM menu_details WHERE menu_id = '$company_id' AND item_catagory = 'Mains'";
 
   $result = $conn->query($query) or die ("Failed to query database ".$conn->connect_error);
@@ -40,6 +43,7 @@
 
   //---------------------------------------------------------------------------------------------------
 
+  // Retrieve Menu information from the database using the company_id and based on item_catagory
   $query = "SELECT item_name, item_description, item_price, item_catagory FROM menu_details WHERE menu_id = '$company_id' AND item_catagory = 'Desserts'";
 
   $result = $conn->query($query) or die ("Failed to query database ".$conn->connect_error);
@@ -52,6 +56,7 @@
 
   //---------------------------------------------------------------------------------------------------
 
+  // Retrieve Menu information from the database using the company_id and based on item_catagory
   $query = "SELECT item_name, item_description, item_price, item_catagory FROM menu_details WHERE menu_id = '$company_id' AND item_catagory = 'Sides'";
 
   $result = $conn->query($query) or die ("Failed to query database ".$conn->connect_error);
@@ -62,6 +67,19 @@
         $sides = $sides."<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td></tr>";
   }
 
+  //---------------------------------------------------------------------------------------------------
+
+  // Retrieve Menu information from the database using the company_id and based on item_catagory
+  $query = "SELECT item_name, item_description, item_price, item_catagory FROM menu_details WHERE menu_id = '$company_id' AND item_catagory = 'Drinks'";
+
+  $result = $conn->query($query) or die ("Failed to query database ".$conn->connect_error);
+
+  $drinks="";
+
+  while($row = mysqli_fetch_array($result) ){
+        $drinks = $drinks."<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td></tr>";
+  }
+
 ?>
 
 <!DOCTYPE html>
@@ -70,22 +88,88 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../images/logo.ico">
 
     <title>Order 66</title>
+    <link rel="icon" href="../images/logo.ico">
 
-    <!-- Bootstrap core CSS -->
+    <!-- CSS -->
     <link href="../bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
     <link href="../css/dashboard.css" rel="stylesheet">
+
+    <!-- JS for Charts-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <!-- Pie Chart for most popular item-->
+    <script type="text/javascript">
+
+      // Load the Visualization API and the corechart package.
+      google.charts.load('current', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Item Name');
+        data.addColumn('number', 'Number Sold');
+        data.addRows([
+          ['Pizza', 300],
+          ['Pasta', 150],
+          ['Soup', 60],
+          ['Chicken', 900],
+          ['Steak', 300]
+        ]);
+
+        // Set chart options
+        var options = {'height':300};
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('most_popular_chart'));
+        chart.draw(data, options);
+      }
+    </script>
+
+    <!-- Bar Chart for items going out of date-->
+    <script type="text/javascript">
+      google.charts.load('current', {packages: ['corechart', 'bar']});
+      google.charts.setOnLoadCallback(drawMultSeries);
+
+      function drawMultSeries() {
+            var data = google.visualization.arrayToDataTable([
+              ['Item Name', 'Number of Days til Out of Date'],
+              ['Fish', 2],
+              ['Butter', 14],
+              ['Tomatoes', 0],
+              ['Steak', 5],
+              ['Chicken', 4],
+              ['Pasta', 14]
+            ]);
+
+            var options = {
+              chartArea: {width: '60%'},
+              hAxis: {
+                title: 'Number of Days Left',
+                minValue: 0
+              },
+              vAxis: {
+                title: 'Item Name'
+              }
+            };
+
+            var chart = new google.visualization.BarChart(document.getElementById('timeline'));
+            chart.draw(data, options);
+          }
+    </script>
   </head>
 
   <body>
 
+    <!--Navbar Start -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -109,14 +193,17 @@
         </div>
       </div>
     </nav>
+    <!--Navbar End -->
 
     <div class="container-fluid">
       <div class="row">
+
+        <!--Sidebar Start -->
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
             <li><a href="dashboard.php">Overview <span class="sr-only">(current)</span></a></li>
-            <li><a href="#">Reports</a></li>
-            <li><a href="#">Analytics</a></li>
+            <li><a href="reporting.php">Reports</a></li>
+            <li><a href="analytics.php">Analytics</a></li>
           </ul>
           <ul class="nav nav-sidebar">
             <li><a href="dashboard_employee.php">Employee Overview</a></li>
@@ -124,33 +211,27 @@
             <li><a href="dashboard_employee.php">- Remove Employee</a></li>
           </ul>
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="">Menu Overview</a></li>
-            <li><a href="">+ Add Menu Item</a></li>
-            <li><a href="">- Remove Menu Item</a></li>
+            <li class="active"><a href="dashboard_menu">Menu Overview</a></li>
+            <li><a href="#addRemoveMenuItem">+ Add Menu Item</a></li>
+            <li><a href="#addRemoveMenuItem">- Remove Menu Item</a></li>
           </ul>
         </div>
+        <!--Sidebar Start -->
+
+        <!--Content Start -->
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">Dashboard</h1>
+          <h1 class="page-header">Menu_Overview</h1>
 
           <div class="row placeholders">
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+            <div class="col-xs-6 placeholder">
               <h4>Most Popular Menu Item</h4>
+              <div id="most_popular_chart"></div>
               <span class="text-muted">Something else</span>
             </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Busiest Time Of Day</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Weekly Takings</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Yearly Takings</h4>
+
+            <div class="col-xs-6 placeholder">
+              <h4>Number of Days til Out of Date</h4>
+              <div id="timeline"></div>
               <span class="text-muted">Something else</span>
             </div>
           </div>
@@ -221,16 +302,33 @@
             </table>
           </div>
 
+          <h3 class="">Drinks</h3>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Item Name</th>
+                  <th>Description</th>
+                  <th>Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php echo $drinks; ?>
+              </tbody>
+            </table>
+          </div>
+
           <hr>
 
-          <div class="col-lg-6">
+          <!--Add Item Start -->
+          <div id="addRemoveMenuItem" class="col-lg-6">
 
             <h3 class="text-center">Add Menu Item</h3>
             <form id="add_Menu_Item" name="add_Menu_Item" method="post" action="add_Menu_Item.php">
               <div class="row">
                 <div class="form-group">
                   <div class="col-lg-offset-2 col-lg-4"><label for="item_name">Item Name</label></div>
-                  <div class="col-lg-6"><input type="Text" name="item_name"></div>
+                  <div class="col-lg-6"><input type="Text" name="item_name" required></div>
                 </div>
               </div>
 
@@ -244,19 +342,20 @@
               <div class="row">
                 <div class="form-group">
                   <div class="col-lg-offset-2 col-lg-4"><label for="item_price">Item Price</label></div>
-                  <div class="col-lg-6"><input type="Text" name="item_price"></div>
+                  <div class="col-lg-6"><input type="Text" name="item_price" required></div>
                 </div>
               </div>
 
               <div class="row">
                 <div class="form-group">
-                  <div class="col-lg-offset-2 col-lg-4"><label for="item_catagory">Item Catagory</label></div>
+                  <div class="col-lg-offset-2 col-lg-4"><label for="item_catagory" required>Item Catagory</label></div>
                   <div class="col-lg-6">
                     <select id="item_catagory" name="item_catagory" form="add_Menu_Item">
                       <option value="Starters">Starters</option>
                       <option value="Mains">Mains</option>
                       <option value="Desserts">Desserts</option>
                       <option value="Sides">Sides</option>
+                      <option value="Drinks">Drinks</option>
                     </select>
                   </div>
                 </div>
@@ -268,23 +367,25 @@
                 </div>
               </div>
             </form>
+            <!--Add Item End -->
 
           </div>
 
+          <!--Remove Item Start -->
           <div class="col-lg-6">
             <h3 class="text-center">Remove Menu Item</h3>
-            <form name="add_Menu_Item" method="post" action="add_Menu_Item.php">
+            <form name="add_Menu_Item" method="post" action="remove_menu_item.php">
               <div class="row">
                 <div class="form-group">
                   <div class="col-lg-offset-2 col-lg-4"><label for="item_name">Item Name</label></div>
-                  <div class="col-lg-6"><input type="Text" name="item_name"></div>
+                  <div class="col-lg-6"><input type="Text" name="item_name" required></div>
                 </div>
               </div>
 
               <div class="row">
                 <div class="form-group">
                   <div class="col-lg-offset-2 col-lg-4"><label for="item_description">Item Price</label></div>
-                  <div class="col-lg-6"><input type="Text" name="item_description"></div>
+                  <div class="col-lg-6"><input type="Text" name="item_description" ></div>
                 </div>
               </div>
 
@@ -292,7 +393,7 @@
                 <div class="form-group">
                   <div class="col-lg-offset-2 col-lg-4"><label for="item_description">Item Catagory</label></div>
                   <div class="col-lg-6">
-                    <input list="item_catagory" name="item_catagory">
+                    <input list="item_catagory" name="item_catagory" required>
                     <datalist id="item_catagory">
                       <option value="Starters">
                       <option value="Mains">
@@ -311,20 +412,18 @@
             </form>
 
           </div>
+          <!--Remove Item End -->
 
         </div>
+        <!--Content End -->
+
       </div>
     </div>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="bootstrap-3.3.7-dist/js/vendor/jquery.min.js"><\/script>')</script>
     <script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
-    <script src="../bootstrap-3.3.7-dist/js/vendor/holder.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../bootstrap-3.3.7-dist/js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>

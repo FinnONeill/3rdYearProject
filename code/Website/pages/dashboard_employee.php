@@ -1,7 +1,8 @@
 <?php
+  // Start the login session
   session_start();
 
-  // Server details
+  // Database information
   $servername = "localhost";
   $dbusername = "root";
   $dbpassword = "";
@@ -16,12 +17,13 @@
     die("Connection failed: " . $conn->connect_error);
   }
 
+  // Retrieve employee information from the database using the company_id
   $query = "SELECT employee_pps, employee_name, employee_tel, employee_email FROM employee_details WHERE company_id = '$company_id'";
 
-  $result = $conn->query($query) or die ("Failed to query database ".$conn->connect_error);
+  $result = $conn->query($query) or die (header("location: ./error.php"));
 
+  // Add the employee information to the table
   $dataRow="";
-
   while($row = mysqli_fetch_array($result)){
     $dataRow = $dataRow."<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td>$row[3]</td></tr>";
   }
@@ -33,23 +35,18 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../images/logo.ico">
 
     <title>Order 66</title>
+    <link rel="icon" href="../images/logo.ico">
 
-    <!-- Bootstrap core CSS -->
+    <!-- CSS -->
     <link href="../bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
     <link href="../css/dashboard.css" rel="stylesheet">
-
   </head>
 
   <body>
 
+    <!--Navbar Start -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -73,9 +70,12 @@
         </div>
       </div>
     </nav>
+    <!--Navbar End -->
 
     <div class="container-fluid">
       <div class="row">
+
+        <!--Sidebar Start -->
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
             <li><a href="dashboard.php">Overview <span class="sr-only">(current)</span></a></li>
@@ -93,6 +93,9 @@
             <li><a href="dashboard_menu.php">- Remove Menu Item</a></li>
           </ul>
         </div>
+        <!--Sidebar End -->
+
+        <!--Content Start -->
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header">Employee Overview</h1>
 
@@ -103,35 +106,35 @@
             <div class="row">
               <div class="form-group">
                 <div class="col-lg-offset-2 col-lg-4"><label for="employee_pps">Employee PPS Number</label></div>
-                <div class="col-lg-6"><input type="text" name="employee_pps"></div>
+                <div class="col-lg-6"><input type="text" name="employee_pps" required></div>
               </div>
             </div>
 
             <div class="row">
               <div class="form-group">
                 <div class="col-lg-offset-2 col-lg-4"><label for="employee_name">Employee Name</label></div>
-                <div class="col-lg-6"><input type="text" name="employee_name"></div>
+                <div class="col-lg-6"><input type="text" name="employee_name" required></div>
               </div>
             </div>
 
             <div class="row">
               <div class="form-group">
                 <div class="col-lg-offset-2 col-lg-4"><label for="employee_tel">Employee Tel</label></div>
-                <div class="col-lg-6"><input type="Number" name="employee_tel"></div>
+                <div class="col-lg-6"><input type="Number" name="employee_tel" required></div>
               </div>
             </div>
             
             <div class="row">
               <div class="form-group">
                 <div class="col-lg-offset-2 col-lg-4"><label for="employee_email">Employee Email</label></div>
-                <div class="col-lg-6"><input type="Email" name="employee_email"></div>
+                <div class="col-lg-6"><input type="Email" name="employee_email" autocomplete="off" required></div>
               </div>
             </div>
 
             <div class="row">
               <div class="form-group">
                 <div class="col-lg-offset-2 col-lg-4"><label for="password">Password</label></div>
-                <div class="col-lg-6"><input type="Password" name="password" minlength="8" maxlength="25"></div>
+                <div class="col-lg-6"><input type="Password" name="password" minlength="8" maxlength="25" autocomplete="off" required></div>
               </div>
             </div>
 
@@ -151,14 +154,14 @@
             <div class="row">
               <div class="form-group">
                 <div class="col-lg-offset-2 col-lg-4"><label for="employee_pps">Employee PPS Number</label></div>
-                <div class="col-lg-6"><input type="text" name="employee_pps"></div>
+                <div class="col-lg-6"><input type="text" name="employee_pps" required></div>
               </div>
             </div>
 
             <div class="row">
               <div class="form-group">
                 <div class="col-lg-offset-2 col-lg-4"><label for="employee_name">Employee Name</label></div>
-                <div class="col-lg-6"><input type="text" name="employee_name"></div>
+                <div class="col-lg-6"><input type="text" name="employee_name" required></div>
               </div>
             </div>
 
@@ -173,37 +176,32 @@
 
           <div class="col-lg-12">
             <h2 class="sub-header">Employee's</h2>
-          <div class="table-responsive">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>Employee PPS Number</th>
-                  <th>Name</th>
-                  <th>Phone Number</th>
-                  <th>Email</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php echo $dataRow; ?>
-              </tbody>
-            </table>
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Employee PPS Number</th>
+                    <th>Name</th>
+                    <th>Phone Number</th>
+                    <th>Email</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php echo $dataRow; ?>
+                </tbody>
+              </table>
+            </div>
           </div>
-          </div>
-          
-
+        
         </div>
+        <!--Content End -->
       </div>
     </div>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="bootstrap-3.3.7-dist/js/vendor/jquery.min.js"><\/script>')</script>
     <script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
-    <script src="../bootstrap-3.3.7-dist/js/vendor/holder.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../bootstrap-3.3.7-dist/js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>
