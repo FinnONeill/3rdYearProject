@@ -71,7 +71,7 @@
         <activity
             android:name=".floor.ReceivedDetailActivity"
             android:label="@string/title_item_detail"
-            android:parentActivityName=".floor.ReceivedDetailActivity"
+            android:parentActivityName=".floor.ReceivedListActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

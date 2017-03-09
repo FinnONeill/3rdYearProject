@@ -13,9 +13,6 @@ import android.view.View;
 
 import com.example.ian.applayout.R;
 
-import static com.example.ian.applayout.floor.contentLists.OrderTotal.addItemTotal;
-import static com.example.ian.applayout.floor.contentLists.OrderTotal.createOrderTotalItem;
-
 /**
  * Created by Finn on 08/03/2017.
  */
@@ -38,12 +35,12 @@ public class ReceivedDetailActivity extends AppCompatActivity {
         }
 
         //Little green plus button to add menu items to the order.
-        FloatingActionButton removeOrderBtn = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton removeOrderBtn = (FloatingActionButton) findViewById(R.id.fabThree);
         removeOrderBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 itemName =  new ReceivedListActivity().receivedNamer;
-                Snackbar.make(view, "Order completed!", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Your Order Has Been Removed!", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
 
                 /*
@@ -71,7 +68,7 @@ public class ReceivedDetailActivity extends AppCompatActivity {
             ReceivedDetailFragment fragment = new ReceivedDetailFragment();
             fragment.setArguments(arguments);
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.received_detail_container,fragment);
+                    .add(R.id.received_detail_container, fragment).commit();
         }
     }
 
@@ -82,7 +79,7 @@ public class ReceivedDetailActivity extends AppCompatActivity {
             // This ID represents the Home or Up button. In the case of this
             // activity, the Up button is shown. Use NavUtils to allow users
             // to navigate up one level in the application structure.
-            NavUtils.navigateUpTo(this, new Intent(this, MenuListActivity.class));
+            NavUtils.navigateUpTo(this, new Intent(this, ReceivedListActivity.class));
             return true;
         }
         return super.onOptionsItemSelected(item);

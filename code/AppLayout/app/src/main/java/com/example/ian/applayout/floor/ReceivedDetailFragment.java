@@ -1,14 +1,12 @@
 package com.example.ian.applayout.floor;
 
 import android.app.Activity;
-import android.app.Fragment;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 
 import com.example.ian.applayout.R;
 import com.example.ian.applayout.floor.contentLists.OrderReceived;
@@ -61,7 +59,7 @@ public class ReceivedDetailFragment extends android.support.v4.app.Fragment{
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.item_detail, container, false);
+        View rootView = inflater.inflate(R.layout.received_detail, container, false);
 
         // Show the dummy content as text in a TextView.
         if (mItem != null) {
