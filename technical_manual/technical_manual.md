@@ -34,12 +34,12 @@ Order 66 has many benefits for both the employer and the employee as it can help
 
 //FINISH ANOTHER PARAGRAPH
 
-###Glossary
+### Glossary
 
 *POS App* - Point Of Sale Application
 *WiFi P2P* - WiFi Peer to Peer
 
-### Operational Scenarios
+## Operational Scenarios
 
 ##### Registering on the website. 
 
@@ -168,14 +168,17 @@ Order 66 has many benefits for both the employer and the employee as it can help
 
 ## System Architecture
 
+For this project we used a libary called Boostrap to design our website as the framework help making the process of creating a responsive website much simpler as it uses the Grid System over the more traditional Box Model. 
+[Bootstrap](http://getbootstrap.com/)
 
--Distribution of functions
--Architectual components that are reused (Data strauctures?)
--3rd party libarys highlighted here.
+Another libary we used was Google's Chart libary to create all the different graphs and charts as it's a very well documented libary that is easy to use.
+[Google Charts](https://developers.google.com/chart/)
 
+The Entity-Relationship Diagram below outlines our implemented database design, it also shows the Primary and Foreign keys in each table. 
+
+![Database Design](./Images/database_architecture.jpg)
 
 ![System Architecture](./Images/Screenshot_4.PNG)
-
 
 ![Sequence Diagram](./Images/Screenshot_3.PNG)
 
@@ -184,7 +187,7 @@ Order 66 has many benefits for both the employer and the employee as it can help
 -System models showing relationships between components & systems
 -eg DFD
 
-Thisbusiness activity model visualizes the steps taken by the company staff when using the app.
+This business activity model visualizes the steps taken by the company staff when using the app.
 
 ![App BAM](./Images/Screenshot_1.PNG)
 
@@ -197,8 +200,6 @@ This data flow diagram highlights the flow of data through the project, as well 
 ![DFD](./Images/Screenshot_2.PNG)
 
 ## Problems and Resolution
-
--Major problems encountered (WiFi P2P)
 
 ### WiFi P2P
 
@@ -225,9 +226,10 @@ As our application is not on the Google Play Store, you will have to install it 
 #### Step 1
 ##### Employer Setup
 Order 66 requires a signup process through our website which will allow you to create your menu and different accounts for your employee.
-1. Go to [order66.finnianoneill.ie](http://www.order66.finnianoneill.ie)
+
+1. Go to [order66.finnianoneill.ie](http://www.order66.finnianoneill.ie).
 2. Press the Sign Up button in the top left hand side of your screen.
-3. Fill out the form accordingly
+3. Fill out the form accordingly.
 4. After filling out the form, you will be brought to your Dashboard, on the sidebar on the lefthand side of the screen, press "+ Add Menu Item"
 5. Here you can add all your menu items and some usefull statistics once you get using Order 66.
 6. Lastly you can add some employee accounts, by pressing "+ Add Employee" and filling out the small form. 
@@ -241,12 +243,13 @@ Order 66 requires a signup process through our website which will allow you to c
 #### Step 3
 ##### Order 66 Project Files
 1. Go to the [Order 66 Website](http://www.order66.finnianoneill.ie)
-2. On the homepage below the Heading text there is a button that says "Download Order 66" [Download Order 66](./images/downloadOrder66.jpg)
+2. On the homepage below the Heading text there is a button that says "Download Order 66" ![Download Order 66](./Images/downloadOrder66.jpg)
 
 #### Step 4
+##### Installing Order 66 onto your device
 1. Once you have downloaded Order66.zip, unzip it and open Android Studio.
 2. When Android Studio opens choose "open exsisting project" and navigate to Order66.
-3. When it opens, press the green play button at the top of the screen seen here [Press the Green play button](./images/pressPlayButton.jpg)
+3. When it opens, press the green play button at the top of the screen seen here ![Press the Green play button](./Images/pressPlayButton.jpg)
 4. Then connect your Android device to your computer using your USB cable and it should appear on the menu.
 5. Then select your device as the deployment target.
 6. Allow the computer time to build and install the application, and once you see it open, you can press the red stop button.
