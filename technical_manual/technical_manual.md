@@ -168,7 +168,7 @@ Order 66 has many benefits for both the employer and the employee as it can help
 *WiFi P2P* - WiFi Peer to Peer
 
 
-## System Archtiecture
+## System Architecture
 
 
 -Distribution of functions
@@ -186,9 +186,15 @@ Order 66 has many benefits for both the employer and the employee as it can help
 -System models showing relationships between components & systems
 -eg DFD
 
+Thisbusiness activity model visualizes the steps taken by the company staff when using the app.
+
 ![App BAM](./Images/Screenshot_1.PNG)
 
+This business activity model visualizes the steps taken by the company owner or manager when using the website.
+
 ![Website BAM](./Images/Screenshot_5.PNG)
+
+This data flow diagram highlights the flow of data through the project, as well as showing an overview of the process involved.
 
 ![DFD](./Images/Screenshot_2.PNG)
 
