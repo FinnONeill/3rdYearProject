@@ -37,6 +37,7 @@ Order 66 has many benefits for both the employer and the employee as it can help
 ###Glossary
 
 *POS App* - Point Of Sale Application
+*WiFi P2P* - WiFi Peer to Peer
 
 ### Operational Scenarios
 
@@ -165,9 +166,6 @@ Order 66 has many benefits for both the employer and the employee as it can help
 
 ***Termination*** --- The order has been deleted. 
 
-*WiFi P2P* - WiFi Peer to Peer
-
-
 ## System Architecture
 
 
@@ -216,10 +214,42 @@ Our solution to these issues was to try an alternative method, which resulted in
 
 ## Installation Guide
 
-- 1/2 page install guide, step by step process.
-- detailed description of software neccessary.
-- list all software, components, versions, hardware etc.
+### Required Software/Hardware
+* Android Studio
+* Order66 Project Files
+* Android Device
+* USB Cable
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+As our application is not on the Google Play Store, you will have to install it through Android Studio and run it through your device that way. To do so, follow these steps.
+
+#### Step 1
+##### Employer Setup
+Order 66 requires a signup process through our website which will allow you to create your menu and different accounts for your employee.
+1. Go to [order66.finnianoneill.ie](http://www.order66.finnianoneill.ie)
+2. Press the Sign Up button in the top left hand side of your screen.
+3. Fill out the form accordingly
+4. After filling out the form, you will be brought to your Dashboard, on the sidebar on the lefthand side of the screen, press "+ Add Menu Item"
+5. Here you can add all your menu items and some usefull statistics once you get using Order 66.
+6. Lastly you can add some employee accounts, by pressing "+ Add Employee" and filling out the small form. 
+
+#### Step 2
+##### Android Studio Installation
+1. Go to [developer.android.com](https://developer.android.com/studio/index.html) and download the Android Studio .exe file.
+2. Once it's finished downloading, launch the .exe file you downloaded.
+3. Follow the setup wizard to install Android Studio and you can leave all the settings as default. A video can be found at [this link](https://developer.android.com/studio/install.html)
+
+#### Step 3
+##### Order 66 Project Files
+1. Go to the [Order 66 Website](http://www.order66.finnianoneill.ie)
+2. On the homepage below the Heading text there is a button that says "Download Order 66" [Download Order 66](./images/downloadOrder66.jpg)
+
+#### Step 4
+1. Once you have downloaded Order66.zip, unzip it and open Android Studio.
+2. When Android Studio opens choose "open exsisting project" and navigate to Order66.
+3. When it opens, press the green play button at the top of the screen seen here [Press the Green play button](./images/pressPlayButton.jpg)
+4. Then connect your Android device to your computer using your USB cable and it should appear on the menu.
+5. Then select your device as the deployment target.
+6. Allow the computer time to build and install the application, and once you see it open, you can press the red stop button.
+7. Disconnect your device and Order 66 will be still installed. All your Menu Items will be available once you login.
 
 ## Appendices
