@@ -13,7 +13,7 @@ import java.util.Map;
 public class OrderMenu {
 
     /**
-     * An array of items.
+     * An array of Menu items.
      */
     public static final List<MenuItem> ITEMS = new ArrayList<MenuItem>();
 
@@ -25,12 +25,13 @@ public class OrderMenu {
     private static final int COUNT = MenuGetter.menu.size();
 
     static {
-        // Add some sample items.
+        // Start populating the List with Menu Items.
         for (int i = 0; i <COUNT; i++) {
             addItem(createMenuItem(i));
         }
     }
 
+    //To upload the Menu after sync.
     public static void update(){
         ITEMS.clear();
         for (int i = 0; i <MenuGetter.menu.size(); i++) {
@@ -38,11 +39,13 @@ public class OrderMenu {
         }
     }
 
+    //Add a Menu Item to the List and the Map
     private static void addItem(MenuItem item) {
         ITEMS.add(item);
         ITEM_MAP.put(item.id, item);
     }
 
+    //Make and format all the contents so it can be made into a Menu Item.
     private static MenuItem createMenuItem(int position) {
         String desc = "Price: \t€" + MenuGetter.menu.get(position).getPrice();
         desc = desc + "\nDescription: \t"+ MenuGetter.menu.get(position).getDescription();
@@ -51,7 +54,7 @@ public class OrderMenu {
     }
 
     /**
-     * A dummy item representing a piece of content.
+     * A Menu item representing the content and details of a item on a menu.
      */
     public static class MenuItem {
         public final String id;

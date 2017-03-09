@@ -1,9 +1,5 @@
 package com.example.ian.applayout;
 
-import android.text.format.Time;
-
-import com.example.ian.applayout.floor.contentLists.OrderTotal;
-
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;

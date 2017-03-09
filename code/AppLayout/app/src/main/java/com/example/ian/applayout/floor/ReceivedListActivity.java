@@ -20,7 +20,7 @@ import com.example.ian.applayout.floor.contentLists.OrderReceived.ItemMenu;
 import java.util.List;
 
 /**
- * Created by Ian on 08/03/2017.
+ * This is the Activity that handles Populating a list of received orders.
  */
 
 public class ReceivedListActivity extends AppCompatActivity {
@@ -36,18 +36,6 @@ public class ReceivedListActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle(getTitle());
-
-
-        for(int i=0; i<RecieveOrders.orderList.size(); i++){
-            System.out.println("ORDER: "+i+" "+RecieveOrders.orderList.get(i).getOrderDetails());
-        }
-
-        System.out.println("Num Orders: "+RecieveOrders.orderList.size());
-
-        for(int i=0; i<OrderReceived.ITEMS_RECEIVED.size(); i++){
-            System.out.println("ORDER_RECEIVED: "+i+" "+OrderReceived.ITEMS_RECEIVED.get(i).details);
-        }
-        System.out.println("Num Orders: "+OrderReceived.ITEMS_RECEIVED.size());
 
         View recyclerView = findViewById(R.id.item_list);
         assert recyclerView != null;

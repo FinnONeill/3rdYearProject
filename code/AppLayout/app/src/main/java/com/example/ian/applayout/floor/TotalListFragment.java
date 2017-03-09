@@ -11,7 +11,7 @@ import com.example.ian.applayout.R;
 import com.example.ian.applayout.floor.contentLists.OrderTotal;
 
 /**
- * Created by Ian on 06/03/2017.
+ * Fragment for Total List activity
  */
 
 public class TotalListFragment extends Fragment {

@@ -9,7 +9,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 /**
- * Created by Finn on 09/03/2017.
+ * Activity to handle the splash screen.
  */
 
 public class SplashScreen extends Activity{

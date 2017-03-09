@@ -40,11 +40,6 @@ public class MenuListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_list);
-/*
-        if(DrawerActivity.getSyncStatus()){
-           // System.out.println("Restarting Menu List");
-            this.recreate();
-        }*/
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

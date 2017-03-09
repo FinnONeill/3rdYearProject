@@ -85,7 +85,7 @@ public class OrderTotal {
     }
 
     /**
-     * A dummy item representing a piece of content.
+     * A menu item representing a item on a menu.
      */
     public static class ItemMenu {
         public final String id;

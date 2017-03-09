@@ -14,7 +14,7 @@ import com.example.ian.applayout.floor.contentLists.OrderTables.ItemTables;
 import java.util.List;
 
 /**
- * Created by Ian on 06/03/2017.
+ * View adapter for table.
  */
 
 public class TableRecyclerViewAdapter extends RecyclerView.Adapter<TableRecyclerViewAdapter.ViewHolder> {

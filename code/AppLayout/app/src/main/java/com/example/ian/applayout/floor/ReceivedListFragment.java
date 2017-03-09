@@ -11,7 +11,7 @@ import com.example.ian.applayout.R;
 import com.example.ian.applayout.floor.contentLists.OrderReceived;
 
 /**
- * Created by Ian on 08/03/2017.
+ * Fragment for Received List
  */
 
 public class ReceivedListFragment extends Fragment {

@@ -7,10 +7,6 @@ import android.widget.Toast;
 
 import com.example.ian.applayout.floor.contentLists.OrderReceived;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -21,7 +17,6 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
 
 /**
  * UpdateOrderStatus class is to update the staus of an order to CLOSED.
@@ -118,7 +113,6 @@ public class UpdateOrderStatus extends AsyncTask<String, String ,String> {
     @Override
     protected void onPostExecute(String result) {
         //Run this method on UI Thread
-        System.out.println("ONPOST: "+result);
         if(result.equalsIgnoreCase("updated")){
             //Remove order from list.
             OrderReceived.ITEMS_RECEIVED.remove(orderPosition);

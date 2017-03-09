@@ -22,7 +22,7 @@ import com.example.ian.applayout.floor.contentLists.OrderTables.ItemTables;
 import java.util.List;
 
 /**
- * Created by Ian on 06/03/2017.
+ * Class to represent and handle the List of tables.
  */
 
 public class TableListActivity extends AppCompatActivity {
@@ -64,10 +64,10 @@ public class TableListActivity extends AppCompatActivity {
         }
     }
 
+    //Update the recieved orders list with new order
     @Override
     protected void onPause(){
         super.onPause();
-        System.out.println("PAUSED");
         //Access userInfo.
         SharedPreferences settings = getSharedPreferences("LogInInfo",0);
         String username = settings.getString("email","could not find email");

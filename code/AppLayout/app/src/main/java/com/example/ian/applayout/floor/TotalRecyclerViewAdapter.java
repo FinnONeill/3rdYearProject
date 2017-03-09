@@ -14,7 +14,7 @@ import com.example.ian.applayout.floor.contentLists.OrderTotal.ItemMenu;
 import java.util.List;
 
 /**
- * Created by Ian on 06/03/2017.
+ * View adapter for total order.
  */
 
 public class TotalRecyclerViewAdapter extends RecyclerView.Adapter<TotalRecyclerViewAdapter.ViewHolder> {

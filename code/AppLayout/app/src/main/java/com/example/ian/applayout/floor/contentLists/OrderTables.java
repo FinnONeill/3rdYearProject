@@ -21,6 +21,7 @@ public class OrderTables {
 
     private static final int COUNT = 25;
 
+    //Intialise the list of tables
     static {
         // Add some items.
         for (int i = 1; i <= COUNT; i++) {
@@ -47,7 +48,7 @@ public class OrderTables {
     }
 
     /**
-     * A dummy item representing a piece of content.
+     * A list of table item representing a piece of content.
      */
     public static class ItemTables {
         public final String id;

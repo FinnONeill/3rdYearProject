@@ -1,11 +1,7 @@
 package com.example.ian.applayout;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
-import android.preference.PreferenceManager;
-import android.provider.SyncStateContract;
 
 import com.example.ian.applayout.floor.contentLists.OrderMenu;
 

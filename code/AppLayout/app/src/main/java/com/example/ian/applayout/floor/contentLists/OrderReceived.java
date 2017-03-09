@@ -15,23 +15,25 @@ import java.util.Map;
 
 public class OrderReceived {
     /**
-     * An array of sample (dummy) items.
+     * A List of received order items, by ID.
      */
     public static ArrayList<ItemMenu> ITEMS_RECEIVED = new ArrayList<ItemMenu>();
 
     /**
-     * A map of sample (dummy) items, by ID.
+     * A map of received order items, by ID.
      */
     public static Map<String, ItemMenu> ITEM_MAP_RECEIVED = new HashMap<String, ItemMenu>();
 
     private static int COUNT = RecieveOrders.orderList.size();
 
+    //Initialise the list of received orders
     static {
         for (int i = 0; i <COUNT; i++) {
             addItemReceived(createOrderReceivedItem(i));
         }
     }
 
+    //Update the list with newly received orders
     public static void update(){
             ITEMS_RECEIVED.clear();
             for (int i = 0; i <RecieveOrders.orderList.size(); i++) {
@@ -49,7 +51,7 @@ public class OrderReceived {
     }
 
     /**
-     * A dummy item representing a piece of content.
+     * A menu item representing a piece of content.
      */
     public static class ItemMenu {
         public final String id;

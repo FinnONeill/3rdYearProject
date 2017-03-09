@@ -24,7 +24,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Created by Ian on 06/03/2017.
+ * List activity to handle the current list of menu items due to be sent.
  */
 
 public class TotalListActivity extends AppCompatActivity {

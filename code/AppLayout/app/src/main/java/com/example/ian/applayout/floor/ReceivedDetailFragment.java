@@ -44,15 +44,11 @@ public class ReceivedDetailFragment extends android.support.v4.app.Fragment{
             // arguments. In a real-world scenario, use a Loader
             // to load content from a content provider.
             mItem = OrderReceived.ITEM_MAP_RECEIVED.get(getArguments().getString(ARG_ITEM_ID));
-            System.out.println("RDetailFrag Item Name: "+mItem.id);
-            System.out.println("RDetailFrag Item Name: "+mItem.content);
-            System.out.println("RDetailFrag Item Details: "+mItem.details);
 
             Activity activity = this.getActivity();
             CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.findViewById(R.id.received_toolbar_layout);
             if (appBarLayout != null) {
                 appBarLayout.setTitle(mItem.content);
-                System.out.println("AppbarLayout == null");
             }
         }
     }

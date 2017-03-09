@@ -11,7 +11,7 @@ import com.example.ian.applayout.R;
 import com.example.ian.applayout.floor.contentLists.OrderTables;
 
 /**
- * Created by Ian on 06/03/2017.
+ * Fragment for table list activity.
  */
 
 public class TableListFragment extends Fragment {

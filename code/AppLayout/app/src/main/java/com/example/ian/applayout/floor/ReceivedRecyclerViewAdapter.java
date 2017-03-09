@@ -16,7 +16,7 @@ import java.util.List;
 
 
 /**
- * Created by Ian on 08/03/2017.
+ * View Adapter for Received Items.
  */
 
 public class ReceivedRecyclerViewAdapter extends RecyclerView.Adapter<ReceivedRecyclerViewAdapter.ViewHolder> {
