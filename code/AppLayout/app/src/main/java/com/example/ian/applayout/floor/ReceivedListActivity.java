@@ -1,6 +1,7 @@
 package com.example.ian.applayout.floor;
 
-import android.content.SharedPreferences;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -25,6 +26,8 @@ import java.util.List;
 public class ReceivedListActivity extends AppCompatActivity {
 
     private boolean oTwoPane;
+    public static String receivedNamer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,23 +37,34 @@ public class ReceivedListActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         toolbar.setTitle(getTitle());
 
+
         for(int i=0; i<RecieveOrders.orderList.size(); i++){
             System.out.println("ORDER: "+i+" "+RecieveOrders.orderList.get(i).getOrderDetails());
         }
 
         System.out.println("Num Orders: "+RecieveOrders.orderList.size());
 
+        for(int i=0; i<OrderReceived.ITEMS_RECEIVED.size(); i++){
+            System.out.println("ORDER_RECEIVED: "+i+" "+OrderReceived.ITEMS_RECEIVED.get(i).details);
+        }
+        System.out.println("Num Orders: "+OrderReceived.ITEMS_RECEIVED.size());
+
         View recyclerView = findViewById(R.id.item_list);
         assert recyclerView != null;
         setupRecyclerView((RecyclerView) recyclerView);
 
-        if (findViewById(R.id.item_detail_container) != null) {
+        if (findViewById(R.id.received_detail_container) != null) {
             // The detail container view will be present only in the
             // large-screen layouts (res/values-w900dp).
             // If this view is present, then the
             // activity should be in two-pane mode.
             oTwoPane = true;
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        ReceivedListActivity.this.finish();
     }
 
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
@@ -72,7 +86,7 @@ public class ReceivedListActivity extends AppCompatActivity {
         }
 
         @Override
-        public void onBindViewHolder(final ViewHolder holder, int position) {
+        public void onBindViewHolder(final ReceivedListActivity.SimpleItemRecyclerViewAdapter.ViewHolder holder, final int position) {
             holder.oItem = oValues.get(position);
             holder.oIdView.setText(oValues.get(position).id);
             holder.oContentView.setText(oValues.get(position).content);
@@ -80,7 +94,22 @@ public class ReceivedListActivity extends AppCompatActivity {
             holder.oView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
+                    if (oTwoPane) {
+                        Bundle arguments = new Bundle();
+                        arguments.putString(ReceivedDetailFragment.ARG_ITEM_ID, holder.oItem.id);
+                        ReceivedDetailFragment fragment = new ReceivedDetailFragment();
+                        fragment.setArguments(arguments);
+                        getSupportFragmentManager().beginTransaction().replace(R.id.received_detail_container, fragment).commit();
+                    } else {
+                        Context context = v.getContext();
+                        Intent intent = new Intent(context, ReceivedDetailActivity.class);
+                        intent.putExtra(ReceivedDetailFragment.ARG_ITEM_ID, holder.oItem.id);
+                        System.out.println("RecievedList ID: "+holder.oItem.id);
+                        System.out.println("RecievedList Content: "+oValues.get(position).content);
+                        System.out.println("RecievedList Details: "+holder.oItem.details);
+                        receivedNamer = oValues.get(position).content;
+                        context.startActivity(intent);
+                    }
                 }
             });
         }

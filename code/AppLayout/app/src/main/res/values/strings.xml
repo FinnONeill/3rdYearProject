@@ -39,6 +39,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="intro">Navigation Drawer with Master-Detail Flow Example</string>
     <string name="create_order">Create An Order</string>
-    <string name="view_order">View Your Order</string>
+    <string name="view_order">View All OPEN Orders</string>
 
 </resources>

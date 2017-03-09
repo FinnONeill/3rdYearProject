@@ -34,7 +34,7 @@ public class TableRecyclerViewAdapter extends RecyclerView.Adapter<TableRecycler
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
         holder.nItem = nValues.get(position);
         holder.nIdView.setText(nValues.get(position).id);
         holder.nContentView.setText(nValues.get(position).content);
@@ -44,7 +44,7 @@ public class TableRecyclerViewAdapter extends RecyclerView.Adapter<TableRecycler
             public void onClick(View v) {
                 Context context = v.getContext();
                 Intent intent = new Intent(context, MenuListActivity.class);
-
+                intent.putExtra("tableNumber",position);
                 context.startActivity(intent);
             }
         });

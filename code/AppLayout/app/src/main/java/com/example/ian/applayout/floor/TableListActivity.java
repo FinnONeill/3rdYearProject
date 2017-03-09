@@ -2,6 +2,7 @@ package com.example.ian.applayout.floor;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -15,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.ian.applayout.R;
+import com.example.ian.applayout.RecieveOrders;
 import com.example.ian.applayout.floor.contentLists.OrderTables;
 import com.example.ian.applayout.floor.contentLists.OrderTables.ItemTables;
 
@@ -54,7 +56,7 @@ public class TableListActivity extends AppCompatActivity {
         assert recyclerView != null;
         setupRecyclerView((RecyclerView) recyclerView);
 
-        if (findViewById(R.id.item_detail_container) != null) {
+        if (findViewById(R.id.received_detail_container) != null) {
             // The detail container view will be present only in the
             // large-screen layouts (res/values-w900dp).
             // If this view is present, then the
@@ -62,6 +64,22 @@ public class TableListActivity extends AppCompatActivity {
             mTwoPane = true;
         }
     }
+
+    @Override
+    protected void onPause(){
+        super.onPause();
+        System.out.println("PAUSED");
+        //Access userInfo.
+        SharedPreferences settings = getSharedPreferences("LogInInfo",0);
+        String username = settings.getString("email","could not find email");
+        String password = settings.getString("password","could not find password");
+
+        new RecieveOrders(username, password).execute();
+        View recyclerView = findViewById(R.id.item_list);
+        assert recyclerView != null;
+        setupRecyclerView((RecyclerView) recyclerView);
+    }
+
 
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
         recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(OrderTables.ITEMS_TABLES));

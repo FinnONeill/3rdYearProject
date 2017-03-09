@@ -22,16 +22,21 @@ public class OrderReceived {
     /**
      * A map of sample (dummy) items, by ID.
      */
-    public static final Map<String, ItemMenu> ITEM_MAP_RECEIVED = new HashMap<String, ItemMenu>();
+    public static Map<String, ItemMenu> ITEM_MAP_RECEIVED = new HashMap<String, ItemMenu>();
 
-    private static final int COUNT = RecieveOrders.orderList.size();
+    private static int COUNT = RecieveOrders.orderList.size();
 
-    // ADD ITEMS TO LIST HERE SOMEWHERE I DUNNO
     static {
-        // Add some sample items.
         for (int i = 0; i <COUNT; i++) {
             addItemReceived(createOrderReceivedItem(i));
         }
+    }
+
+    public static void update(){
+            ITEMS_RECEIVED.clear();
+            for (int i = 0; i <RecieveOrders.orderList.size(); i++) {
+                addItemReceived(createOrderReceivedItem(i));
+            }
     }
 
     private static void addItemReceived(ItemMenu item) {
@@ -41,15 +46,6 @@ public class OrderReceived {
 
     private static ItemMenu createOrderReceivedItem(int position) {
         return new ItemMenu(String.valueOf(position), RecieveOrders.orderList.get(position).getOrderNumber() , RecieveOrders.orderList.get(position).getOrderDetails());
-    }
-
-    private static String makeReceivedDetails(int position) {
-        StringBuilder builder = new StringBuilder();
-        builder.append("Details about Item: ").append(position);
-        for (int i = 0; i < position; i++) {
-            builder.append("\nMore details information here.");
-        }
-        return builder.toString();
     }
 
     /**

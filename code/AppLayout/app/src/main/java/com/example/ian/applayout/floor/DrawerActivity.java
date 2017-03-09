@@ -13,11 +13,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import com.example.ian.applayout.LoginActivity;
 import com.example.ian.applayout.MenuGetter;
 import com.example.ian.applayout.R;
 import com.example.ian.applayout.RecieveOrders;
+import com.example.ian.applayout.floor.contentLists.OrderReceived;
 
 /**
  * The main activity to run all the menu items in the drawer.
@@ -28,12 +31,7 @@ public class DrawerActivity extends AppCompatActivity implements NavigationView.
     //Boolean for if the screen is rotated.
     public static boolean mTwoPane;
 
-    private static boolean isSyncing = false;
-
-    public static boolean getSyncStatus(){
-        isSyncing = false;
-        return !isSyncing;
-    }
+    private String username,password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,53 +52,24 @@ public class DrawerActivity extends AppCompatActivity implements NavigationView.
 
         //Access userInfo.
         SharedPreferences settings = getSharedPreferences("LogInInfo",0);
-        String username = settings.getString("email","could not find email");
-        String password = settings.getString("password","could not find password");
+        username = settings.getString("email","could not find email");
+        password = settings.getString("password","could not find password");
 
         new RecieveOrders(username, password).execute();
 
-        if (findViewById(R.id.item_detail_container) != null) {
+
+        if (findViewById(R.id.received_detail_container) != null) {
             // The detail container view will be present only in the
             // large-screen layouts (res/values-w900dp).
             // If this view is present, then the
             // activity should be in two-pane mode.
             mTwoPane = true;
         }
+
+        //Load the two big buttons from Default Fragment.
         final FragmentManager fragmentManager = getSupportFragmentManager();
         DefaultFragment fragment = new DefaultFragment();
         fragmentManager.beginTransaction().replace(R.id.first_container, fragment).commit();
-/*
-        Button startOrderButton = (Button) (findViewById(R.id.create_order));
-        startOrderButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MenuListFragment fragment = new MenuListFragment();
-                fragmentManager.beginTransaction().replace(R.id.first_container, fragment).commit();
-                Intent nextActivity = new Intent(DrawerActivity.this, TableListActivity.class);
-                startActivity(nextActivity);
-            }
-        });
-
-        Button viewOrderButton = (Button) (findViewById(R.id.view_order));
-        viewOrderButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                TotalListFragment fragment = new TotalListFragment();
-                fragmentManager.beginTransaction().replace(R.id.first_container, fragment).commit();
-                Intent nextActivity = new Intent(DrawerActivity.this, TotalListActivity.class);
-                startActivity(nextActivity);
-            }
-        });
-/*
-        Button viewOrderReceivedButton = (Button) (findViewById(R.id.view_order_received));
-        viewOrderButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent nextActivity = new Intent(DrawerActivity.this, DrawerActivity.class);
-                startActivity(nextActivity);
-            }
-        });
-*/
     }
 
     @Override
@@ -125,27 +94,17 @@ public class DrawerActivity extends AppCompatActivity implements NavigationView.
 
         int id = item.getItemId();
 
+        //If sync button is pressed, refresh the menu and the incoming orders.
         if (id == R.id.action_sync) {
-
-            System.out.println("Sync button pressed!");
-            // ADD A SYNC FUNCTION HERE !!!
-            //Access userInfo.
-            SharedPreferences settings = getSharedPreferences("LogInInfo",0);
-            String username = settings.getString("email","could not find email");
-            String password = settings.getString("password","could not find password");
-
             //Sync menu with database.
             new MenuGetter(username,password).execute();
 
             //Check for any new OPEN orders.
             new RecieveOrders(username,password).execute();
-
-            isSyncing = true;
-            //this.recreate();
-
             return true;
         }
 
+        //If logout button is pressed, return to login screen.
         if (id == R.id.action_log_off) {
             Intent nextActivity = new Intent(DrawerActivity.this, LoginActivity.class);
             startActivity(nextActivity);

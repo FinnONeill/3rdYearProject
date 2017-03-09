@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Scanner;
 import java.util.Set;
 
 /**
@@ -59,6 +60,30 @@ public class OrderTotal {
         return detailsToString;
     }
 
+    public double getPrice(ArrayList<ItemMenu> items){
+        double price=0;
+        String euros="";
+        String cents="";
+        for(ItemMenu each: items){      //remove duplicates and increase quanity of item instead.
+            each.getDetails();
+            int count=0;
+            while(each.getDetails().charAt(count)!='€'){
+                count++;
+                if(each.getDetails().charAt(count) == '€'){
+                    while (each.getDetails().charAt(count)!='.'){
+                        euros = euros + each.getDetails().charAt(count);
+                        count++;
+                    }
+                    cents =cents+ each.getDetails().charAt(count+1) + each.getDetails().charAt(count+2);
+                    break;
+                }
+            }
+            price = price+Integer.parseInt(euros)+(Integer.parseInt(cents)/100);
+        }
+
+        return price;
+    }
+
     /**
      * A dummy item representing a piece of content.
      */
@@ -67,12 +92,17 @@ public class OrderTotal {
         public String content;
         public final String details;
         public int quantity = 1;
+        public int tableNumber;
 
         public ItemMenu(String id, String content, String details) {
             this.id = id;
             this.content = content;
             this.details = details;
         }
+
+        public String getDetails(){return getDetails();}
+
+        public void setTableNumber(int newTableNumber){tableNumber = newTableNumber;}
 
         @Override
         public String toString() {

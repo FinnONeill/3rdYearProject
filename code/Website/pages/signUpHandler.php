@@ -95,11 +95,10 @@
 	$sql = "INSERT INTO employers_details (employer_id, employer_name, employer_tel, employers_email, employers_address1, employers_address2, employers_address3,   employers_password) values ('$newCompany_id','$employer_name', '$employer_tel', '$employer_email', '$employer_address1', '$employer_address2', '$employer_address3', '$hashed_password')";
 
 	if($conn->query($sql) === TRUE){
-		echo "Thank you for joining our POS App!";
 		header("location: ./dashboard.php");
 	}else{
 		header("location: ./error.php");
+	}
 
 	$conn->close();
-
 ?>

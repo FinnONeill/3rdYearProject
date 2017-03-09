@@ -17,20 +17,18 @@ import static com.example.ian.applayout.floor.contentLists.OrderTotal.addItemTot
 import static com.example.ian.applayout.floor.contentLists.OrderTotal.createOrderTotalItem;
 
 /**
- * An activity representing a single Item detail screen. This
- * activity is only used narrow width devices. On tablet-size devices,
- * item details are presented side-by-side with a list of items
- * in a {@link MenuListActivity}.
+ * Created by Finn on 08/03/2017.
  */
-public class MenuDetailActivity extends AppCompatActivity {
+
+public class ReceivedDetailActivity extends AppCompatActivity {
 
     public static int totalNum = 0;
     public static String itemName ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_item_detail);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.detail_toolbar);
+        setContentView(R.layout.activity_received_detail);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.received_detail_toolbar);
         setSupportActionBar(toolbar);
 
         // Show the Up button in the action bar.
@@ -40,22 +38,21 @@ public class MenuDetailActivity extends AppCompatActivity {
         }
 
         //Little green plus button to add menu items to the order.
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton removeOrderBtn = (FloatingActionButton) findViewById(R.id.fab);
+        removeOrderBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                itemName =  new MenuListActivity().itemNamer;
-                Snackbar.make(view, "Item added to order!", Snackbar.LENGTH_LONG)
+                itemName =  new ReceivedListActivity().receivedNamer;
+                Snackbar.make(view, "Order completed!", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
 
+                /*
                 addItemTotal(createOrderTotalItem(totalNum, itemName));
                 totalNum++;
                 new MenuListActivity().itemNamer = "";
                 itemName =  new MenuListActivity().itemNamer;
-
-                Intent goBack = new Intent(MenuDetailActivity.this,MenuListActivity.class);
-                startActivity(goBack);
-                finish();
+                */
+                //Remove order from list
             }
         });
 
@@ -69,13 +66,12 @@ public class MenuDetailActivity extends AppCompatActivity {
             // Create the detail fragment and add it to the activity
             // using a fragment transaction.
             Bundle arguments = new Bundle();
-            arguments.putString(MenuDetailFragment.ARG_ITEM_ID,
-                    getIntent().getStringExtra(MenuDetailFragment.ARG_ITEM_ID));
-            MenuDetailFragment fragment = new MenuDetailFragment();
+            arguments.putString(ReceivedDetailFragment.ARG_ITEM_ID,
+                    getIntent().getStringExtra(ReceivedDetailFragment.ARG_ITEM_ID));
+            ReceivedDetailFragment fragment = new ReceivedDetailFragment();
             fragment.setArguments(arguments);
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.received_detail_container, fragment)
-                    .commit();
+                    .add(R.id.received_detail_container,fragment);
         }
     }
 
@@ -91,4 +87,5 @@ public class MenuDetailActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 }

@@ -75,7 +75,6 @@
   $result = $conn->query($query) or die ("Failed to query database ".$conn->connect_error);
 
   $drinks="";
-
   while($row = mysqli_fetch_array($result) ){
         $drinks = $drinks."<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td></tr>";
   }
@@ -91,6 +90,7 @@
 
     <title>Order 66</title>
     <link rel="icon" href="../images/logo.ico">
+    <button onclick="removeItem();">Remove</button>
 
     <!-- CSS -->
     <link href="../bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
@@ -374,7 +374,7 @@
           <!--Remove Item Start -->
           <div class="col-lg-6">
             <h3 class="text-center">Remove Menu Item</h3>
-            <form name="add_Menu_Item" method="post" action="remove_menu_item.php">
+            <form id="remove_menu_Item" name="remove_menu_Item" method="post" action="remove_menu_item.php">
               <div class="row">
                 <div class="form-group">
                   <div class="col-lg-offset-2 col-lg-4"><label for="item_name">Item Name</label></div>
@@ -391,15 +391,15 @@
 
               <div class="row">
                 <div class="form-group">
-                  <div class="col-lg-offset-2 col-lg-4"><label for="item_description">Item Catagory</label></div>
+                  <div class="col-lg-offset-2 col-lg-4"><label for="item_catagory" required>Item Catagory</label></div>
                   <div class="col-lg-6">
-                    <input list="item_catagory" name="item_catagory" required>
-                    <datalist id="item_catagory">
-                      <option value="Starters">
-                      <option value="Mains">
-                      <option value="Desserts">
-                      <option value="Sides">
-                    </datalist>
+                    <select id="item_catagory" name="item_catagory" form="remove_menu_Item">
+                      <option value="Starters">Starters</option>
+                      <option value="Mains">Mains</option>
+                      <option value="Desserts">Desserts</option>
+                      <option value="Sides">Sides</option>
+                      <option value="Drinks">Drinks</option>
+                    </select>
                   </div>
                 </div>
               </div>

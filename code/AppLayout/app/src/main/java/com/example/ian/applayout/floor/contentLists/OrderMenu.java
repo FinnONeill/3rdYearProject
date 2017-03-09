@@ -31,25 +31,23 @@ public class OrderMenu {
         }
     }
 
+    public static void update(){
+        ITEMS.clear();
+        for (int i = 0; i <MenuGetter.menu.size(); i++) {
+            addItem(createMenuItem(i));
+        }
+    }
+
     private static void addItem(MenuItem item) {
         ITEMS.add(item);
         ITEM_MAP.put(item.id, item);
     }
 
     private static MenuItem createMenuItem(int position) {
-        String desc = "Catagory: \t"+MenuGetter.menu.get(position).getCatagory();
+        String desc = "Price: \t€" + MenuGetter.menu.get(position).getPrice();
         desc = desc + "\nDescription: \t"+ MenuGetter.menu.get(position).getDescription();
-        desc = desc + "\nPrice: \t€" + MenuGetter.menu.get(position).getPrice();
+        desc = desc +  "\nCatagory: \t"+MenuGetter.menu.get(position).getCatagory();
         return new MenuItem(String.valueOf(position+1), MenuGetter.menu.get(position).getName(), desc);
-    }
-
-    private static String makeDetails(int position) {
-        StringBuilder builder = new StringBuilder();
-        builder.append("Details about Item: ").append(position);
-        for (int i = 0; i < position; i++) {
-            builder.append("\nMore details information here.");
-        }
-        return builder.toString();
     }
 
     /**

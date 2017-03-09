@@ -32,11 +32,6 @@
 		die();
 	}
 
-	if(empty($item_price)){
-		echo "Item price is blank";
-		die();
-	}
-
 	//Remove Menu data from menu_details table
 	$sql = "DELETE FROM menu_details WHERE menu_id='$menu_id' AND item_name='$item_name' AND item_catagory='$item_catagory'";
 

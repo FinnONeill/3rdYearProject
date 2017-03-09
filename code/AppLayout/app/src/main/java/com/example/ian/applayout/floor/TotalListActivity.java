@@ -54,7 +54,9 @@ public class TotalListActivity extends AppCompatActivity {
                 String orderNumber = new SimpleDateFormat("ddMMyyyyhhmmss").format(new Date());
                 String orderDetails = new OrderTotal().getOrderDetails(OrderTotal.ITEMS_MENU);
 
-
+                //double price = new OrderTotal().getPrice(OrderTotal.ITEMS_MENU);
+                //String priceStr = Double.toString(price);
+                //System.out.println("Price: "+priceStr);
                 new SendOrder(TotalListActivity.this,username,password,orderNumber,orderDetails,"").execute();
 
                 // Clear Order List and return to menu list.
@@ -68,7 +70,7 @@ public class TotalListActivity extends AppCompatActivity {
         assert recyclerView != null;
         setupRecyclerView((RecyclerView) recyclerView);
 
-        if (findViewById(R.id.item_detail_container) != null) {
+        if (findViewById(R.id.received_detail_container) != null) {
             // The detail container view will be present only in the
             // large-screen layouts (res/values-w900dp).
             // If this view is present, then the

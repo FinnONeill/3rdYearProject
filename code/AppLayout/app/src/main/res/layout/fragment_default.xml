@@ -20,7 +20,7 @@
         android:text="@string/create_order"
         android:layout_width="250dp"
         android:layout_height="100dp"
-        android:id="@+id/button12"
+        android:id="@+id/create_Order_btn"
         android:layout_weight="0.06"/>
 
     <TableLayout

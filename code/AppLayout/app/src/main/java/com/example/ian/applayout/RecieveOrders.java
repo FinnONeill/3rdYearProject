@@ -3,6 +3,8 @@ package com.example.ian.applayout;
 import android.net.Uri;
 import android.os.AsyncTask;
 
+import com.example.ian.applayout.floor.contentLists.OrderReceived;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -120,7 +122,7 @@ public class RecieveOrders extends AsyncTask<String, String ,String>{
                 String orderStatus = jObject.get("order_status").toString();
                 orderList.add(new Order(orderNumber,orderDetails,orderPrice,orderStatus));
             }
-
+            new OrderReceived().update();
         }catch (JSONException e){
             e.printStackTrace();
         }

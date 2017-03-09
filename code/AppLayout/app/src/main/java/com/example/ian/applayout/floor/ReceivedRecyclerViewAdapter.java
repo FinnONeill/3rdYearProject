@@ -44,8 +44,7 @@ public class ReceivedRecyclerViewAdapter extends RecyclerView.Adapter<ReceivedRe
             @Override
             public void onClick(View v) {
                 Context context = v.getContext();
-                Intent intent = new Intent(context, MenuListActivity.class);
-
+                Intent intent = new Intent(context, ReceivedListActivity.class);
                 context.startActivity(intent);
             }
         });

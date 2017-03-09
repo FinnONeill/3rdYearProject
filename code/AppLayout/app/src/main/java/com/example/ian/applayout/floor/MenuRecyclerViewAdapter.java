@@ -49,7 +49,7 @@ public class MenuRecyclerViewAdapter extends RecyclerView.Adapter<MenuRecyclerVi
                     arguments.putString(MenuDetailFragment.ARG_ITEM_ID, holder.mItem.id);
                     MenuDetailFragment fragment = new MenuDetailFragment();
                     fragment.setArguments(arguments);
-                    ((DrawerActivity)context).getSupportFragmentManager().beginTransaction().replace(R.id.item_detail_container, fragment).commit();
+                    ((DrawerActivity)context).getSupportFragmentManager().beginTransaction().replace(R.id.received_detail_container, fragment).commit();
                 }
             }
         });

@@ -7,6 +7,8 @@ import android.os.AsyncTask;
 import android.preference.PreferenceManager;
 import android.provider.SyncStateContract;
 
+import com.example.ian.applayout.floor.contentLists.OrderMenu;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -130,6 +132,7 @@ public class MenuGetter extends AsyncTask<String, String, String> {
                 String price = jObject.get("item_price").toString();
                 menu.add(new Item(name,catagory,description,price));
             }
+            new OrderMenu().update();
         }catch (JSONException e){
             e.printStackTrace();
         }

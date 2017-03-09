@@ -55,8 +55,6 @@ public class MenuListActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Going to your order now!", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
                 Intent nextActivity = new Intent(MenuListActivity.this, TotalListActivity.class);
                 startActivity(nextActivity);
             }
@@ -66,7 +64,7 @@ public class MenuListActivity extends AppCompatActivity {
         assert recyclerView != null;
         setupRecyclerView((RecyclerView) recyclerView);
 
-        if (findViewById(R.id.item_detail_container) != null) {
+        if (findViewById(R.id.received_detail_container) != null) {
             // The detail container view will be present only in the
             // large-screen layouts (res/values-w900dp).
             // If this view is present, then the
@@ -107,13 +105,16 @@ public class MenuListActivity extends AppCompatActivity {
                         arguments.putString(MenuDetailFragment.ARG_ITEM_ID, holder.mItem.id);
                         MenuDetailFragment fragment = new MenuDetailFragment();
                         fragment.setArguments(arguments);
-                        getSupportFragmentManager().beginTransaction().replace(R.id.item_detail_container, fragment).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.received_detail_container, fragment).commit();
                     } else {
                         Context context = v.getContext();
+                        String tableNumber = getIntent().getStringExtra("tableNumber");
                         Intent intent = new Intent(context, MenuDetailActivity.class);
                         intent.putExtra(MenuDetailFragment.ARG_ITEM_ID, holder.mItem.id);
+                        intent.putExtra("tableNumber",tableNumber);
                         itemNamer = mValues.get(position).content;
                         context.startActivity(intent);
+                        finish();
                     }
                 }
             });
