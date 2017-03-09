@@ -74,7 +74,7 @@ public class MenuDetailActivity extends AppCompatActivity {
             MenuDetailFragment fragment = new MenuDetailFragment();
             fragment.setArguments(arguments);
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.received_detail_container, fragment)
+                    .add(R.id.menu_detail_container, fragment)
                     .commit();
         }
     }

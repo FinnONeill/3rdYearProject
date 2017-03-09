@@ -1,6 +1,7 @@
 package com.example.ian.applayout.floor;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,6 +13,8 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.example.ian.applayout.R;
+import com.example.ian.applayout.UpdateOrderStatus;
+import com.example.ian.applayout.floor.contentLists.OrderReceived;
 
 /**
  * Created by Finn on 08/03/2017.
@@ -43,13 +46,18 @@ public class ReceivedDetailActivity extends AppCompatActivity {
                 Snackbar.make(view, "Your Order Has Been Removed!", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
 
-                /*
-                addItemTotal(createOrderTotalItem(totalNum, itemName));
-                totalNum++;
-                new MenuListActivity().itemNamer = "";
-                itemName =  new MenuListActivity().itemNamer;
-                */
-                //Remove order from list
+                //Remove order from OrderList
+                String itemPosition = getIntent().getStringExtra(ReceivedDetailFragment.ARG_ITEM_ID);
+
+                //Update orderstaus on database
+                String orderNumber = OrderReceived.ITEMS_RECEIVED.get(Integer.parseInt(itemPosition)).content;
+
+                //Access userInfo.
+                SharedPreferences settings = getSharedPreferences("LogInInfo",0);
+                String username = settings.getString("email","could not find email");
+                String password = settings.getString("password","could not find password");
+                new UpdateOrderStatus(username,password,orderNumber,Integer.parseInt(itemPosition),ReceivedDetailActivity.this).execute();
+
             }
         });
 

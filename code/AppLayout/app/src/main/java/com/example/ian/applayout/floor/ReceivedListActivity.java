@@ -104,9 +104,6 @@ public class ReceivedListActivity extends AppCompatActivity {
                         Context context = v.getContext();
                         Intent intent = new Intent(context, ReceivedDetailActivity.class);
                         intent.putExtra(ReceivedDetailFragment.ARG_ITEM_ID, holder.oItem.id);
-                        System.out.println("RecievedList ID: "+holder.oItem.id);
-                        System.out.println("RecievedList Content: "+oValues.get(position).content);
-                        System.out.println("RecievedList Details: "+holder.oItem.details);
                         receivedNamer = oValues.get(position).content;
                         context.startActivity(intent);
                     }
