@@ -37,7 +37,6 @@ Order 66 has many benefits for both the employer and the employee as it can help
 ###Glossary
 
 *POS App* - Point Of Sale Application
-<<<<<<< HEAD
 
 ### Operational Scenarios
 
@@ -173,7 +172,7 @@ Order 66 has many benefits for both the employer and the employee as it can help
 
 =======
 *WiFi P2P* - WiFi Peer to Peer
->>>>>>> a589e4f372399cb3b62cecbbba79f48c97677252
+
 
 ##System Archtiecture
 
@@ -183,9 +182,9 @@ Order 66 has many benefits for both the employer and the employee as it can help
 
 
 
-![System Architecture](./images/Screenshot_4.PNG)
+![System Architecture](./Images/Screenshot_4.PNG)
 
-![Sequence Diagram](./images/Screenshot_3.PNG)
+![Sequence Diagram](./Images/Screenshot_3.PNG)
 
 ##High-Level Design
 
@@ -194,11 +193,11 @@ Order 66 has many benefits for both the employer and the employee as it can help
 
 
 
-![App BAM](./images/Screenshot_1.PNG)
+![App BAM](./Images/Screenshot_1.PNG)
 
-![Website BAM](./images/Screenshot_5.PNG)
+![Website BAM](./Images/Screenshot_5.PNG)
 
-![DFD](./images/Screenshot_2.PNG)
+![DFD](./Images/Screenshot_2.PNG)
 
 ##Problems and Resolution
 
