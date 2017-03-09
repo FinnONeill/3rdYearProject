@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -108,10 +107,8 @@ public class MenuListActivity extends AppCompatActivity {
                         getSupportFragmentManager().beginTransaction().replace(R.id.received_detail_container, fragment).commit();
                     } else {
                         Context context = v.getContext();
-                        String tableNumber = getIntent().getStringExtra("tableNumber");
                         Intent intent = new Intent(context, MenuDetailActivity.class);
                         intent.putExtra(MenuDetailFragment.ARG_ITEM_ID, holder.mItem.id);
-                        intent.putExtra("tableNumber",tableNumber);
                         itemNamer = mValues.get(position).content;
                         context.startActivity(intent);
                         finish();

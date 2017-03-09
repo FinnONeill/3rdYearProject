@@ -3,7 +3,6 @@ package com.example.ian.applayout.floor;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +18,7 @@ import com.example.ian.applayout.floor.contentLists.OrderMenu.MenuItem;
  * in two-pane mode (on tablets) or a {@link MenuDetailActivity}
  * on handsets.
  */
-public class MenuDetailFragment extends Fragment {
+public class MenuDetailFragment extends android.support.v4.app.Fragment{
     /**
      * The fragment argument representing the item ID that this fragment
      * represents.
