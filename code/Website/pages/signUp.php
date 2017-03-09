@@ -39,7 +39,7 @@
               <ul id="primaryLinks" class="nav navbar-nav">
                 <li><a href="../index.php">Home</a></li>
                 <li><a href="contactUs.php">Contact Us</a></li>
-                <li class="hidden-xs"><a href="#" data-toggle="modal" data-target="#logIn">Log In</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#logIn">Log In</a></li>
 
                 <!-- Modal -->
                 <div class="modal fade " id="logIn" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -70,7 +70,6 @@
                     </div>
                   </div>
                 </div>
-                <li class="visible-xs"><a href="login.php">Log In</a></li>
 
               </ul>
               <ul id="signUpLink" class="nav navbar-nav navbar-right">
@@ -136,7 +135,7 @@
           <div class="row">
             <div class="form-group">
               <div class="col-lg-offset-2 col-lg-4"><label for="company_tel">Company Telephone</label></div>
-              <div class="col-lg-4"><input type="tel" class="form-control" id="company_tel" name="company_tel" placeholder="12-345 6789" required></div>
+              <div class="col-lg-4"><input type="tel" class="form-control" id="company_tel" name="company_tel" placeholder="12-345 6789" required minlength="7"></div>
             </div>
         </div>
         
@@ -181,7 +180,7 @@
           <div class="row">
             <div class="form-group">
               <div class="col-lg-offset-2 col-lg-4"><label for="employer_tel">Employer Telephone</label></div>
-              <div class="col-lg-4"><input type="tel" class="form-control" id="employer_tel" name="employer_tel" placeholder="12-345 6789" required></div>
+              <div class="col-lg-4"><input type="tel" class="form-control" id="employer_tel" name="employer_tel" placeholder="12-345 6789" required minlength="7"></div>
             </div>
           </div>
 
