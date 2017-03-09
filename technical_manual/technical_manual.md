@@ -13,7 +13,7 @@ Supervisor:
 Co-ordinator:
 * Dr.David Sinclair
 
-##Table of Contents             
+## Table of Contents             
 1. Introduction. 
 2. System Archtiecture 
 3. High-Level Design 
@@ -25,9 +25,9 @@ We declare that this material, which We now submit for assessment, is entirely o
 
 -------------------------------------------------------------------------------
 
-##Introduction
+## Introduction
 
-###Overview
+### Overview
 For our Third year project we decided to design a POS Application, which we called Order 66. Order 66 is an application aimed at Resturants,Bars and Cafes that will accompany and in the future replace your current till system. Order 66 uses a website admin interface which will allow an employer create his menu for his resturant/bar/cafe, add all his employee details so he can easily manage their accounts, automatically create reports lastly have access to helpful usage statistics. Employee's can also download our Andoird Application which will allow employee's to create orders using the menu their employer has created and send orders so all other employee's can view them and start preparing them seconds after it has been sent.
 
 Order 66 has many benefits for both the employer and the employee as it can help improve efficency in the workplace which can in turn can provide greater returns for the employer. Not to mention making the employee's life that much easier as they won't have to worry about forgetting what was in each order, what order went to what table and did I tell me co-workers about the last order. 
@@ -37,7 +37,6 @@ Order 66 has many benefits for both the employer and the employee as it can help
 ###Glossary
 
 *POS App* - Point Of Sale Application
-<<<<<<< HEAD
 
 ### Operational Scenarios
 
@@ -118,8 +117,6 @@ Order 66 has many benefits for both the employer and the employee as it can help
 
 ***Termination*** --- The item is successfully removed from the menu.
 
-
-
 ##### Signing in to the app. 
 
 ***Precondition*** --- The staff member has not signed into the app. 
@@ -134,7 +131,6 @@ Order 66 has many benefits for both the employer and the employee as it can help
 * They press the 'Sign In' button.
 
 ***Termination*** --- The staff member has logged into the app.
-
 
 ##### Creating an order 
 
@@ -155,7 +151,6 @@ Order 66 has many benefits for both the employer and the employee as it can help
 
 ***Termination*** --- The order has been sent.
 
-
 ##### Receiving an order 
 
 ***Precondition*** --- The staff member has not received an order.
@@ -170,29 +165,20 @@ Order 66 has many benefits for both the employer and the employee as it can help
 
 ***Termination*** --- The order has been deleted. 
 
-
-=======
-*WiFi P2P* - WiFi Peer to Peer
->>>>>>> a589e4f372399cb3b62cecbbba79f48c97677252
-
-##System Archtiecture
+## System Archtiecture
 
 -Distribution of functions
 -Architectual components that are reused (Data strauctures?)
 -3rd party libarys highlighted here.
 
-
-
 ![System Architecture](./images/Screenshot_4.PNG)
 
 ![Sequence Diagram](./images/Screenshot_3.PNG)
 
-##High-Level Design
+## High-Level Design
 
 -System models showing relationships between components & systems
 -eg DFD
-
-
 
 ![App BAM](./images/Screenshot_1.PNG)
 
@@ -200,7 +186,7 @@ Order 66 has many benefits for both the employer and the employee as it can help
 
 ![DFD](./images/Screenshot_2.PNG)
 
-##Problems and Resolution
+## Problems and Resolution
 
 -Major problems encountered (WiFi P2P)
 
@@ -216,7 +202,7 @@ Lastly disconnecting from a group was not very consistant as the group was only 
 
 Our solution to these issues was to try an alternative method, which resulted in the application requring an Internet connection to be able to function. We used the HTTP POST request to run PHP files on a server that would handle accessing and storing all our data on a MYSQL Server. 
 
-##Installation Guide
+## Installation Guide
 
 - 1/2 page install guide, step by step process.
 - detailed description of software neccessary.
@@ -224,4 +210,4 @@ Our solution to these issues was to try an alternative method, which resulted in
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
 
-##Appendices
+## Appendices
