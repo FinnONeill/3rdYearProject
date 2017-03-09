@@ -165,28 +165,19 @@ Order 66 has many benefits for both the employer and the employee as it can help
 
 ***Termination*** --- The order has been deleted. 
 
-<<<<<<< HEAD
-
-=======
 *WiFi P2P* - WiFi Peer to Peer
 
 
-##System Archtiecture
-=======
 ## System Archtiecture
->>>>>>> 62d340a933b1429f66d75fff92a683eed70f7972
+
 
 -Distribution of functions
 -Architectual components that are reused (Data strauctures?)
 -3rd party libarys highlighted here.
 
-<<<<<<< HEAD
-
 
 ![System Architecture](./Images/Screenshot_4.PNG)
-=======
-![System Architecture](./images/Screenshot_4.PNG)
->>>>>>> 62d340a933b1429f66d75fff92a683eed70f7972
+
 
 ![Sequence Diagram](./Images/Screenshot_3.PNG)
 
@@ -195,13 +186,7 @@ Order 66 has many benefits for both the employer and the employee as it can help
 -System models showing relationships between components & systems
 -eg DFD
 
-<<<<<<< HEAD
-
-
 ![App BAM](./Images/Screenshot_1.PNG)
-=======
-![App BAM](./images/Screenshot_1.PNG)
->>>>>>> 62d340a933b1429f66d75fff92a683eed70f7972
 
 ![Website BAM](./Images/Screenshot_5.PNG)
 
