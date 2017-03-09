@@ -10,7 +10,7 @@ Student Names:
 Supervisor:           
 * Dr.David Sinclair
 
-Lecturer:           
+Co-ordinator:
 * Dr.David Sinclair
 
 ##Table of Contents             
@@ -37,6 +37,7 @@ Order 66 has many benefits for both the employer and the employee as it can help
 ###Glossary
 
 *POS App* - Point Of Sale Application
+<<<<<<< HEAD
 
 ### Operational Scenarios
 
@@ -170,6 +171,9 @@ Order 66 has many benefits for both the employer and the employee as it can help
 ***Termination*** --- The order has been deleted. 
 
 
+=======
+*WiFi P2P* - WiFi Peer to Peer
+>>>>>>> a589e4f372399cb3b62cecbbba79f48c97677252
 
 ##System Archtiecture
 
@@ -200,7 +204,17 @@ Order 66 has many benefits for both the employer and the employee as it can help
 
 -Major problems encountered (WiFi P2P)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+### WiFi P2P
+
+After our initial design and research we intended to use android's native WiFi P2P libary, that would allow us to be able to send data between two devices that are connected by a Local Area Network, this can also be achieved by using a mobile devices ability to create a hotspot, which would act as the Local Area Network. The issues we encounterd was that the WiFi P2P libary is a recent addition to the android framework and was previously called Android Beam meaning that only devices from API level 14 or higher would be capable of using the service. 
+
+Another issue we came accross was that the P2P services acts similarly to a bluetooth connection as it uses WPS for security and as a result needs the user to hit accept for each file transfer.
+
+Another issue which was the most major was the once two devices were connected, one device would become the group owner and would act as the server while the rest would act as clients. The problem was that the group owner was only able to receive files and to become the group owner, you would have to disconnect and reconnect, meaing the user would have to accept the connection again which wasn't practical as if a waitress wanted to send an order to the kitchen, she could but then to get any updates on the staus of the order, the waitress would have to accept the connection from the kitchen each time they wanted to change the order status. 
+
+Lastly disconnecting from a group was not very consistant as the group was only destroyed after the group owner disconnected and the connection timeout was reached. This meant that users would may have tried to disconnect to an empty group while the other user may create a new group or their Status would change from available to either busy and wouldn't be able to be found by the searching devices.
+
+Our solution to these issues was to try an alternative method, which resulted in the application requring an Internet connection to be able to function. We used the HTTP POST request to run PHP files on a server that would handle accessing and storing all our data on a MYSQL Server. 
 
 ##Installation Guide
 
