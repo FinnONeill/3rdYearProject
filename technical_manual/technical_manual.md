@@ -140,6 +140,7 @@ Order 66 has many benefits for both the employer and the employee as it can help
 ***Activation*** --- A customer has decided to order a meal.
 
 ***Description :***  
+
 * The staff member presses the 'Create an order' button on the main menu or in the sidebar.
 * They select the table that the customer is sitting at.
 * They select a food item.
@@ -159,6 +160,7 @@ Order 66 has many benefits for both the employer and the employee as it can help
 ***Activation*** --- Another staff member has created and sent an order. 
 
 ***Description :***
+
 * The The staff member presses the 'View all Open Orders' button on the main menu or in the sidebar.
 * They select an order that they have received.
 * They complete the order.
@@ -211,6 +213,37 @@ Another issue which was the most major was the once two devices were connected, 
 Lastly disconnecting from a group was not very consistant as the group was only destroyed after the group owner disconnected and the connection timeout was reached. This meant that users would may have tried to disconnect to an empty group while the other user may create a new group or their Status would change from available to either busy and wouldn't be able to be found by the searching devices.
 
 Our solution to these issues was to try an alternative method, which resulted in the application requring an Internet connection to be able to function. We used the HTTP POST request to run PHP files on a server that would handle accessing and storing all our data on a MYSQL Server. 
+
+### General App Functionality Problems
+
+***Navigation problem*** --- Near the start of creating the app layout we had significant issues with navigating the layout of the app. This was initially solved by using two of the default android activities together. The 'master/detail flow ' and 'navigation drawer' together to solve this. This allowed us to set up a menu list and its details and have a navigation drawer for later pages. However this brought with it the use of fragments and recycler view adapters which, at the time, proved difficult to understand and made finding out what each of the classes and how they interacted challenging. The fragments became easier to follow after significant time studying the android API and numerous online tutorials. This in turn allowed us to create more fragments and activities for pages such as the table list and the order pages.
+
+***Adding items to an order*** --- With the addition of new fragments and activities for tables lists and for the order, a new problem was how to add items to an empty order. This was solved by creating new content lists which created new list items to add an item and referencing them in the menu list and detail activities.
+When a menu item is clicked, the name of that item is saved as a string. When the Add Item button is clicked in the menu detail fragments, a new order item is created with the name in the string and set at the correct position.
+
+***Received orders*** --- One of the last issues we had was creating order details and including a function to remove orders from the received orders list. The order details were solved by creating new layouts, seperate from the menu detail layouts, for the order details and calling them instead. The remove order problem was solved by calling another Async task that runs in the background which calls the server. The server then changes the status of the order form opern to close and then notifies the app.
+
+## Known, Unresolved Bugs
+
+### Android Application
+1. An internet connection is required to use the app, could be solved by using hotspots and caching menu items, but it requires an internet connection to update cache.
+2. If you have a connection and input the wrong username or password, it will print the "Oops! Something went wrong, check your connection" instead of printing the correct "Incorrect username or password".
+3. The price, table number and Person who created the order are not being sent or stored in the database with the current version of the application due to time constraints and as a result the price of each order, the table number the order came from and who sent the order are not accessable in received orders.
+4. When in the Item detail view, it will only display the first 15 characters of a menu item, pending the size of your device.
+5. If you rotate the screen, the Item name will revert back to the default "Food Description".
+6. When you add multiple orders in a session, the Menu item number to the left of the menu item name, when on the total/current order will keep increasing and not reset correctly until the application is closed or you log out.
+7.  After sending an order, to get back to the home screen to be able to view the received orders, you have to press back multiple times to go back through the total order,then menu, then table list, then back to the home screen.
+8.  Received orders currently only display the order number, which is a string representation of dd/mm/yyyy/hh/mm/ss as a result of Bug 3, mentioned above.
+9.  When you press the remove/complete order button, it doesn't yet return you to the list of received orders
+10.  There is no check or login status for accounts which means you can login on all devices using one account. 
+
+### Website
+1. When using the website on a mobile device and you press the menu button to drop down the navbar, it pushes down the Text.
+2. When logging in on a mobile device, the close button for the login modal is pushed to a new line.
+3. On a mobile device, the sidebar on the employer admin page won't display.
+4. If you try to remove an employee and input either the wrong PPS number or wrong name, it won't give an error message and nothing will happen, this is also the case for removing a menu item. 
+5. Item price will accept a string.
+
 
 ## Installation Guide
 
