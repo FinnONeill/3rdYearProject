@@ -244,6 +244,8 @@ When a menu item is clicked, the name of that item is saved as a string. When th
 8.  Received orders currently only display the order number, which is a string representation of dd/mm/yyyy/hh/mm/ss as a result of Bug 3, mentioned above.
 9.  When you press the remove/complete order button, it doesn't yet return you to the list of received orders
 10.  There is no check or login status for accounts which means you can login on all devices using one account. 
+11. Pressing the back button in the top left while in menu details send you back to the table list instead of the menu list. Pressing back on your phone sends you back to the main menu.
+12. Viewing received orders may inexplicably cause the app to crash.
 
 ### Website
 1. When using the Website on a mobile device and you press the menu button to drop down the navbar, it pushes down the Text.

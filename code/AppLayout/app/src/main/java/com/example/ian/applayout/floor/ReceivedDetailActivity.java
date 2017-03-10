@@ -58,6 +58,10 @@ public class ReceivedDetailActivity extends AppCompatActivity {
                 String password = settings.getString("password","could not find password");
                 new UpdateOrderStatus(username,password,orderNumber,Integer.parseInt(itemPosition),ReceivedDetailActivity.this).execute();
 
+                Intent goBack = new Intent(ReceivedDetailActivity.this,DrawerActivity.class);
+                startActivity(goBack);
+                finish();
+
             }
         });
 
