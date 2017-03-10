@@ -62,6 +62,31 @@ Co-ordinator:
 
 The user loads into the app and is faced with the login screen, they notice the screen contains a box labelled 'menu' and another labelled 'password'. They are familiar with login screens and enter the email address and password they were given when they began working at the restaurant.
 
+***Task Two: Select Table***
+
+The user loads into the table list screen and without confusing knows that each table number represents the tables in the restaurant. They select the correct table for the order.
+
+***Task Three: Select Salad***
+
+Like the table list, there is little ambiguity in the menu list. The user selects the item that says 'Caesar Salad'.
+
+***Task Four: Select Salad***
+
+The user is taken to the menu detail screen, they read the price and description of the salad. They notice a green button on the right hand side and assume that that button is to add it to the menu. They press the button and are sent back to the menu list. There was no indication that the salad was added to the order so they go and check the order. 
+
+***Task Five: Shortcut To Order***
+
+The user is unaware that the green button in the bottom right hand corner of the menu is a shortcut to the order so they instead back all the way to the main menu. They notice the sidebar in the top left and corner and open it. The select total order and are sent to the order page.
+
+***Task Six: Send Order***
+
+On the order page, the user notices another green button in the lower right sand side of the screen with a tick on it. Assuming it has a similar function to the other green buttons on the app, they think that it will send the app. They press the button and a small message at the botton of the screen pops up to notify them that their order has been sent.
+
+#### User task structure
+
+* Log in -> Select Table -> Select Salad -> Add Salad To Order -> Back To Table List -> Back To Main Menu  -> Open Sidebar -> Select Total Order -> Send Order
+
+
 ## Appendices
 
 
