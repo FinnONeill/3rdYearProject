@@ -1,6 +1,6 @@
 # Order 66 - User Manual
 
-This user manual is aimed to help you get get started using Order 66. It will have detailed descriptions of the following:
+This user manual is aimed to help you get started using Order 66. It will have detailed descriptions of the following:
 
 ## Contents
 1. Employer Registration
@@ -14,7 +14,6 @@ This user manual is aimed to help you get get started using Order 66. It will ha
 9. Sending Orders & Receiving Orders
 10. Logging Out
 11. Syncing
-12. F.A.Q.
 
 ## Getting Started
 
@@ -35,7 +34,7 @@ You will need the following to be able to get started using Order 66 for the fir
 
 ## 2. Setting up a Menu
 1. After filling out the form, you will be brought to your Dashboard.This Dashboard will be your home screen where you can view all your employee details at a glance and some useful statistics.
-2. On the sidebar on the lefthand side of the screen, press "+ Add Menu Item" 
+2. On the sidebar on the left hand side of the screen, press "+ Add Menu Item" 
 4. ![+ Menu Item](./images/addMenuItem.jpg).
 5. This will bring you to your Menu Overview. Here you can add all your menu items and see some useful statistics once you get using Order 66 
 6. ![Menu Overview](./images/menuOverview.jpg).
@@ -47,8 +46,8 @@ You will need the following to be able to get started using Order 66 for the fir
 1. To being adding Employee Accounts, click the "+ Add New Employee" button on the side on the left side of your screen.
 2. ![Add Employee Button](./images/addEmployee.jpg)
 3. This will bring you to your Employee Overview, where you can add and remove Employee accounts .
-4. ![Employee Oview](./images/employeeOverview.jpg) 
-5. At the top of the screen you will find the "Add Employee" form where you can begin to create user accounts for your employees. These accounts will allow your employee to login using the Android Application 
+4. ![Employee Overview](./images/employeeOverview.jpg) 
+5. At the top of the screen you will find the "Add Employee" form where you can begin to creating user accounts for your employees. These accounts will allow your employee to login using the Android Application. 
 6. ![Creating Employee Accounts](./images/creatingEmployeeAccount.jpg).
 7. Once all your Employee accounts are setup, you're ready to start downloading Android Studio.
 
@@ -92,7 +91,7 @@ You will need the following to be able to get started using Order 66 for the fir
 1. To view your order so far press the green square button on the bottom left of the screen. 
 2. ![Total Order Button](./images/viewTotalOrder.jpg)
 3. To send your order then press the green tick button on the bottom left of the total order so far screen. 
-4. Lastly to view all your incoming orders, use the back button to naviagte to the home menu.
+4. Lastly to view all your incoming orders, use the back button to navigate to the home menu.
 5. In the Menu list, 
 
 ## 10. Logging Out & Syncing
