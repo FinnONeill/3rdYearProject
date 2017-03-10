@@ -184,8 +184,7 @@ The Entity-Relationship Diagram below outlines our implemented database design, 
 
 ## High-Level Design
 
--System models showing relationships between components & systems
--eg DFD
+Our android application requires an Internet connection to function as it uses HTTP POST requests to run PHP scrips on a server. Each script then uses SQL querys to query our SQL Database which store all of our user information and insert or pull any required information, which then updates on the users Android Device. Our Admin interface on our website uses a combination of HTML5, CSS3, JS and PHP to allow an Employer to see a list of all of his employees, create/remove employee accounts, create/add Menu Items and view charts and stats unique to their business. All passwords are Hashed before they are stored on the database using PHP, so both the hash and unique salt are stored on the database.
 
 This business activity model visualizes the steps taken by the company staff when using the app.
 
