@@ -86,7 +86,7 @@
 
           <div class="row">
             <div class="col-lg-offset-5 col-lg-2 col-md-offset-5 col-md-2 col-xs-offset-4 col-xs-4">
-              <a href="pages/signUp.php"><button id="getStartedBtn" type="button" class="btn btn-primary btn-block" >Get Started</button></a>
+              <a href="Files/Order66.zip"><button id="getStartedBtn" type="button" class="btn btn-primary btn-block" >Download Order 66</button></a>
             </div>
           </div>
         </div> <!-- Heading Section End -->
