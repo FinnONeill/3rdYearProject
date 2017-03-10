@@ -41,6 +41,27 @@ Co-ordinator:
 4. If you try to remove an employee and input either the wrong PPS number or wrong name, it won't give an error message and nothing will happen, this is also the case for removing a menu item. 
 5. Item price will accept a string.
 
+## Cognitive Walkthrough
+
+#### User
+
+* College student in his late teens.
+* Working part time on the weekends for extra money.
+* Busy day at the restaurant, is a little stressed and tired.
+* Comfortable with android phones. Moderately tech savvy.
+
+#### Goal
+
+* To order a Caesar salad for a customer.
+
+#### Optimum task structure
+
+* Log in -> Select Table -> Select Salad -> Add Salad To Order -> Shortcut To Order -> Send Order
+
+***Task One: Log In***
+
+The user loads into the app and is faced with the login screen, they notice the screen contains a box labelled 'menu' and another labelled 'password'. They are familiar with login screens and enter the email address and password they were given when they began working at the restaurant.
+
 ## Appendices
 
 
