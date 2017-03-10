@@ -178,7 +178,7 @@ Another libary we used was Google's Chart libary to create all the different gra
 
 The Entity-Relationship Diagram below outlines our implemented database design, it also shows the Primary and Foreign keys in each table. 
 
-![Database Design](./Images/database_architecture.jpg)
+![Database Design](./images/database_architecture.jpg)
 
 ![System Architecture](./Images/Screenshot_4.PNG)
 
@@ -275,13 +275,13 @@ Order 66 requires a signup process through our website which will allow you to c
 #### Step 3
 ##### Order 66 Project Files
 1. Go to the [Order 66 Website](http://www.order66.finnianoneill.ie)
-2. On the homepage below the Heading text there is a button that says "Download Order 66" ![Download Order 66](./Images/downloadOrder66.jpg)
+2. On the homepage below the Heading text there is a button that says "Download Order 66" ![Download Order 66](./images/downloadOrder66.jpg)
 
 #### Step 4
 ##### Installing Order 66 onto your device
 1. Once you have downloaded Order66.zip, unzip it and open Android Studio.
 2. When Android Studio opens choose "open exsisting project" and navigate to Order66.
-3. When it opens, press the green play button at the top of the screen seen here ![Press the Green play button](./Images/pressPlayButton.jpg)
+3. When it opens, press the green play button at the top of the screen seen here ![Press the Green play button](./images/pressPlayButton.jpg)
 4. Then connect your Android device to your computer using your USB cable and it should appear on the menu.
 5. Then select your device as the deployment target.
 6. Allow the computer time to build and install the application, and once you see it open, you can press the red stop button.
