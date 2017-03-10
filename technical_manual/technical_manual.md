@@ -27,10 +27,10 @@ We declare that this material, which We now submit for assessment, is entirely o
 
 ## Introduction
 
-### Overview
-For our Third year project we decided to design a POS Application, which we called Order 66. Order 66 is an application aimed at Restaurants,Bars and Cafes that will accompany and in the future replace your current till system. Order 66 uses a Website admin interface which will allow an employer create his menu for his restaurant/bar/cafe, add all his employee details so he can easily manage their accounts, automatically create reports lastly have access to helpful usage statistics. Employee's can also download our Android Application which will allow employee's to create orders using the menu their employer has created and send orders so all other employee's can view them and start preparing them seconds after it has been sent.
+### Overview 
+For our Third Year Project we decided to design a POS Application, which we called Order 66. Order 66 is an application aimed at restaurants, bars and cafes that will accompany and in the future replace your current till system. Order 66 uses a Website admin interface which will allow an employer create the menu for their restaurant/bar/cafe, add all the employee details so they can easily manage their accounts, automatically create reports, and lastly have access to helpful usage statistics. Employees can also download our Android Application which will allow employees to create orders using the menu their employer has created and send orders so all other employees can view them and start preparing them seconds after it has been sent.
 
-Order 66 has many benefits for both the employer and the employee as it can help improve efficiency in the workplace which can in turn can provide greater returns for the employer. Not to mention making the employee's life that much easier as they won't have to worry about forgetting what was in each order, what order went to what table and did I tell me co-workers about the last order. 
+Order 66 has many benefits for both the employer and the employee as it can help improve efficiency in the workplace which can in turn can provide greater returns for the employer. Not to mention making the employees life that much easier as they will not have to worry about forgetting what was in each order, what order went to what table and notify coworkers about the last order. 
 
 ### Business Context
 
@@ -177,20 +177,24 @@ The app will also have great scope for analytics and will allow the owner to det
 For this project we used a library called Boostrap to design our Website as the framework help making the process of creating a responsive Website much simpler as it uses the Grid System over the more traditional Box Model. 
 [Bootstrap](http://getbootstrap.com/)
 
-Another library we used was Google's Chart library to create all the different graphs and charts as it's a very well documented library that is easy to use.
+Another library we used was Google's Chart library to create all the different graphs and charts as it is a very well documented library that is easy to use.
 [Google Charts](https://developers.google.com/chart/)
 
 The Entity-Relationship Diagram below outlines our implemented database design, it also shows the Primary and Foreign keys in each table. 
 
 ![Database Design](./images/database_architecture.jpg)
 
+The following diagram gives a brief overview of the systems involved in the project.
+
 ![System Architecture](./Images/Screenshot_4.PNG)
+
+This sequence diagram highlights the flow between objects in the project.
 
 ![Sequence Diagram](./Images/Screenshot_3.PNG)
 
 ## High-Level Design
 
-Our android application requires an Internet connection to function as it uses HTTP POST requests to run PHP scrips on a server. Each script then uses SQL querys to query our SQL Database which store all of our user information and insert or pull any required information, which then updates on the users Android Device. Our Admin interface on our Website uses a combination of HTML5, CSS3, JS and PHP to allow an Employer to see a list of all of his employees, create/remove employee accounts, create/add Menu Items and view charts and stats unique to their business. All passwords are Hashed before they are stored on the database using PHP, so both the hash and unique salt are stored on the database.
+Our android application requires an Internet connection to function as it uses HTTP POST requests to run PHP scrips on a server. Each script then uses SQL querys to query our SQL Database which store all of our user information and insert or pull any required information, which then updates on the users Android Device. Our Admin interface on our Website uses a combination of HTML5, CSS3, JS and PHP to allow an Employer to see a list of all of the employees, create/remove employee accounts, create/add Menu Items and view charts and stats unique to their business. All passwords are Hashed before they are stored on the database using PHP, so both the hash and unique salt are stored on the database.
 
 This business activity model visualises the steps taken by the company staff when using the app.
 
@@ -212,7 +216,7 @@ After our initial design and research we intended to use android's native WiFi P
 
 Another issue we came across was that the P2P services acts similarly to a bluetooth connection as it uses WPS for security and as a result needs the user to hit accept for each file transfer.
 
-Another issue which was the most major was the once two devices were connected, one device would become the group owner and would act as the server while the rest would act as clients. The problem was that the group owner was only able to receive files and to become the group owner, you would have to disconnect and reconnect, meaning the user would have to accept the connection again which wasn't practical as if a waitress wanted to send an order to the kitchen, she could but then to get any updates on the status of the order, the waitress would have to accept the connection from the kitchen each time they wanted to change the order status. 
+Another significant issue was that once two devices were connected, one device would become the group owner and would act as the server while the rest would act as clients. The problem was that the group owner was only able to receive files and to become the group owner, you would have to disconnect and reconnect, meaning the user would have to accept the connection again which wasn't practical as if a waitress wanted to send an order to the kitchen, she could but then to get any updates on the status of the order, the waitress would have to accept the connection from the kitchen each time they wanted to change the order status. 
 
 Lastly disconnecting from a group was not very consistent as the group was only destroyed after the group owner disconnected and the connection timeout was reached. This meant that users would may have tried to disconnect to an empty group while the other user may create a new group or their Status would change from available to either busy and wouldn't be able to be found by the searching devices.
 
