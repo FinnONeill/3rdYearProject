@@ -205,6 +205,207 @@ correct error message.
 ***Reason:*** Remaining logged in was causing issues with the async tasks retrieving data from the server so you will be returned to the login page.
 
 ---------------------------------------------------------
+
+### 2.1 Website 
+#### Signup Test
+---------------------------------------------------------
+***Test Name:*** successfulCompanyEmployerSignUp
+
+***Test Summary:*** Create an account successfully
+
+***Test Input:*** Company Name: "Order 66" Company Address: "123 Abc Street, Alphabet Town, Letterland" Company tel: "12-3456789" Employer Name: "Joe Bloggs" Employer Tel: "12-3456789" Employer Email: "joebloggs@gmail.com" Employer Address: "123 Abc Street, Alphabet Town, Letterland" Employer Password: "password"
+
+***Expected Result:*** Pass
+
+***Actual Result:*** Pass
+
+---------------------------------------------------------
+
+***Test Name:*** noCompanyNameNoEmployerName
+
+***Test Summary:*** Attempt to create an account without providing a username, expect correct error message.
+
+***Test Input:*** Company Name: "" Company Address: "123 Abc Street, Alphabet Town, Letterland" Company tel: "12-3456789" Employer Name: "" Employer Tel: "12-3456789" Employer Email: "joebloggs@gmail.com" Employer Address: "123 Abc Street, Alphabet Town, Letterland" Employer Password: "password"
+
+***Expected Result:*** Pass
+
+***Actual Result:*** Pass
+
+---------------------------------------------------------
+***Test Name:*** noCompanyAddressNoEmployerAddress
+
+***Test Summary:*** Attempt to create an account without providing an address, expect correct error message.
+
+***Test Input:*** Company Name: "Order 66" Company Address: "" Company tel: "12-3456789" Employer Name: "Joe Bloggs" Employer Tel: "12-3456789" Employer Email: "joebloggs@gmail.com" Employer Address: "" Employer Password: "password"
+
+***Expected Result:*** Pass
+
+***Actual Result:*** Pass
+
+---------------------------------------------------------
+***Test Name:*** noCompanyTelNoEmployerTel
+
+***Test Summary:*** Attempt to create an account without providing a telephone number, expect correct error message.
+
+***Test Input:*** Company Name: "Order 66" Company Address: "123 Abc Street, Alphabet Town, Letterland" Company tel: "" Employer Name: "Joe Bloggs" Employer Tel: "" Employer Email: "joebloggs@gmail.com" Employer Address: "123 Abc Street, Alphabet Town, Letterland" Employer Password: "password"
+
+***Expected Result:*** Pass
+
+***Actual Result:*** Pass
+
+---------------------------------------------------------
+
+***Test Name:*** correctButLongEmail
+
+***Test Summary:*** Attempt to create an account providing a email that is beyond the character limit, expect correct error message.
+
+***Test Input:*** Company Name: "Order 66" Company Address: "123 Abc Street, Alphabet Town, Letterland" Company tel: "" Employer Name: "Joe Bloggs" Employer Tel: "" Employer Email: "reallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallylongemail@gmail.com" Employer Address: "123 Abc Street, Alphabet Town, Letterland" Employer Password: "password"
+
+***Expected Result:*** Pass
+
+***Actual Result:*** Pass
+
+---------------------------------------------------------
+
+***Test Name:*** correctButLongPassword
+
+***Test Summary:*** Attempt to create an account providing a password that is beyond the character limit, expect correct error message.
+
+***Test Input:*** Company Name: "Order 66" Company Address: "123 Abc Street, Alphabet Town, Letterland" Company tel: "" Employer Name: "Joe Bloggs" Employer Tel: "" Employer Email: "joebloggs@gmail.com" Employer Address: "123 Abc Street, Alphabet Town, Letterland" Employer Password: "reallyreallylongpassword1"
+
+***Expected Result:*** Pass
+
+***Actual Result:*** Pass
+
+---------------------------------------------------------
+
+***Test Name:*** correctSpecialCharEmail
+
+***Test Summary:*** Attempt to create an account using a valid email with common special characters in it.
+
+***Test Input:*** Company Name: "Order 66" Company Address: "123 Abc Street, Alphabet Town, Letterland" Company tel: "" Employer Name: "Joe Bloggs" Employer Tel: "" Employer Email: "++--**@gmail.com" Employer Address: "123 Abc Street, Alphabet Town, Letterland" Employer Password: "password"
+
+***Expected Result:*** Pass
+
+***Actual Result:*** Pass
+
+---------------------------------------------------------
+***Test Name:*** correctSpecialCharPassword
+
+***Test Summary:*** Attempt to create an account using a valid email with common special characters in it.
+
+***Test Input:*** Company Name: "Order 66" Company Address: "123 Abc Street, Alphabet Town, Letterland" Company tel: "" Employer Name: "Joe Bloggs" Employer Tel: "" Employer Email: "joebloggs@gmail.com" Employer Address: "123 Abc Street, Alphabet Town, Letterland" Employer Password: "++--**"
+
+***Expected Result:*** Pass
+
+***Actual Result:*** Pass
+
+---------------------------------------------------------
+#### Login Test
+---------------------------------------------------------
+***Test Name:*** successfulEmployeeLogin
+
+***Test Summary:*** Attempt to Login through the Employer login screen using Employee account credentials, error expected.
+
+***Test Input:*** username: "johndoe@gmail.com" password: "password"
+
+***Expected Result:*** Pass
+
+***Actual Result:*** Pass
+
+---------------------------------------------------------
+***Test Name:*** successfulEmployerLogin
+
+***Test Summary:*** Login successfully as an Employer using valid login credentials
+
+***Test Input:*** username: "TestEmployer@gmail.com" password: "password"
+
+***Expected Result:*** Pass
+
+***Actual Result:*** Pass
+
+---------------------------------------------------------
+***Test Name:*** successfulEmployerLoginCaptialLetters
+
+***Test Summary:*** Login successfully as an Employer using valid login credentials in capital letters
+
+***Test Input:*** username: "TESTEMPLOYER@GMAIL.COM" password: "PASSWORD"
+
+***Expected Result:*** Pass
+
+***Actual Result:*** Fail
+
+***Reason:*** Database is a linux machine and therefore is case sensitive.
+
+---------------------------------------------------------
+***Test Name:*** noUsername
+
+***Test Summary:*** Attempt to login without providing a username, expect correct error message.
+
+***Test Input:*** username: "" password: "password"
+
+***Expected Result:*** Pass
+
+***Actual Result:*** Pass
+
+---------------------------------------------------------
+***Test Name:*** noPassword
+
+***Test Summary:*** Attempt to login without providing a password, expect 
+correct error message.
+
+***Test Input:*** username: "TestEmployer@gmail.com" password: ""
+
+***Expected Result:*** Pass
+
+***Actual Result:*** Pass
+
+---------------------------------------------------------
+***Test Name:*** wrongPassword
+
+***Test Summary:*** Attempt to login using a valid but incorrect combination of username & password. Expect correct error message to be displayed
+
+***Test Input:*** username: "TestEmployer@gmail.com" password: "password123"
+
+***Expected Result:*** Pass
+
+***Actual Result:*** Pass 
+
+---------------------------------------------------------
+***Test Name:*** wrongUsername
+
+***Test Summary:*** Attempt to login using a valid but incorrect combination of username & password. 
+
+***Test Input:*** username: "TestEmployer@gmail.commmm" password: "password"
+
+***Expected Result:*** Pass
+
+***Actual Result:*** Pass
+
+---------------------------------------------------------
+***Test Name:*** correctButLongEmail
+
+***Test Summary:*** Attempt to login using a valid username that is beyond the max character limit. 271 characters long. Expect correct error message.
+
+***Test Input:*** username: "reallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallylongemail@gmail.com" password: "password"
+
+***Expected Result:*** Pass
+
+***Actual Result:*** Pass
+
+---------------------------------------------------------
+***Test Name:*** correctButLongPassword
+
+***Test Summary:*** Attempt to login using a valid password that is beyond the max character limit. Expect correct error message.
+
+***Test Input:*** username: "longpassword@gmail.com" password: "reallyreallylongpassword1"
+
+***Expected Result:*** Pass
+
+***Actual Result:*** Pass
+
+---------------------------------------------------------
+
 ## 3. User Testing
 
 ***User test results are the averages taken from 10 seperate users. Task difficulty is on a scale of 1-10 with 10 being very hard.***
