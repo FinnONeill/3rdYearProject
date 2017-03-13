@@ -46,42 +46,69 @@ Co-ordinator:
 
 ## User Testing
 
-*** User test results are the averages taken from 10 seperate users. Task difficulty is on a scale of 1-10 with 10 being very hard. ***
+***User test results are the averages taken from 10 seperate users. Task difficulty is on a scale of 1-10 with 10 being very hard.***
 
-### Task One: Add a single item to an order and send it.
+#### Task One: Add a single item to an order and send it.
 
-*** Completion Rate: *** 100%
+***Completion Rate:*** 
 
-***Usability Problems: *** Too many steps, no indication of green button functions.
+100%
 
-***Task Time : *** 32.2 seconds
+***Usability Problems:*** 
 
-***Test Level Difficulty: *** 4
+Too many steps, no indication of green button functions.
 
-***Expected difficulty: *** 1
+***Task Time : *** 
 
-***Errors:  *** Only 60% pressed the green shortcut button to get to the order list. Many got stuck and added a second order item. No clear indication on how to get to order list.
+32.2 seconds
+
+***Test Level Difficulty:*** 
+
+4
+
+***Expected difficulty: *** 
+
+1
+
+***Errors:*** 
+
+Only 60% pressed the green shortcut button to get to the order list. Many got stuck and added a second order item. No clear indication on how to get to order list.
 
 
-***Overall Relative Effeciencey: *** 100%
+***Overall Relative Effeciencey:*** 
+
+100%
 
 
+#### Task Two: View the received order list and delete an order.
 
-### Task Two: View the received order list and delete an order.
+***Completion Rate:*** 
 
-*** Completion Rate: *** 100%
+100%
 
-***Usability Problems: *** Received list names confusing. Stuck at green delete button, only solved with knowledge from previous task.
+***Usability Problems:*** 
 
-***Task Time : *** 27 seconds
+Received list names confusing. Stuck at green delete button, only solved with knowledge from previous task.
 
-***Test Level Difficulty: *** 2
+***Task Time :*** 
 
-***Expected Difficulty: *** 5
+27 seconds
 
-***Errors:  *** Pausing at 'View total orders' button. Stuck at order names.
+***Test Level Difficulty:*** 
 
-***Overall Relative Effeciencey: *** 100%
+2
+
+***Expected Difficulty:*** 
+
+5
+
+***Errors:*** 
+
+Pausing at 'View total orders' button. Stuck at order names.
+
+***Overall Relative Effeciencey:***
+
+100%
 
 ## App Heuristic Evaluation
 
