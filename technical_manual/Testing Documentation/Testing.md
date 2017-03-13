@@ -28,100 +28,100 @@ Co-ordinator:
 
 ### 2.1 Android Application 
 #### Login Test
-*Test Name:* successfulEmployeeLogin
-*Test Summary* Login successfully as an Employee using valid login credentials
-*Test Input* username: "johndoe@gmail.com" password: "password"
-*Expected Result:* Pass
-*Actual Result:* Pass
+***Test Name:*** successfulEmployeeLogin
+***Test Summary:*** Login successfully as an Employee using valid login credentials
+***Test Input:*** username: "johndoe@gmail.com" password: "password"
+***Expected Result:*** Pass
+***Actual Result:*** Pass
 
-*Test Name:* successfulEmployerLogin
-*Test Summary* Login successfully as an Employer using valid login credentials
-*Test Input* username: "TestEmployer@gmail.com" password: "password"
-*Expected Result:* Pass
-*Actual Result:* Pass
+***Test Name:*** successfulEmployerLogin
+***Test Summary:*** Login successfully as an Employer using valid login credentials
+***Test Input:*** username: "TestEmployer@gmail.com" password: "password"
+***Expected Result:*** Pass
+***Actual Result:*** Pass
 
-*Test Name:* successfulEmployeeLoginCaptialLetters
-*Test Summary* Login successfully as an Employee using valid login credentials in capital letters
-*Test Input* username: "JOHNDOE@GMAIL.COM" password: "PASSWORD"
-*Expected Result:* Pass
-*Actual Result:* Fail
-*Reason:* Database is a linux machine and therefor is case sensitive.
+***Test Name:*** successfulEmployeeLoginCaptialLetters
+***Test Summary:*** Login successfully as an Employee using valid login credentials in capital letters
+***Test Input:*** username: "JOHNDOE@GMAIL.COM" password: "PASSWORD"
+***Expected Result:*** Pass
+***Actual Result:*** Fail
+***Reason:*** Database is a linux machine and therefor is case sensitive.
 
-*Test Name:* successfulEmployerLoginCaptialLetters
-*Test Summary* Login successfully as an Employer using valid login credentials in capital letters
-*Test Input* username: "TESTEMPLOYER@GMAIL.COM" password: "PASSWORD"
-*Expected Result:* Pass
-*Actual Result:* Fail
-*Reason:* Database is a linux machine and therefor is case sensitive.
+***Test Name:*** successfulEmployerLoginCaptialLetters
+***Test Summary:*** Login successfully as an Employer using valid login credentials in capital letters
+***Test Input:*** username: "TESTEMPLOYER@GMAIL.COM" password: "PASSWORD"
+***Expected Result:*** Pass
+***Actual Result:*** Fail
+***Reason:*** Database is a linux machine and therefor is case sensitive.
 
-*Test Name:* noUsername
-*Test Summary* Attempt to login without providing a username, expect correct error message.
-*Test Input* username: "" password: "password"
-*Expected Result:* Pass
-*Actual Result:* Pass
+***Test Name:*** noUsername
+***Test Summary:*** Attempt to login without providing a username, expect correct error message.
+***Test Input:*** username: "" password: "password"
+***Expected Result:*** Pass
+***Actual Result:*** Pass
 
-*Test Name:* noPassword
-*Test Summary* Attempt to login without providing a password, expect correct error message.
-*Test Input* username: "johndoe@gmail.com" password: ""
-*Expected Result:* Pass
-*Actual Result:* Pass
+***Test Name:*** noPassword
+***Test Summary:*** Attempt to login without providing a password, expect correct error message.
+***Test Input:*** username: "johndoe@gmail.com" password: ""
+***Expected Result:*** Pass
+***Actual Result:*** Pass
 
-*Test Name:* wrongPassword
-*Test Summary* Attempt to login using a valid but incorrect combination of username & password. Expect correct error message to be displayed
-*Test Input* username: "johndoe@gmail.com" password: "password123"
-*Expected Result:* Fail
-*Actual Result:* Fail
-*Reason:* Correct error message is displayed but can't be read by Android Espresso as it is a toast message  
+***Test Name:*** wrongPassword
+***Test Summary:*** Attempt to login using a valid but incorrect combination of username & password. Expect correct error message to be displayed
+***Test Input:*** username: "johndoe@gmail.com" password: "password123"
+***Expected Result:*** Fail
+***Actual Result:*** Fail
+***Reason:*** Correct error message is displayed but can't be read by Android Espresso as it is a toast message  
 
-*Test Name:* wrongUsername
-*Test Summary* Attempt to login using a valid but incorrect combination of username & password. 
-*Test Input* username: "johndoe@gmail.commmm" password: "password"
-*Expected Result:* Fail
-*Actual Result:* Fail
-*Reason:* Correct error message is displayed but can't be read by Android Espresso as it is a toast message 
+***Test Name:*** wrongUsername
+***Test Summary:*** Attempt to login using a valid but incorrect combination of username & password. 
+***Test Input:*** username: "johndoe@gmail.commmm" password: "password"
+***Expected Result:*** Fail
+***Actual Result:*** Fail
+***Reason:*** Correct error message is displayed but can't be read by Android Espresso as it is a toast message 
 
-*Test Name:* correctButLongEmail
-*Test Summary* Attempt to login using a valid username that is beyond the max character limit. 271 characters long. Expect correct error message.
-*Test Input* username: "reallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallylongemail@gmail.com" password: "password"
-*Expected Result:* Pass
-*Actual Result:* Pass
+***Test Name:*** correctButLongEmail
+***Test Summary:*** Attempt to login using a valid username that is beyond the max character limit. 271 characters long. Expect correct error message.
+***Test Input:*** username: "reallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallylongemail@gmail.com" password: "password"
+***Expected Result:*** Pass
+***Actual Result:*** Pass
 
-*Test Name:* correctButLongPassword
-*Test Summary* Attempt to login using a valid password that is beyond the max character limit. Expect correct error message.
-*Test Input* username: "longpassword@gmail.com" password: "reallyreallylongpassword1"
-*Expected Result:* Pass
-*Actual Result:* Pass
+***Test Name:*** correctButLongPassword
+***Test Summary:*** Attempt to login using a valid password that is beyond the max character limit. Expect correct error message.
+***Test Input:*** username: "longpassword@gmail.com" password: "reallyreallylongpassword1"
+***Expected Result:*** Pass
+***Actual Result:*** Pass
 
-*Test Name:* correctNumberEmail
-*Test Summary* Attempt to login using a valid email with numbers in it.
-*Test Input* username: "123456789@gmail.com" password: "password"
-*Expected Result:* Pass
-*Actual Result:* Pass
+***Test Name:*** correctNumberEmail
+***Test Summary:*** Attempt to login using a valid email with numbers in it.
+***Test Input:*** username: "123456789@gmail.com" password: "password"
+***Expected Result:*** Pass
+***Actual Result:*** Pass
 
-*Test Name:* correctNumberPassword
-*Test Summary* Attempt to login using a valid password with numbers in it.
-*Test Input* username: "numberpassword@gmail.com" password: "123456789"
-*Expected Result:* Pass
-*Actual Result:* Pass
+***Test Name:*** correctNumberPassword
+***Test Summary:*** Attempt to login using a valid password with numbers in it.
+***Test Input:*** username: "numberpassword@gmail.com" password: "123456789"
+***Expected Result:*** Pass
+***Actual Result:*** Pass
 
-*Test Name:* correctSpecialCharEmail
-*Test Summary* Attempt to login using a valid email with common special characters in it.
-*Test Input* username: "++--**@gmail.com" password: "password"
-*Expected Result:* Pass
-*Actual Result:* Pass
+***Test Name:*** correctSpecialCharEmail
+***Test Summary:*** Attempt to login using a valid email with common special characters in it.
+***Test Input:*** username: "++--**@gmail.com" password: "password"
+***Expected Result:*** Pass
+***Actual Result:*** Pass
 
-*Test Name:* correctSpecialCharPassword
-*Test Summary* Attempt to login using a valid password with common special characters in it.
-*Test Input* username: "specialcharepassword@gmail.com" password: "++--**"
-*Expected Result:* Pass
-*Actual Result:* Pass
+***Test Name:*** correctSpecialCharPassword
+***Test Summary:*** Attempt to login using a valid password with common special characters in it.
+***Test Input:*** username: "specialcharepassword@gmail.com" password: "++--**"
+***Expected Result:*** Pass
+***Actual Result:*** Pass
 
-*Test Name:* afterSuccessfulLoginBackPressed
-*Test Summary* Login succesfully, then press the back button and see if you are logged out.
-*Test Input* username: "johndoe@gmail.com" password: "password"
-*Expected Result:* Fail
-*Actual Result:* Fail
-*Reason:* Remaining logged in was causing issues with the async tasks retrieving data from the server so you will be returned to the login page.
+***Test Name:*** afterSuccessfulLoginBackPressed
+***Test Summary:*** Login succesfully, then press the back button and see if you are logged out.
+***Test Input:*** username: "johndoe@gmail.com" password: "password"
+***Expected Result:*** Fail
+***Actual Result:*** Fail
+***Reason:*** Remaining logged in was causing issues with the async tasks retrieving data from the server so you will be returned to the login page.
 
 ## 3. User Testing
 
