@@ -583,13 +583,16 @@ On the order page, the user notices another green button in the lower right sand
 These are heatmaps of the first clicks by 10 users when given specifics tasks.
 
 Going to the sign up page.
-![Signing Up](./images/clickmap1.PNG)
+
+![Signing Up](./heatmapimages/clickmap1.PNG)
 
 Going to the employee details page.
-![Viewing Employee Details](./images/clickmap2.PNG)
+
+![Viewing Employee Details](./heatmapimages/clickmap2.PNG)
 
 Adding an employee page.
-![Adding An Employee](./images/clickmap3.PNG)
+
+![Adding An Employee](./heatmapimages/clickmap3.PNG)
 
 ## 8. Appendices
 
