@@ -578,6 +578,19 @@ On the order page, the user notices another green button in the lower right sand
 4. If you try to remove an employee and input either the wrong PPS number or wrong name, it won't give an error message and nothing will happen, this is also the case for removing a menu item. 
 5. Item price will accept a string.
 
-## 7. Appendices
+## 7. App First Click Heatmaps
+
+These are heatmaps of the first clicks by 10 users when given specifics tasks.
+
+Going to the sign up page.
+![Signing Up](./images/clickmap1.PNG)
+
+Going to the employee details page.
+![Viewing Employee Details](./images/clickmap2.PNG)
+
+Adding an employee page.
+![Adding An Employee](./images/clickmap3.PNG)
+
+## 8. Appendices
 
 
