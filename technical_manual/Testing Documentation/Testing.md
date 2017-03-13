@@ -58,7 +58,7 @@ Co-ordinator:
 
 Too many steps, no indication of green button functions.
 
-***Task Time : *** 
+***Task Time :*** 
 
 32.2 seconds
 
@@ -66,7 +66,7 @@ Too many steps, no indication of green button functions.
 
 4
 
-***Expected difficulty: *** 
+***Expected difficulty:*** 
 
 1
 
