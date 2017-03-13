@@ -205,8 +205,10 @@ correct error message.
 ***Reason:*** Remaining logged in was causing issues with the async tasks retrieving data from the server so you will be returned to the login page.
 
 ---------------------------------------------------------
+***Findings from Android Application testing***
+As a result of testing the login screen we now handle empty emails and passwords correctly and as a result now show the correct error message. We also handle the max length of passwords and emails correctly now too. 
 
-### 2.1 Website 
+### 2.2 Website 
 #### Signup Test
 ---------------------------------------------------------
 ***Test Name:*** successfulCompanyEmployerSignUp
@@ -405,6 +407,9 @@ correct error message.
 ***Actual Result:*** Pass
 
 ---------------------------------------------------------
+
+***Finding from Website testing***
+As a result of both the signup and login testing, results shown above. We have discoverd a possible security risk. Although we don't allow users to create accounts with passwords greater than 25 characters long and all other text fields greater than 255 characters long. We never put a maxlength on the login screen on the website and as such, there is potential for mallicous code to be injected there.
 
 ## 3. User Testing
 
