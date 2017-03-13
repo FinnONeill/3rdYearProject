@@ -106,28 +106,28 @@
             <div class="row">
               <div class="form-group">
                 <div class="col-lg-offset-2 col-lg-4"><label for="employee_pps">Employee PPS Number</label></div>
-                <div class="col-lg-6"><input type="text" name="employee_pps" required></div>
+                <div class="col-lg-6"><input type="text" name="employee_pps" required maxlength="11"></div>
               </div>
             </div>
 
             <div class="row">
               <div class="form-group">
                 <div class="col-lg-offset-2 col-lg-4"><label for="employee_name">Employee Name</label></div>
-                <div class="col-lg-6"><input type="text" name="employee_name" required></div>
+                <div class="col-lg-6"><input type="text" name="employee_name" required maxlength="255"></div>
               </div>
             </div>
 
             <div class="row">
               <div class="form-group">
                 <div class="col-lg-offset-2 col-lg-4"><label for="employee_tel">Employee Tel</label></div>
-                <div class="col-lg-6"><input type="Number" name="employee_tel" required></div>
+                <div class="col-lg-6"><input type="Number" name="employee_tel" required maxlength="255"></div>
               </div>
             </div>
             
             <div class="row">
               <div class="form-group">
                 <div class="col-lg-offset-2 col-lg-4"><label for="employee_email">Employee Email</label></div>
-                <div class="col-lg-6"><input type="Email" name="employee_email" autocomplete="off" required></div>
+                <div class="col-lg-6"><input type="Email" name="employee_email" autocomplete="off" required maxlength="255"></div>
               </div>
             </div>
 

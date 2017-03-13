@@ -328,7 +328,7 @@
               <div class="row">
                 <div class="form-group">
                   <div class="col-lg-offset-2 col-lg-4"><label for="item_name">Item Name</label></div>
-                  <div class="col-lg-6"><input type="Text" name="item_name" required></div>
+                  <div class="col-lg-6"><input type="Text" name="item_name" required maxlength="255"></div>
                 </div>
               </div>
 
@@ -342,7 +342,7 @@
               <div class="row">
                 <div class="form-group">
                   <div class="col-lg-offset-2 col-lg-4"><label for="item_price">Item Price</label></div>
-                  <div class="col-lg-6"><input type="Text" name="item_price" required></div>
+                  <div class="col-lg-6"><input type="Text" name="item_price" required maxlength="255"></div>
                 </div>
               </div>
 
@@ -378,14 +378,14 @@
               <div class="row">
                 <div class="form-group">
                   <div class="col-lg-offset-2 col-lg-4"><label for="item_name">Item Name</label></div>
-                  <div class="col-lg-6"><input type="Text" name="item_name" required></div>
+                  <div class="col-lg-6"><input type="Text" name="item_name" required maxlength="255"></div>
                 </div>
               </div>
 
               <div class="row">
                 <div class="form-group">
                   <div class="col-lg-offset-2 col-lg-4"><label for="item_description">Item Price</label></div>
-                  <div class="col-lg-6"><input type="Text" name="item_description" ></div>
+                  <div class="col-lg-6"><input type="Text" name="item_description" maxlength="255"></div>
                 </div>
               </div>
 
@@ -406,7 +406,7 @@
 
               <div class="row">
                 <div class="col-lg-offset-4 col-lg-4">
-                  <input id="remove_menu_item_btn" type="submit" name="remove_menu_item_btn" value="- Remove Menu Item" class="btn btn-danger btn-block center-block"></input>
+                  <input id="remove_menu_item_btn" type="submit" name="remove_menu_item_btn" value="- Remove Menu Item" class="btn btn-danger btn-block center-block" ></input>
                 </div>
               </div>
             </form>

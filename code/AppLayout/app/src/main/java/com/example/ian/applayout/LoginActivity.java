@@ -177,9 +177,21 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             cancel = true;
         }
 
+        if(TextUtils.isEmpty(password)){
+            mPasswordView.setError("Password is empty");
+            focusView = mPasswordView;
+            cancel = true;
+        }
+
+        if(TextUtils.isEmpty(username)){
+            mUsernameView.setError("Email is empty");
+            focusView = mUsernameView;
+            cancel = true;
+        }
+
         // Check for a valid username address.
-        if (TextUtils.isEmpty(username)) {
-            mUsernameView.setError(getString(R.string.error_field_required));
+        if (!TextUtils.isEmpty(username) && !isUsernameValid(username)) {
+            mUsernameView.setError(getString(R.string.error_email_too_long));
             focusView = mUsernameView;
             cancel = true;
         }
@@ -201,7 +213,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             editor.putString("password",password);
             editor.commit();
 
-            System.out.println("username: "+username+" password: "+password);
             menu = new MenuGetter(username,password);
             menu.execute();
         }
@@ -211,6 +222,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private boolean isPasswordValid(String password) {
         //User passwords must be longer than 8 characters
         return password.length() > 7;
+    }
+
+    private boolean isUsernameValid(String username) {
+        //username must be shoter than 255 characters
+        return username.length() < 255;
     }
 
     /**
@@ -400,16 +416,19 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             mAuthTask = null;
             showProgress(false);
             pdLoading.dismiss();
-
+            System.out.println("Result: "+result);
             if (result.equalsIgnoreCase("1")) {
                 //If correct username & password, close this activity and move to role activity
                 Intent nextActivity = new Intent(LoginActivity.this, DrawerActivity.class);
                 startActivity(nextActivity);
                 LoginActivity.this.finish();
                 Toast.makeText(LoginActivity.this, "Successful Login!", Toast.LENGTH_LONG).show();
-            } else if(result.equalsIgnoreCase("0")){
+            } else if(result.equalsIgnoreCase("")){
                 //If username & password don't match, display error message.
-                Toast.makeText(LoginActivity.this, "Invalid email or password", Toast.LENGTH_LONG).show();
+                Toast.makeText(LoginActivity.this, "Wrong email & password combination", Toast.LENGTH_LONG).show();
+            }else if(result.equalsIgnoreCase("Connection Failed")){
+                //If username & password don't match, display error message.
+                Toast.makeText(LoginActivity.this, "Oops! Something went wrong. Check your Connection.", Toast.LENGTH_LONG).show();
             }else {
                 Toast.makeText(LoginActivity.this, "Oops! Something went wrong. Connection Problem.", Toast.LENGTH_LONG).show();
             }
