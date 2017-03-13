@@ -15,36 +15,115 @@ Co-ordinator:
 
 ##Table of Contents             
 1. Unit Tests 
-2. Known Bugs and Issues
-3. Appendices
+2. Instrumentation Tests
+3. User Testing
+4. Heuristic Evaluation
+5. Cognitive Walkthrough
+6. Known Bugs and Issues
+7. Appendices
 
-## Unit Tests
+## 1. Unit Tests
 
-## Known Bugs and Issues
+## 2. Instrumentation Tests
 
-### Android Application
-1. An internet connection is required to use the app, could be solved by >>>>>>
-2. If you have a connection and input the wrong username or password, it will print the "Oops! Something went wrong, check your connection" instead of printing the correct "Incorrect username or password".
-3. The price, table number and Person who created the order are not being sent or stored in the database with the current version of the application due to time constraints and as a result the price of each order, the table number the order came from and who sent the order are not accessable in received orders.
-4. When in the Item detail view, it will only display the first 15 characters of a menu item, pending the size of your device.
-5. If you rotate the screen, the Item name will revert back to the default "Food Description".
-6. When you add multiple orders in a session, the Menu item number to the left of the menu item name, when on the total/current order will keep increasing and not reset correctly until the application is closed or you log out.
-7.  After sending an order, to get back to the home screen to be able to view the received orders, you have to press back multiple times to go back through the total order,then menu, then table list, then back to the home screen.
-8.  Received orders currently only display the order number, which is a string representation of dd/mm/yyyy/hh/mm/ss as a result of Bug 3, mentioned above.
-9.  When you press the remove/complete order button, it doesn't yet return you to the list of received orders
-10.  There is no check or login status for accounts which means you can login on all devices using one account. 
-11. Pressing the back button in the top left while in menu details send you back to the table list instead of the menu list. Pressing back on your phone sends you back to the main menu.
-12. Viewing received orders may inexplicably cause the app to crash.
-13. Having the app push you back to the menu list after adding an item to the order prevents the "Item added to order!" message from appearing.
+### 2.1 Android Application 
+#### Login Test
+*Test Name:* successfulEmployeeLogin
+*Test Summary* Login successfully as an Employee using valid login credentials
+*Test Input* username: "johndoe@gmail.com" password: "password"
+*Expected Result:* Pass
+*Actual Result:* Pass
 
-### Website
-1. When using the website on a mobile device and you press the menu button to drop down the navbar, it pushes down the Text.
-2. When logging in on a mobile device, the close button for the login modal is pushed to a new line.
-3. On a mobile device, the sidebar on the employer admin page won't display.
-4. If you try to remove an employee and input either the wrong PPS number or wrong name, it won't give an error message and nothing will happen, this is also the case for removing a menu item. 
-5. Item price will accept a string.
+*Test Name:* successfulEmployerLogin
+*Test Summary* Login successfully as an Employer using valid login credentials
+*Test Input* username: "TestEmployer@gmail.com" password: "password"
+*Expected Result:* Pass
+*Actual Result:* Pass
 
-## User Testing
+*Test Name:* successfulEmployeeLoginCaptialLetters
+*Test Summary* Login successfully as an Employee using valid login credentials in capital letters
+*Test Input* username: "JOHNDOE@GMAIL.COM" password: "PASSWORD"
+*Expected Result:* Pass
+*Actual Result:* Fail
+*Reason:* Database is a linux machine and therefor is case sensitive.
+
+*Test Name:* successfulEmployerLoginCaptialLetters
+*Test Summary* Login successfully as an Employer using valid login credentials in capital letters
+*Test Input* username: "TESTEMPLOYER@GMAIL.COM" password: "PASSWORD"
+*Expected Result:* Pass
+*Actual Result:* Fail
+*Reason:* Database is a linux machine and therefor is case sensitive.
+
+*Test Name:* noUsername
+*Test Summary* Attempt to login without providing a username, expect correct error message.
+*Test Input* username: "" password: "password"
+*Expected Result:* Pass
+*Actual Result:* Pass
+
+*Test Name:* noPassword
+*Test Summary* Attempt to login without providing a password, expect correct error message.
+*Test Input* username: "johndoe@gmail.com" password: ""
+*Expected Result:* Pass
+*Actual Result:* Pass
+
+*Test Name:* wrongPassword
+*Test Summary* Attempt to login using a valid but incorrect combination of username & password. Expect correct error message to be displayed
+*Test Input* username: "johndoe@gmail.com" password: "password123"
+*Expected Result:* Fail
+*Actual Result:* Fail
+*Reason:* Correct error message is displayed but can't be read by Android Espresso as it is a toast message  
+
+*Test Name:* wrongUsername
+*Test Summary* Attempt to login using a valid but incorrect combination of username & password. 
+*Test Input* username: "johndoe@gmail.commmm" password: "password"
+*Expected Result:* Fail
+*Actual Result:* Fail
+*Reason:* Correct error message is displayed but can't be read by Android Espresso as it is a toast message 
+
+*Test Name:* correctButLongEmail
+*Test Summary* Attempt to login using a valid username that is beyond the max character limit. 271 characters long. Expect correct error message.
+*Test Input* username: "reallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallylongemail@gmail.com" password: "password"
+*Expected Result:* Pass
+*Actual Result:* Pass
+
+*Test Name:* correctButLongPassword
+*Test Summary* Attempt to login using a valid password that is beyond the max character limit. Expect correct error message.
+*Test Input* username: "longpassword@gmail.com" password: "reallyreallylongpassword1"
+*Expected Result:* Pass
+*Actual Result:* Pass
+
+*Test Name:* correctNumberEmail
+*Test Summary* Attempt to login using a valid email with numbers in it.
+*Test Input* username: "123456789@gmail.com" password: "password"
+*Expected Result:* Pass
+*Actual Result:* Pass
+
+*Test Name:* correctNumberPassword
+*Test Summary* Attempt to login using a valid password with numbers in it.
+*Test Input* username: "numberpassword@gmail.com" password: "123456789"
+*Expected Result:* Pass
+*Actual Result:* Pass
+
+*Test Name:* correctSpecialCharEmail
+*Test Summary* Attempt to login using a valid email with common special characters in it.
+*Test Input* username: "++--**@gmail.com" password: "password"
+*Expected Result:* Pass
+*Actual Result:* Pass
+
+*Test Name:* correctSpecialCharPassword
+*Test Summary* Attempt to login using a valid password with common special characters in it.
+*Test Input* username: "specialcharepassword@gmail.com" password: "++--**"
+*Expected Result:* Pass
+*Actual Result:* Pass
+
+*Test Name:* afterSuccessfulLoginBackPressed
+*Test Summary* Login succesfully, then press the back button and see if you are logged out.
+*Test Input* username: "johndoe@gmail.com" password: "password"
+*Expected Result:* Fail
+*Actual Result:* Fail
+*Reason:* Remaining logged in was causing issues with the async tasks retrieving data from the server so you will be returned to the login page.
+
+## 3. User Testing
 
 ***User test results are the averages taken from 10 seperate users. Task difficulty is on a scale of 1-10 with 10 being very hard.***
 
@@ -110,7 +189,7 @@ Pausing at 'View total orders' button. Stuck at order names.
 
 100%
 
-## App Heuristic Evaluation
+## 4. App Heuristic Evaluation
 
 #### 1. Visibility of system status
 All buttons in the app will change colour to a darker grey to indicate to the user when they have been pressed. When an order is sent, a small message will appear in the centre of the screen saying "Your order has been sent!" to inform the user. There is also another message saying "Item added to order" that appears after an item is added to the order. However, a bug is preventing it from showing.
@@ -142,7 +221,7 @@ The only place that require error messages in the app is the login screen. Clear
 #### 10. Help and documentation
 The app is too linear to require documentation. Adding another section for documentation may add unecessary clutter.
 
-## Cognitive Walkthrough
+## 5. Cognitive Walkthrough
 
 #### User
 
@@ -187,7 +266,30 @@ On the order page, the user notices another green button in the lower right sand
 
 * Log in -> Select Table -> Select Salad -> Add Salad To Order -> Back To Table List -> Back To Main Menu  -> Open Sidebar -> Select Total Order -> Send Order
 
+## 6. Known Bugs and Issues
 
-## Appendices
+### 6.1 Android Application Bugs and Issues
+1. An internet connection is required to use the app, could be solved by >>>>>>
+2. If you have a connection and input the wrong username or password, it will print the "Oops! Something went wrong, check your connection" instead of printing the correct "Incorrect username or password".
+3. The price, table number and Person who created the order are not being sent or stored in the database with the current version of the application due to time constraints and as a result the price of each order, the table number the order came from and who sent the order are not accessable in received orders.
+4. When in the Item detail view, it will only display the first 15 characters of a menu item, pending the size of your device.
+5. If you rotate the screen, the Item name will revert back to the default "Food Description".
+6. When you add multiple orders in a session, the Menu item number to the left of the menu item name, when on the total/current order will keep increasing and not reset correctly until the application is closed or you log out.
+7.  After sending an order, to get back to the home screen to be able to view the received orders, you have to press back multiple times to go back through the total order,then menu, then table list, then back to the home screen.
+8.  Received orders currently only display the order number, which is a string representation of dd/mm/yyyy/hh/mm/ss as a result of Bug 3, mentioned above.
+9.  When you press the remove/complete order button, it doesn't yet return you to the list of received orders
+10.  There is no check or login status for accounts which means you can login on all devices using one account. 
+11. Pressing the back button in the top left while in menu details send you back to the table list instead of the menu list. Pressing back on your phone sends you back to the main menu.
+12. Viewing received orders may inexplicably cause the app to crash.
+13. Having the app push you back to the menu list after adding an item to the order prevents the "Item added to order!" message from appearing.
+
+### 6.2 Website Bugs and Issues
+1. When using the website on a mobile device and you press the menu button to drop down the navbar, it pushes down the Text.
+2. When logging in on a mobile device, the close button for the login modal is pushed to a new line.
+3. On a mobile device, the sidebar on the employer admin page won't display.
+4. If you try to remove an employee and input either the wrong PPS number or wrong name, it won't give an error message and nothing will happen, this is also the case for removing a menu item. 
+5. Item price will accept a string.
+
+## 7. Appendices
 
 
