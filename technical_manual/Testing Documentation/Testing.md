@@ -578,7 +578,7 @@ On the order page, the user notices another green button in the lower right sand
 4. If you try to remove an employee and input either the wrong PPS number or wrong name, it won't give an error message and nothing will happen, this is also the case for removing a menu item. 
 5. Item price will accept a string.
 
-## 7. App First Click Heatmaps
+## 7. Website First Click Heatmaps
 
 These are heatmaps of the first clicks by 10 users when given specifics tasks.
 
