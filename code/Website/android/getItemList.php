@@ -19,7 +19,7 @@
 	$login_password = $_REQUEST['password'];
 
 	// Query database for user company
-	$result = $conn->query("SELECT company_id FROM employee_details WHERE employee_email = '$login_email' UNION ALL SELECT employer_id FROM employers_details WHERE employers_email = '$login_email'") or die("Failed to query database ".$conn->connect_error);
+	$result = $conn->query("SELECT company_id FROM employee_details WHERE employee_email = '$login_email' UNION ALL SELECT employer_id FROM employers_details WHERE employers_email = '$login_email'") or die("Wrong Username");
 
 	$row = mysqli_fetch_array($result);
 	$company_id = $row['company_id'];

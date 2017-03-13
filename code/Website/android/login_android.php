@@ -11,7 +11,7 @@
 
 	//check connection
 	if($conn->connect_error){
-		die("Connection failed: " . $conn->connect_error);
+		die(print("Connection failed"));
 	}
 
 	// Get values from android user

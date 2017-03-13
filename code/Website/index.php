@@ -51,12 +51,12 @@
                             <form name="logIn" method="post" action="pages/loginHandler.php">
                               <div class="row form-group">
                                 <div class="col-xs-offset-1"><label for="login_email">Email</label></div>
-                                <div class="col-xs-offset-1 col-xs-10"><input type="Email" class="form-control" id="login_email" name="login_email" placeholder="johnsmith@example.ie"></div>
+                                <div class="col-xs-offset-1 col-xs-10"><input type="Email" class="form-control" id="login_email" name="login_email" placeholder="johnsmith@example.ie" maxlength="255" minlength="5"></div>
                               </div>
 
                               <div class="row form-group">
                                 <div class="col-xs-offset-1"><label for="login_password">Password</label></div>
-                                <div class="col-xs-offset-1 col-xs-10"><input type="password" class="form-control" id="login_password" name="login_password" placeholder="Password"></div>
+                                <div class="col-xs-offset-1 col-xs-10"><input type="password" class="form-control" id="login_password" name="login_password" placeholder="Password" maxlength="25" minlength="8"></div>
                               </div>
 
                               <div class="row form-group">

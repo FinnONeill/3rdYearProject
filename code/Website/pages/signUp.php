@@ -53,12 +53,12 @@
                         <form name="logIn" method="post" action="loginHandler.php">
                           <div class="row form-group">
                             <div class="col-sm-offset-1"><label for="login_email">Email</label></div>
-                            <div class="col-sm-offset-1 col-sm-10"><input type="Email" class="form-control" id="login_email" name="login_email" placeholder="johnsmith@example.ie" required></div>
+                            <div class="col-sm-offset-1 col-sm-10"><input type="Email" class="form-control" id="login_email" name="login_email" placeholder="johnsmith@example.ie" required maxlength="255"></div>
                           </div>
 
                           <div class="row form-group">
                             <div class="col-sm-offset-1"><label for="login_password">Password</label></div>
-                            <div class="col-sm-offset-1 col-sm-10"><input type="password" class="form-control" id="login_password" name="login_password" placeholder="Password" required></div>
+                            <div class="col-sm-offset-1 col-sm-10"><input type="password" class="form-control" id="login_password" name="login_password" placeholder="Password" required maxlength="25"></div>
                           </div>
 
                           <div class="row form-group">
@@ -107,35 +107,35 @@
           <div class="row">
             <div class="form-group">
               <div class="col-lg-offset-2 col-lg-4"><label for="company_name">Company Name</label></div>
-              <div class="col-lg-4"><input type="text" class="form-control" id="company_name" name="company_name" placeholder="ABC ltd." required></div>
+              <div class="col-lg-4"><input type="text" class="form-control" id="company_name" name="company_name" placeholder="ABC ltd." required maxlength="255"></div>
             </div>
           </div>
 
           <div class="row">
             <div class="form-group">
               <div class="col-lg-offset-2 col-lg-4"><label for="company_address1">Company Address</label></div>
-              <div class="col-lg-4"><input type="text" class="form-control" id="company_address1" name="company_address1" placeholder="123 abc street"></div>
+              <div class="col-lg-4"><input type="text" class="form-control" id="company_address1" name="company_address1" placeholder="123 abc street" maxlength="255"></div>
             </div>
           </div>
 
           <div class="row">
             <div class="form-group">
               <div class="col-lg-offset-2 col-lg-4"><label for="company_address2">Line 2</label></div>
-              <div class="col-lg-4"><input type="text" class="form-control" id="company_address2" name="company_address2" placeholder="Town Name"></div>
+              <div class="col-lg-4"><input type="text" class="form-control" id="company_address2" name="company_address2" placeholder="Town Name" maxlength="255"></div>
             </div>
           </div>
 
           <div class="row">
             <div class="form-group">
               <div class="col-lg-offset-2 col-lg-4"><label for="company_address3">Line 3</label></div>
-              <div class="col-lg-4"><input type="text" class="form-control" id="company_address3" name="company_address3" placeholder="City Name"></div>
+              <div class="col-lg-4"><input type="text" class="form-control" id="company_address3" name="company_address3" placeholder="City Name" maxlength="255"></div>
             </div>
           </div>
 
           <div class="row">
             <div class="form-group">
               <div class="col-lg-offset-2 col-lg-4"><label for="company_tel">Company Telephone</label></div>
-              <div class="col-lg-4"><input type="tel" class="form-control" id="company_tel" name="company_tel" placeholder="12-345 6789" required minlength="7"></div>
+              <div class="col-lg-4"><input type="tel" class="form-control" id="company_tel" name="company_tel" placeholder="12-345 6789" required minlength="7" maxlength="25"></div>
             </div>
         </div>
         
@@ -152,42 +152,42 @@
           <div class="row">
             <div class="form-group">
               <div class="col-lg-offset-2 col-lg-4"><label for="employer_name">Employer Name</label></div>
-              <div class="col-lg-4"><input type="text" class="form-control" id="employer_name" name="employer_name" placeholder="John Smith" required></div>
+              <div class="col-lg-4"><input type="text" class="form-control" id="employer_name" name="employer_name" placeholder="John Smith" required maxlength="255"></div>
             </div>
           </div>
 
           <div class="row">
             <div class="form-group">
               <div class="col-lg-offset-2 col-lg-4"><label for="employer_address1">Employer Address</label></div>
-              <div class="col-lg-4"><input type="text" class="form-control" id="employer_address1" name="employer_address1" placeholder="123 abc street"></div>
+              <div class="col-lg-4"><input type="text" class="form-control" id="employer_address1" name="employer_address1" placeholder="123 abc street" maxlength="255"></div>
             </div>
           </div>
 
           <div class="row">
             <div class="form-group">
               <div class="col-lg-offset-2 col-lg-4"><label for="employer_address2">Line 2</label></div>
-              <div class="col-lg-4"><input type="text" class="form-control" id="employer_address2" name="employer_address2" placeholder="Town Name"></div>
+              <div class="col-lg-4"><input type="text" class="form-control" id="employer_address2" name="employer_address2" placeholder="Town Name" maxlength="255"></div>
             </div>
           </div>
 
           <div class="row">
             <div class="form-group">
               <div class="col-lg-offset-2 col-lg-4"><label for="employer_address3">Line 3</label></div>
-              <div class="col-lg-4"><input type="text" class="form-control" id="employer_address3" name="employer_address3" placeholder="City Name"></div>
+              <div class="col-lg-4"><input type="text" class="form-control" id="employer_address3" name="employer_address3" placeholder="City Name" maxlength="255"></div>
             </div>
           </div>
 
           <div class="row">
             <div class="form-group">
               <div class="col-lg-offset-2 col-lg-4"><label for="employer_tel">Employer Telephone</label></div>
-              <div class="col-lg-4"><input type="tel" class="form-control" id="employer_tel" name="employer_tel" placeholder="12-345 6789" required minlength="7"></div>
+              <div class="col-lg-4"><input type="tel" class="form-control" id="employer_tel" name="employer_tel" placeholder="12-345 6789" required minlength="7" maxlength="255"></div>
             </div>
           </div>
 
           <div class="row">
             <div class="form-group">
               <div class="col-lg-offset-2 col-lg-4"><label for="employer_email">Employer Email</label></div>
-              <div class="col-lg-4"><input type="email" class="form-control" id="employer_email" name="employer_email" placeholder="johnsmith@example.ie" required></div>
+              <div class="col-lg-4"><input type="email" class="form-control" id="employer_email" name="employer_email" placeholder="johnsmith@example.ie" required maxlength="255"></div>
             </div>
           </div>
 

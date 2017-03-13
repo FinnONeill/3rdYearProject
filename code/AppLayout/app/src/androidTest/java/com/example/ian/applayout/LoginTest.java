@@ -13,6 +13,7 @@ import static android.support.test.espresso.Espresso.pressBack;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
+import static android.support.test.espresso.matcher.ViewMatchers.hasErrorText;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 
@@ -62,7 +63,7 @@ public class LoginTest {
         onView(withId(R.id.username)).perform(typeText(""));
         onView(withId(R.id.password)).perform(typeText("password"));
         onView(withId(R.id.username_sign_in_button)).perform(click());
-        onView(withId(R.id.create_Order_btn)).perform(click());
+        onView(withId(R.id.username)).check(matches(hasErrorText("Email is empty")));
     }
 
     @Test
@@ -70,7 +71,7 @@ public class LoginTest {
         onView(withId(R.id.username)).perform(typeText("johndoe@gmail.com"));
         onView(withId(R.id.password)).perform(typeText(""));
         onView(withId(R.id.username_sign_in_button)).perform(click());
-        onView(withId(R.id.create_Order_btn)).perform(click());
+        onView(withId(R.id.password)).check(matches(hasErrorText("Password is empty")));
     }
 
     @Test
@@ -78,7 +79,7 @@ public class LoginTest {
         onView(withId(R.id.username)).perform(typeText("johndoe@gmail.com"));
         onView(withId(R.id.password)).perform(typeText("password123"));
         onView(withId(R.id.username_sign_in_button)).perform(click());
-        onView(withId(R.id.create_Order_btn)).perform(click());
+        onView(withId(R.id.password)).check(matches(hasErrorText("Password is empty")));
     }
 
     @Test
@@ -95,7 +96,7 @@ public class LoginTest {
         onView(withId(R.id.username)).perform(typeText("reallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallylongemail@gmail.com"));
         onView(withId(R.id.password)).perform(typeText("password"));
         onView(withId(R.id.username_sign_in_button)).perform(click());
-        onView(withId(R.id.create_Order_btn)).perform(click());
+        onView(withId(R.id.username)).check(matches(hasErrorText("This Email is too long")));
     }
 
     @Test
