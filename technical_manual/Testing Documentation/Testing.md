@@ -10,7 +10,7 @@ Student Names:
 Supervisor:           
 * Dr.David Sinclair
 
-Co-ordinator:           
+Coordinator:           
 * Dr.David Sinclair
 
 ##Table of Contents             
@@ -61,7 +61,7 @@ Co-ordinator:
 
 ***Actual Result:*** Fail
 
-***Reason:*** Database is a linux machine and therefor is case sensitive.
+***Reason:*** Database is a Linux machine and therefor is case sensitive.
 
 ---------------------------------------------------------
 ***Test Name:*** successfulEmployerLoginCaptialLetters
@@ -74,7 +74,7 @@ Co-ordinator:
 
 ***Actual Result:*** Fail
 
-***Reason:*** Database is a linux machine and therefor is case sensitive.
+***Reason:*** Database is a Linux machine and therefor is case sensitive.
 
 ---------------------------------------------------------
 ***Test Name:*** noUsername
@@ -194,7 +194,7 @@ correct error message.
 ---------------------------------------------------------
 ***Test Name:*** afterSuccessfulLoginBackPressed
 
-***Test Summary:*** Login succesfully, then press the back button and see if you are logged out.
+***Test Summary:*** Login successfully, then press the back button and see if you are logged out.
 
 ***Test Input:*** username: "johndoe@gmail.com" password: "password"
 
@@ -337,7 +337,7 @@ As a result of testing the login screen we now handle empty emails and passwords
 
 ***Actual Result:*** Fail
 
-***Reason:*** Database is a linux machine and therefore is case sensitive.
+***Reason:*** Database is a Linux machine and therefore is case sensitive.
 
 ---------------------------------------------------------
 ***Test Name:*** noUsername
@@ -409,7 +409,14 @@ correct error message.
 ---------------------------------------------------------
 
 ***Finding from Website testing***
-As a result of both the signup and login testing, results shown above. We have discoverd a possible security risk. Although we don't allow users to create accounts with passwords greater than 25 characters long and all other text fields greater than 255 characters long. We never put a maxlength on the login screen on the website and as such, there is potential for mallicous code to be injected there.
+As a result of both the signup and login testing, results shown above. We have discovered a possible security risk. Although we don't allow users to create accounts with passwords greater than 25 characters long and all other text fields greater than 255 characters long. We never put a maxlength on the login screen on the website and as such, there is potential for malicious code to be injected there.
+
+#### Website validation tools
+We also put the website through the online WAVE (Web Accessibility Evaluation) tool, this highlighted area's of the website that were missing some alt tags which may be an issues for users who require a screen reader. 
+
+The website was also put through both the W3C HTML and CSS validation tool which highlighted some redundant CSS properties, which would help increase performance marginally. 
+
+Lastly the website was put through a speed test tool, to highlight areas where the website could be optimized to increase performance. We scored a result of 3206 on the speed index which is above the average of 4493. ![Performance Test Results](./images/performance_results.jpg)
 
 ## 3. User Testing
 
@@ -442,7 +449,7 @@ Too many steps, no indication of green button functions.
 Only 60% pressed the green shortcut button to get to the order list. Many got stuck and added a second order item. No clear indication on how to get to order list.
 
 
-***Overall Relative Effeciencey:*** 
+***Overall Relative Efficiency:*** 
 
 100%
 
@@ -480,7 +487,7 @@ Pausing at 'View total orders' button. Stuck at order names.
 ## 4. App Heuristic Evaluation
 
 #### 1. Visibility of system status
-All buttons in the app will change colour to a darker grey to indicate to the user when they have been pressed. When an order is sent, a small message will appear in the centre of the screen saying "Your order has been sent!" to inform the user. There is also another message saying "Item added to order" that appears after an item is added to the order. However, a bug is preventing it from showing.
+All buttons in the app will change colour to a darker Grey to indicate to the user when they have been pressed. When an order is sent, a small message will appear in the center of the screen saying "Your order has been sent!" to inform the user. There is also another message saying "Item added to order" that appears after an item is added to the order. However, a bug is preventing it from showing.
  
 #### 2. Match between system and the real world
 All of the language in the app are named appropriately after how they are referred to in the real world. All of the buttons in the app have a symbol on them to indicate their function such as a tick symbol to indicate an order is finished. However, some of the symbols are ambiguous enough to make the user hesitate to press them.
@@ -507,7 +514,7 @@ The app has a very minimalistic design. The colour scheme is simple, with the us
 The only place that require error messages in the app is the login screen. Clear error messages are provided for when the user enters the wrong information into both the email and password boxes.
  
 #### 10. Help and documentation
-The app is too linear to require documentation. Adding another section for documentation may add unecessary clutter.
+The app is too linear to require documentation. Adding another section for documentation may add unnecessary clutter.
 
 ## 5. Cognitive Walkthrough
 
@@ -548,7 +555,7 @@ The user is unaware that the green button in the bottom right hand corner of the
 
 ***Task Six: Send Order***
 
-On the order page, the user notices another green button in the lower right sand side of the screen with a tick on it. Assuming it has a similar function to the other green buttons on the app, they think that it will send the app. They press the button and a small message at the botton of the screen pops up to notify them that their order has been sent.
+On the order page, the user notices another green button in the lower right sand side of the screen with a tick on it. Assuming it has a similar function to the other green buttons on the app, they think that it will send the app. They press the button and a small message at the bottom of the screen pops up to notify them that their order has been sent.
 
 #### User task structure
 
@@ -557,9 +564,9 @@ On the order page, the user notices another green button in the lower right sand
 ## 6. Known Bugs and Issues
 
 ### 6.1 Android Application Bugs and Issues
-1. An internet connection is required to use the app, could be solved by >>>>>>
+1. An Internet connection is required to use the app, could be solved by >>>>>>
 2. If you have a connection and input the wrong username or password, it will print the "Oops! Something went wrong, check your connection" instead of printing the correct "Incorrect username or password".
-3. The price, table number and Person who created the order are not being sent or stored in the database with the current version of the application due to time constraints and as a result the price of each order, the table number the order came from and who sent the order are not accessable in received orders.
+3. The price, table number and Person who created the order are not being sent or stored in the database with the current version of the application due to time constraints and as a result the price of each order, the table number the order came from and who sent the order are not accessible in received orders.
 4. When in the Item detail view, it will only display the first 15 characters of a menu item, pending the size of your device.
 5. If you rotate the screen, the Item name will revert back to the default "Food Description".
 6. When you add multiple orders in a session, the Menu item number to the left of the menu item name, when on the total/current order will keep increasing and not reset correctly until the application is closed or you log out.

@@ -79,8 +79,8 @@
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
             <li><a href="dashboard.php">Overview <span class="sr-only">(current)</span></a></li>
-            <li><a href="#">Reports</a></li>
-            <li><a href="#">Analytics</a></li>
+            <li><a href="reporting.php">Reports</a></li>
+            <li><a href="analytics.php">Analytics</a></li>
           </ul>
           <ul class="nav nav-sidebar">
             <li class="active"><a href="dashboard_employee.php">Employee Overview</a></li>

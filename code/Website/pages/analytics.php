@@ -65,16 +65,18 @@
         data.addColumn('string', 'Topping');
         data.addColumn('number', 'Slices');
         data.addRows([
-          ['Pizza', 3],
-          ['Pasta', 1],
-          ['Soup', 1],
-          ['Chicken', 1],
-          ['Steak', 2]
+          ['Pizza', 507],
+          ['Pasta', 239],
+          ['Soup', 60],
+          ['Roast Chicken', 587],
+          ['Steak', 123],
+          ['Selection of Ice-cream', 237]
         ]);
 
         // Set chart options
-        var options = {'width':400,
-                       'height':200};
+        var options = { title:"Most Popular Item",
+                       'width':600,
+                       'height':300};
 
         // Instantiate and draw our chart, passing in some options.
         var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
@@ -82,32 +84,6 @@
       }
     </script>
 
-    <!-- Line Chart for Yearly-->
-    <script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
-
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Year', 'Income', 'Outcome'],
-          ['2014',  1000,      400],
-          ['2015',  1170,      460],
-          ['2016',  660,       1120],
-          ['2017',  1030,      540]
-        ]);
-
-        var options = {
-          curveType: 'function',
-          legend: { position: 'bottom' }
-        };
-
-        var chart = new google.visualization.LineChart(document.getElementById('yearly_takings'));
-
-        chart.draw(data, options);
-      }
-    </script>
-
-    <!-- Column Chart for Busiest Time Of Day-->
     <script type="text/javascript">
       google.charts.load('current', {packages: ['corechart', 'bar']});
       google.charts.setOnLoadCallback(drawBasic);
@@ -131,7 +107,7 @@
               [{v: [12, 0, 0], f: '5 pm'}, 10],
             ]);
 
-            var options = {
+            var options = { title:"Busiest Time Of Day",
               hAxis: {
                 title: 'Time of Day',
                 format: 'h:mm a',
@@ -152,33 +128,6 @@
           }
     </script>
 
-    <!-- Combo Chart for Monthly Takings-->
-    <script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawVisualization);
-
-      function drawVisualization() {
-        // Some raw data (not necessarily accurate)
-        var data = google.visualization.arrayToDataTable([
-         ['Month', 'January', 'Febuary', 'March'],
-         ['2004/05',  165,      938,         522,],
-         ['2005/06',  135,      1120,        599,],
-         ['2006/07',  157,      1167,        587,],
-         ['2007/08',  139,      1110,        615,],
-         ['2008/09',  136,      691,         629,]
-      ]);
-
-    var options = {
-      vAxis: {title: 'Sales'},
-      hAxis: {title: 'Month'},
-      seriesType: 'bars',
-      series: {5: {type: 'line'}}
-    };
-
-    var chart = new google.visualization.ComboChart(document.getElementById('monthly_takings'));
-    chart.draw(data, options);
-  }
-    </script>
   </head>
 
   <body>
@@ -216,9 +165,9 @@
         <!--Sidebar Start -->
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="dashboard.php">Overview <span class="sr-only">(current)</span></a></li>
+            <li><a href="dashboard.php">Overview <span class="sr-only">(current)</span></a></li>
             <li><a href="reporting.php">Reports</a></li>
-            <li><a href="analytics.php">Analytics</a></li>
+            <li class="active"><a href="analytics.php">Analytics</a></li>
           </ul>
           <ul class="nav nav-sidebar">
             <li><a href="dashboard_employee.php">Employee Overview</a></li>
@@ -234,50 +183,83 @@
         <!--Sidebar End -->
 
         <!--Content Start -->
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">Dashboard</h1>
-
-          <div class="row placeholders">
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <h4>Most Popular Menu Item</h4>
-              <div id="chart_div"></div>
-              <span class="text-muted">Something else</span>
+        <div class="col-xs-offset-3 col-xs-8" style="margin-top: 10px;">
+          <div class="panel panel-default">
+            <div class="panel-heading text-center">
+              <h2>Overview</h2>
             </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <h4>Busiest Time Of Day</h4>
-              <div id="busiest_tod"></div>
-              <span class="text-muted">Something else</span>
+            <div class="panel-content">
+                <table class="table">
+                  <thead>
+                    <th> </th>
+                    <th># Sold</th>
+                    <th>Profit per Transation</th>
+                    <th>Most sold during</th>
+                    <th>Sell by date</th>
+                    <th># of Transactions</th>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Roast Chicken</td>
+                      <td>587</td>
+                      <td>€4.50</td>
+                      <td>11:36 - 18:50</td>
+                      <td>26/03/2017</td>
+                      <td>563</td>
+                    </tr>
+                    <tr>
+                      <td>Pizza</td>
+                      <td>507</td>
+                      <td>€3.56</td>
+                      <td>16:00 - 18:50</td>
+                      <td>16/04/2017</td>
+                      <td>498</td>
+                    </tr>
+                    <tr>
+                      <td>Selection of Ice-cream</td>
+                      <td>237</td>
+                      <td>€0.50</td>
+                      <td>19:36PM - 22:50PM</td>
+                      <td>16/06/2017</td>
+                      <td>203</td>
+                    </tr>
+                    <tr>
+                      <td>Steak</td>
+                      <td>123</td>
+                      <td>€3.10</td>
+                      <td>11:36 - 18:50</td>
+                      <td>16/03/2017</td>
+                      <td>121</td>
+                    </tr>
+                    <tr>
+                      <td>Pasta</td>
+                      <td>239</td>
+                      <td>€5.50</td>
+                      <td>16:36AM - 18:50PM</td>
+                      <td>26/03/2017</td>
+                      <td>226</td>
+                    </tr>
+                    <tr>
+                      <td>Soup</td>
+                      <td>60</td>
+                      <td>€1.50</td>
+                      <td>10:36AM - 15:50PM</td>
+                      <td>26/03/2017</td>
+                      <td>53</td>
+                    </tr>
+                  </tbody>
+                </table>
             </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <h4>Monthly Takings</h4>
-              <div id="monthly_takings"></div>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <h4>Yearly Takings</h4>
-              <div id="yearly_takings"></div>
-              <span class="text-muted">Something else</span>
-            </div>
-          </div>
-
-          <h2 class="sub-header">Employee's</h2>
-          <div class="table-responsive">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>Employee PPS Number</th>
-                  <th>Name</th>
-                  <th>Phone Number</th>
-                  <th>Email</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php echo $dataRow; ?>
-              </tbody>
-            </table>
           </div>
         </div>
+        <div class="col-xs-offset-3 col-xs-4">
+          <div id="chart_div"></div>
+        </div>
+        <div class="col-xs-4">
+          <div id="busiest_tod"></div>
+        </div>
         <!--Content End -->
+
 
       </div>
     </div>
